@@ -68,7 +68,7 @@
             let elements = new Array();
             datatoshow.forEach((datum, index) => {
                 const element = (
-                    <section id="chapter-1">
+                    <section id="chapter-1" key={index}>
                         <div className="box">
                             <div className="title">
                                 <h3>{datum.question}</h3>
@@ -76,32 +76,33 @@
                             <div className="answers">
                                 <ol>
                                     <li>
-                                        <button id={"button-" + index + "-0"} onClick={() => testAnswer(index, "answer1", 0)}>
+                                        <button className="ansbtn" id={"button-" + index + "-0"} onClick={() => testAnswer(index, "answer1", 0)}>
                                             {datum.answer1}
                                         </button>
                                     </li>
                                     <li>
-                                        <button id={"button-" + index + "-1"} onClick={() => testAnswer(index, "answer2", 1)}>
+                                        <button className="ansbtn" id={"button-" + index + "-1"} onClick={() => testAnswer(index, "answer2", 1)}>
                                             {datum.answer2}
                                         </button>
                                     </li>
                                     <li>
-                                        <button id={"button-" + index + "-2"} onClick={() => testAnswer(index, "answer3", 2)}>
+                                        <button className="ansbtn" id={"button-" + index + "-2"} onClick={() => testAnswer(index, "answer3", 2)}>
                                             {datum.answer3}
                                         </button>
                                     </li>
                                     <li>
-                                        <button id={"button-" + index + "-3"} onClick={() => testAnswer(index, "answer4", 3)}>
+                                        <button className="ansbtn" id={"button-" + index + "-3"} onClick={() => testAnswer(index, "answer4", 3)}>
                                             {datum.answer4}
                                         </button>
                                     </li>
                                 </ol>
                             </div>
-                            <div id={"statushere-" + index}>
+                            <div className="texts">
+                                <div id={"statushere-" + index}>
+                                </div>
+                                <div id={"hint-" + index}>
 
-                            </div>
-                            <div id={"hint-" + index}>
-
+                                </div>
                             </div>
                         </div>
                     </section>
@@ -110,20 +111,21 @@
                 elements.push(element);
             });
 
+            questionsnumber = datatoshow.length;
+            correctanswers = 0;
             root.render(elements);
-            updateProgress();
+            updateProgress(questionsnumber);
         }
 
 
-        function updateProgress() {
-            questionsnumber = datajson.length;
+        function updateProgress(questionsnumber) {
             const texttowrite = correctanswers + " out of " + questionsnumber + " questions.";
             document.getElementById("correctnumbers").innerText = texttowrite;
         }
 
         function handleChange(event) {
             const keyword = event.target.value;
-            console.dir(keyword);
+
             var trimmedKeyword = keyword.toString().trim();
 
             if (trimmedKeyword === "") {
@@ -145,27 +147,36 @@
         }
 
 
-        function showOnly() {
+        function showOnly(event) {
             let val = event.target.value;
-            let newlistjson = [];
-
+            let datatoshow = [];
             if (val === "0") {
-                showData(datajson);
+                showData(originaldatajson);
                 return;
             }
 
             Object.entries(datajson).forEach(([key, value]) => {
                 if (value.chapter === val)
-                    newlistjson.push(value);
+                    datatoshow.push(value);
             });
 
-            showData(newlistjson);
+            const nodestexts = document.getElementsByClassName("texts");
+
+            for (let i = 0; i < nodestexts.length; i++) {
+                nodestexts[i].childNodes.forEach(node => node.textContent = "");
+            }
+
+            const nodes = document.getElementsByClassName("ansbtn");
+
+            for (let i = 0; i < nodes.length; i++) {
+                nodes[i].disabled = false;
+            }
+
+            showData(datatoshow);
         }
 
         function testAnswer(index, answerselected, indexBtn) {
             const coorectanswer = datajson[index].correct;
-            console.dir(index);
-            console.dir(coorectanswer);
 
             if (coorectanswer === answerselected) {
                 document.getElementById("statushere-" + index).innerText = "✅ You got it right. Keep up the GREAT work buddy👍";
@@ -181,14 +192,13 @@
                 document.getElementById("button-" + index + "-" + indexBtn).disabled = true;
             }
 
-            updateProgress();
+            updateProgress(datajson.length);
         }
 
         async function init() {
             datajson = await getData();
             originaldatajson = datajson;
             showData(datajson);
-            showOnly();
         }
 
         async function getData() {
