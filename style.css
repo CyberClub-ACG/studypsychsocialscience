@@ -13,7 +13,7 @@ body {
 }
 
 footer {
-    background-color: gray;
+    background-color: #633058;
     padding: 10px;
     position: fixed;
     left: 0;
@@ -43,6 +43,8 @@ footer p {
     margin-bottom: 20px;
     border: 1px solid black;
     border-radius: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
     padding: 20px;
 }
 
@@ -62,8 +64,21 @@ nav ul li {
     color: white;
 }
 
-nav {
-    background-color: gray;
+header {
+    background-color: #633058;
+}
+
+h3{
+    color: #004E64;
+}
+
+button{
+    border: #E9FFF9;
+    padding: 10px;
+    background-color: #004E64;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
 }
 
 main {
@@ -81,6 +96,12 @@ main {
 .searchTerm {
   width: 100%;
   padding: 5px;
-  height: 20px;
+  min-height: 20px;
   border-radius: 5px;
+}
+
+button:disabled{
+    background-color: #848FA5;
+    border: #848FA5;
+    cursor: default;
 }

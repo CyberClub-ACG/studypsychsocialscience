@@ -22,23 +22,25 @@
         </nav>
     </header>
 
-    <div class="search">
-        <input id="search" type="text" class="searchTerm" onkeyup="handleChange(event)"
-            placeholder="Filter test question by keyword...">
-    </div>
-    <div class="selects">
-        <select id="chapterselect" onchange="showOnly(event)">
-            <option value="0" selected>Select chapter:</option>
-            <option value="chapter-1">Chapter 1</option>
-            <option value="chapter-2">Chapter 2</option>
-            <option value="chapter-3">Chapter 3</option>
-            <option value="chapter-4">Chapter 4</option>
-            <option value="chapter-5">Chapter 5</option>
-        </select>
-        <p>Correct: <span id="correctnumbers"></span></p>
-    </div>
 
     <main>
+        <div class="search">
+            <input id="search" type="text" class="searchTerm" onkeyup="handleChange(event)"
+                placeholder="Filter test question by keyword...">
+        </div>
+        <div class="selects">
+            <select id="chapterselect" onchange="showOnly(event)" class="searchTerm">
+                <option value="0" selected>Select chapter:</option>
+                <option value="chapter-1">Chapter 1</option>
+                <option value="chapter-2">Chapter 2</option>
+                <option value="chapter-3">Chapter 3</option>
+                <option value="chapter-4">Chapter 4</option>
+                <option value="chapter-5">Chapter 5</option>
+            </select>
+            <p>Correct: <span id="correctnumbers"></span></p>
+        </div>
+
+
         <div id="root"></div>
 
         <button onclick="submit()">
