@@ -1,0 +1,86 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+.answers ol li button {
+    margin-bottom: 10px !important;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+* {
+    font-family: Helvetica;
+}
+
+footer {
+    background-color: gray;
+    padding: 10px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: auto;
+    width: 100%;
+}
+
+header nav ul li a{
+    color: white;
+}
+
+header nav ul {
+    text-align: center;
+}
+
+footer p {
+    color: white;
+    text-align: center;
+}
+
+.title h3 {
+    margin-top: 0;
+}
+
+.box {
+    margin-bottom: 20px;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+footer p,
+body,
+html,
+nav,
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    list-style-type: none;
+    display: inline-block;
+    margin: 10px;
+    color: white;
+}
+
+nav {
+    background-color: gray;
+}
+
+main {
+    padding: 20px;
+}
+
+.search {
+  display: flex;
+  padding: 10px;
+}
+.selects{
+  padding: 10px;
+}
+
+.searchTerm {
+  width: 100%;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px;
+}

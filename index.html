@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Test yourself - Psychology</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="./">Psychology Self Study
+                <li></a>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="search">
+        <input id="search" type="text" class="searchTerm" onkeyup="handleChange(event)"
+            placeholder="Filter test question by keyword...">
+    </div>
+    <div class="selects">
+        <select id="chapterselect" onchange="showOnly(event)">
+            <option value="0" selected>Select chapter:</option>
+            <option value="chapter-1">Chapter 1</option>
+            <option value="chapter-2">Chapter 2</option>
+            <option value="chapter-3">Chapter 3</option>
+            <option value="chapter-4">Chapter 4</option>
+            <option value="chapter-5">Chapter 5</option>
+        </select>
+        <p>Correct: <span id="correctnumbers"></span></p>
+    </div>
+
+    <main>
+        <div id="root"></div>
+
+        <button onclick="submit()">
+            Submit
+        </button>
+    </main>
+
+    <!-- <footer>
+        <p>This project was created by Alexandros Kourtis.</p>
+    </footer> -->
+
+    <script type="text/babel">
+
+        let questionsnumber = 0;
+        let correctanswers = 0;
+
+        let datajson = []
+        let originaldatajson = [];
+
+        const root = ReactDOM.createRoot(
+            document.getElementById('root')
+        );
+
+        init();
+
+        function showData(datatoshow) {
+            let elements = new Array();
+            datatoshow.forEach((datum, index) => {
+                const element = (
+                    <section id="chapter-1">
+                        <div className="box">
+                            <div className="title">
+                                <h3>{datum.question}</h3>
+                            </div>
+                            <div className="answers">
+                                <ol>
+                                    <li>
+                                        <button id={"button-" + index + "-0"} onClick={() => testAnswer(index, "answer1", 0)}>
+                                            {datum.answer1}
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button id={"button-" + index + "-1"} onClick={() => testAnswer(index, "answer2", 1)}>
+                                            {datum.answer2}
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button id={"button-" + index + "-2"} onClick={() => testAnswer(index, "answer3", 2)}>
+                                            {datum.answer3}
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button id={"button-" + index + "-3"} onClick={() => testAnswer(index, "answer4", 3)}>
+                                            {datum.answer4}
+                                        </button>
+                                    </li>
+                                </ol>
+                            </div>
+                            <div id={"statushere-" + index}>
+
+                            </div>
+                            <div id={"hint-" + index}>
+
+                            </div>
+                        </div>
+                    </section>
+                );
+
+                elements.push(element);
+            });
+
+            root.render(elements);
+            updateProgress();
+        }
+
+
+        function updateProgress() {
+            questionsnumber = datajson.length;
+            const texttowrite = correctanswers + " out of " + questionsnumber + " questions.";
+            document.getElementById("correctnumbers").innerText = texttowrite;
+        }
+
+        function handleChange(event) {
+            const keyword = event.target.value;
+            console.dir(keyword);
+            var trimmedKeyword = keyword.toString().trim();
+
+            if (trimmedKeyword === "") {
+                showData(datajson);
+                return;
+            }
+
+            let newlistjson = [];
+
+            Object.entries(datajson).forEach(([key, value]) => {
+                if (value.tags.includes(trimmedKeyword))
+                    newlistjson.push(value);
+            });
+
+
+            document.getElementById("chapterselect").value = "0";
+
+            showData(newlistjson);
+        }
+
+
+        function showOnly() {
+            let val = event.target.value;
+            let newlistjson = [];
+
+            if (val === "0") {
+                showData(datajson);
+                return;
+            }
+
+            Object.entries(datajson).forEach(([key, value]) => {
+                if (value.chapter === val)
+                    newlistjson.push(value);
+            });
+
+            showData(newlistjson);
+        }
+
+        function testAnswer(index, answerselected, indexBtn) {
+            const coorectanswer = datajson[index].correct;
+            console.dir(index);
+            console.dir(coorectanswer);
+
+            if (coorectanswer === answerselected) {
+                document.getElementById("statushere-" + index).innerText = "✅ You got it right. Keep up the GREAT work buddy👍";
+                document.getElementById("button-" + index + "-" + 0).disabled = true;
+                document.getElementById("button-" + index + "-" + 1).disabled = true;
+                document.getElementById("button-" + index + "-" + 2).disabled = true;
+                document.getElementById("button-" + index + "-" + 3).disabled = true;
+                correctanswers++;
+            }
+            else {
+                document.getElementById("statushere-" + index).innerText = "This is not the right answer but you are making progress buddy👍";
+                document.getElementById("hint-" + index).innerText = datajson[index].hint;
+                document.getElementById("button-" + index + "-" + indexBtn).disabled = true;
+            }
+
+            updateProgress();
+        }
+
+        async function init() {
+            datajson = await getData();
+            originaldatajson = datajson;
+            showData(datajson);
+            showOnly();
+        }
+
+        async function getData() {
+            return await fetch('./data.json')
+                .then(response => response.json())
+                .then(data => data)
+                .catch(error => console.log(error));
+        }
+
+        function submit() {
+            alert("Congratulations 🎉🎉! You got " + correctanswers + " out of " + questionsnumber);
+        }
+    </script>
+</body>
+
+</html>
