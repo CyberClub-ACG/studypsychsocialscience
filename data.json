@@ -185,7 +185,7 @@
 		"answer2": "observing, predicting, trying.",
 		"answer3": "observing, predicting, testing, communicating.",
 		"answer4": "observing, predicting, testing, interpreting, communicating.",
-		"correct": "answer1",
+		"correct": "answer4",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -197,7 +197,7 @@
 		"answer2": "It is a search for truth.",
 		"answer3": "It is an attitude.",
 		"answer4": "It requires intellectual honesty.",
-		"correct": "answer1",
+		"correct": "answer2",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -221,7 +221,7 @@
 		"answer2": "the content area studied",
 		"answer3": "open skepticism",
 		"answer4": "the search for truth",
-		"correct": "answer1",
+		"correct": "answer3",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -245,7 +245,7 @@
 		"answer2": "correlational",
 		"answer3": "interview",
 		"answer4": "experimental",
-		"correct": "answer1",
+		"correct": "answer2",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -257,7 +257,7 @@
 		"answer2": "marriage causes men to live longer.",
 		"answer3": "being single causes men to die earlier.",
 		"answer4": "marriage correlates with longer life in men.",
-		"correct": "answer1",
+		"correct": "answer4",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -269,7 +269,7 @@
 		"answer2": "dependent variable.",
 		"answer3": "independent variable.",
 		"answer4": "control condition.",
-		"correct": "answer1",
+		"correct": "answer3",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -281,7 +281,7 @@
 		"answer2": "random assignment of participants to conditions and manipulation of an independent variable.",
 		"answer3": "manipulation of an independent variable and a dependent variable.",
 		"answer4": "hypothesis testing and observation.",
-		"correct": "answer1",
+		"correct": "answer2",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -293,7 +293,7 @@
 		"answer2": "self-fulfilling prophecy.",
 		"answer3": "confounding variables.",
 		"answer4": "experimental manipulation",
-		"correct": "answer1",
+		"correct": "answer2",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -305,7 +305,7 @@
 		"answer2": "double-blind methods.",
 		"answer3": "triple-blind methods.",
 		"answer4": "quasi-experimental methods.",
-		"correct": "answer1",
+		"correct": "answer2",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -317,7 +317,7 @@
 		"answer2": "people do not always accurately report their true thoughts or feelings.",
 		"answer3": "scoring responses is subjective.",
 		"answer4": "they have low reliability.",
-		"correct": "answer1",
+		"correct": "answer2",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -341,7 +341,7 @@
 		"answer2": "questionnaire",
 		"answer3": "behavioral",
 		"answer4": "physiological",
-		"correct": "answer1",
+		"correct": "answer4",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -353,7 +353,7 @@
 		"answer2": "they must have similar variabilities.",
 		"answer3": "they must have different variabilities",
 		"answer4": "their variabilities could be the same or they could be different",
-		"correct": "answer1",
+		"correct": "answer4",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -389,7 +389,7 @@
 		"answer2": "almost always must obtain informed consent.",
 		"answer3": "always must obtain informed consent.",
 		"answer4": "used to be required to obtain informed consent, but this requirement has been discontinued.",
-		"correct": "answer1",
+		"correct": "answer3",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -401,7 +401,7 @@
 		"answer2": "can be used only if it’s part of the research design.",
 		"answer3": "must be followed by debriefing and must be fully justified.",
 		"answer4": "all of the above.",
-		"correct": "answer1",
+		"correct": "answer4",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -413,7 +413,7 @@
 		"answer2": "ethical and humane conditions must exist throughout the research process.",
 		"answer3": "computer modeling must always be tried before research with animals.",
 		"answer4": "deception can be used if fully justified.",
-		"correct": "answer1",
+		"correct": "answer2",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -425,7 +425,7 @@
 		"answer2": "seminal",
 		"answer3": "germinal",
 		"answer4": "cellular",
-		"correct": "answer1",
+		"correct": "answer3",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -437,7 +437,7 @@
 		"answer2": "by measuring changes in fetal heart rate in response to sounds",
 		"answer3": "by taking a reading of fetal respiration",
 		"answer4": "It is not possible to measure fetal preferences.",
-		"correct": "answer1",
+		"correct": "answer2",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -461,7 +461,7 @@
 		"answer2": "vision; taste",
 		"answer3": "vision; hearing",
 		"answer4": "hearing; vision",
-		"correct": "answer1",
+		"correct": "answer4",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -473,7 +473,7 @@
 		"answer2": "honing.",
 		"answer3": "pruning.",
 		"answer4": "reductionism.",
-		"correct": "answer1",
+		"correct": "answer3",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -485,7 +485,7 @@
 		"answer2": "a thicker corpus callosum",
 		"answer3": "a thicker cerebellum",
 		"answer4": "a thicker caudate nucleus",
-		"correct": "answer1",
+		"correct": "answer2",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -497,7 +497,7 @@
 		"answer2": "abstract-ideational",
 		"answer3": "logical operations",
 		"answer4": "concrete operations",
-		"correct": "answer1",
+		"correct": "answer4",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -509,7 +509,7 @@
 		"answer2": "formal operations",
 		"answer3": "growth of body hair",
 		"answer4": "all of the above",
-		"correct": "answer1",
+		"correct": "answer4",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -521,7 +521,7 @@
 		"answer2": "hippocampus",
 		"answer3": "frontal lobes",
 		"answer4": "cerebellum",
-		"correct": "answer1",
+		"correct": "answer3",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -533,7 +533,7 @@
 		"answer2": "diet",
 		"answer3": "caffeine",
 		"answer4": "aerobic exercise",
-		"correct": "answer1",
+		"correct": "answer4",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -545,7 +545,7 @@
 		"answer2": "an autopsy",
 		"answer3": "an EEG",
 		"answer4": "psychological testing",
-		"correct": "answer1",
+		"correct": "answer2",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -569,7 +569,7 @@
 		"answer2": "uniqueness and consistency in behavior.",
 		"answer3": "consistency in behavior and identity formation.",
 		"answer4": "uniqueness and change in behavior.",
-		"correct": "answer1",
+		"correct": "answer4",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -581,7 +581,7 @@
 		"answer2": "randomly distributed.",
 		"answer3": "normally distributed.",
 		"answer4": "skewed distributions.",
-		"correct": "answer1",
+		"correct": "answer3",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -605,7 +605,7 @@
 		"answer2": "the animus.",
 		"answer3": "the inferiority complex.",
 		"answer4": "archetypes.",
-		"correct": "answer1",
+		"correct": "answer4",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -617,7 +617,7 @@
 		"answer2": "strive toward growth and fulfillment.",
 		"answer3": "learn from observing others.",
 		"answer4": "none of the above.",
-		"correct": "answer1",
+		"correct": "answer2",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -629,7 +629,7 @@
 		"answer2": "agreeableness; neuroticism",
 		"answer3": "agreeableness; introversion",
 		"answer4": "anxiousness; introversion",
-		"correct": "answer1",
+		"correct": "answer2",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -653,7 +653,7 @@
 		"answer2": "analyzing DNA in rats reared together",
 		"answer3": "twin adoption studies",
 		"answer4": "quantitative trait loci studies",
-		"correct": "answer1",
+		"correct": "answer4",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -665,7 +665,7 @@
 		"answer2": "interpersonal relatedness",
 		"answer3": "separation distress",
 		"answer4": "agreeableness",
-		"correct": "answer1",
+		"correct": "answer2",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -677,7 +677,7 @@
 		"answer2": "extraversion",
 		"answer3": "conscientiousness",
 		"answer4": "agreeableness",
-		"correct": "answer1",
+		"correct": "answer3",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -701,7 +701,7 @@
 		"answer2": "questionnaire",
 		"answer3": "projective test",
 		"answer4": "standardized test",
-		"correct": "answer1",
+		"correct": "answer3",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -713,7 +713,7 @@
 		"answer2": "Likert scales.",
 		"answer3": "face valid.",
 		"answer4": "dichotomous.",
-		"correct": "answer1",
+		"correct": "answer2",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -725,7 +725,7 @@
 		"answer2": "social loafing.",
 		"answer3": "social facilitation.",
 		"answer4": "conformity.",
-		"correct": "answer1",
+		"correct": "answer3",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -737,7 +737,7 @@
 		"answer2": "using reason and logic.",
 		"answer3": "trying to shame them.",
 		"answer4": "being consistent and presenting a well-formed persuasive argument.",
-		"correct": "answer1",
+		"correct": "answer4",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -761,7 +761,7 @@
 		"answer2": "50%",
 		"answer3": "65%",
 		"answer4": "90%",
-		"correct": "answer1",
+		"correct": "answer3",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -773,7 +773,7 @@
 		"answer2": "a prejudice.",
 		"answer3": "deception.",
 		"answer4": "the fundamental attribution error.",
-		"correct": "answer1",
+		"correct": "answer4",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -785,7 +785,7 @@
 		"answer2": "an attribution",
 		"answer3": "a stereotype.",
 		"answer4": "a prejudice.",
-		"correct": "answer1",
+		"correct": "answer3",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -809,7 +809,7 @@
 		"answer2": "Brandon’s behavior is an example of discrimination.",
 		"answer3": "Brandon’s beliefs are based on stereotypes.",
 		"answer4": "Both a and c are true.",
-		"correct": "answer1",
+		"correct": "answer4",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -821,7 +821,7 @@
 		"answer2": "implicit racism.",
 		"answer3": "stereotypes.",
 		"answer4": "reaction time.",
-		"correct": "answer1",
+		"correct": "answer2",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -833,7 +833,7 @@
 		"answer2": "attitude.",
 		"answer3": "attribution.",
 		"answer4": "bias.",
-		"correct": "answer1",
+		"correct": "answer2",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -845,7 +845,7 @@
 		"answer2": "persuasion.",
 		"answer3": "mere exposure.",
 		"answer4": "cognitive dissonance.",
-		"correct": "answer1",
+		"correct": "answer4",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -869,7 +869,7 @@
 		"answer2": "physiological responses while viewing a violent film",
 		"answer3": "a and b",
 		"answer4": "none of the above",
-		"correct": "answer1",
+		"correct": "answer2",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -893,7 +893,7 @@
 		"answer2": "faces that are arithmetically average",
 		"answer3": "faces in which the eyebrow-to-nose ratio is less than 1",
 		"answer4": "none of the above",
-		"correct": "answer1",
+		"correct": "answer2",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -905,7 +905,7 @@
 		"answer2": "suppressively attached",
 		"answer3": "avoidant",
 		"answer4": "anxious/ambivalent",
-		"correct": "answer1",
+		"correct": "answer4",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
