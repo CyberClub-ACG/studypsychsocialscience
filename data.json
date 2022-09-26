@@ -6,7 +6,7 @@
 		"answer3": "neuroses.",
 		"answer4": "human thought and behavior.",
 		"tags": "test, test 1, test ",
-		"correct": "answer1",
+		"correct": "answer4",
 		"hint": "The correct answer is i dont know",
 		"hidden": false
 	},
@@ -18,7 +18,7 @@
 		"answer3": "a biological science.",
 		"answer4": "all of the above.",
 		"tags": "asdadasd",
-		"correct": "answer2",
+		"correct": "answer4",
 		"hint": "The correct answer is i dont know",
 		"hidden": false
 	},
@@ -30,7 +30,7 @@
 		"answer3": "Psychology studies individuals; sociology studies groups.",
 		"answer4": "Psychology studies groups and cultures; sociology studies human behavior.",
 		"tags": "tasdasdasd",
-		"correct": "answer2",
+		"correct": "answer3",
 		"hint": "The correct answer is i dont know",
 		"hidden": false
 	},
@@ -41,7 +41,7 @@
 		"answer2": "cognitive psychology",
 		"answer3": "personality psychology",
 		"answer4": "educational psychology",
-		"correct": "answer4",
+		"correct": "answer1",
 		"tags": "alex",
 		"hint": "The correct answer is i dont know",
 		"hidden": false
@@ -53,7 +53,7 @@
 		"answer2": "a behavioral neuroscientist.",
 		"answer3": "a cognitive psychologist.",
 		"answer4": "an industrial/organizational psychologist.",
-		"correct": "answer1",
+		"correct": "answer2",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -65,7 +65,7 @@
 		"answer2": "more children than adults.",
 		"answer3": "people with less severe psychological disorders.",
 		"answer4": "people with learning disabilities only.",
-		"correct": "answer1",
+		"correct": "answer3",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -77,7 +77,7 @@
 		"answer2": "cognitive psychology",
 		"answer3": "structuralism",
 		"answer4": "psychoanalysis",
-		"correct": "answer1",
+		"correct": "answer4",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -101,7 +101,7 @@
 		"answer2": "humanism",
 		"answer3": "functionalism",
 		"answer4": "introspectionism",
-		"correct": "answer1",
+		"correct": "answer2",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -125,19 +125,7 @@
 		"answer2": "nature over nurture",
 		"answer3": "nurture over nature",
 		"answer4": "nature through nurture",
-		"correct": "answer1",
-		"hint": "The hint is...",
-		"tags": "test, test 1, test ",
-		"hidden": false
-	},
-	{
-		"question": "template",
-		"chapter": "chapter-1",
-		"answer1": "answer1",
-		"answer2": "answer2",
-		"answer3": "answer3",
-		"answer4": "answer4",
-		"correct": "answer1",
+		"correct": "answer4",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -149,7 +137,7 @@
 		"answer2": "psychoanalytic; social-learning",
 		"answer3": "evolutionary; biological",
 		"answer4": "humanistic; behavioral",
-		"correct": "answer1",
+		"correct": "answer4",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -161,7 +149,7 @@
 		"answer2": "Humanism-Positive.",
 		"answer3": "Cognitive.",
 		"answer4": "Psychoanalysis-Psychodynamic.",
-		"correct": "answer1",
+		"correct": "answer4",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
@@ -173,7 +161,7 @@
 		"answer2": "using the scientific method",
 		"answer3": "making connections within and between chapters",
 		"answer4": "all of the above",
-		"correct": "answer1",
+		"correct": "answer4",
 		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
