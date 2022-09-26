@@ -140,6 +140,20 @@
             Object.entries(datajson).forEach(([key, value]) => {
                 if (value.tags.includes(trimmedKeyword))
                     newlistjson.push(value);
+				else if (value.question.includes(trimmedKeyword))
+                    newlistjson.push(value);
+				else if (value.answer1.includes(trimmedKeyword))
+                    newlistjson.push(value);
+				else if (value.answer2.includes(trimmedKeyword))
+                    newlistjson.push(value);
+				else if (value.answer3.includes(trimmedKeyword))
+                    newlistjson.push(value);
+				else if (value.answer4.includes(trimmedKeyword))
+                    newlistjson.push(value);
+				else if (value.chapter.includes(trimmedKeyword))
+                    newlistjson.push(value);
+				else if (value.hint.includes(trimmedKeyword))
+                    newlistjson.push(value);
             });
 
 
