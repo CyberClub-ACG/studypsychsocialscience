@@ -7,7 +7,7 @@
 		"answer4": "human thought and behavior.",
 		"tags": "test, test 1, test ",
 		"correct": "answer4",
-		"hint": "The correct answer is i dont know",
+		"hint": "I would normally give you a hint but this is easy...",
 		"hidden": false
 	},
 	{
@@ -16,10 +16,10 @@
 		"answer1": "a social science.",
 		"answer2": "the practice of diagnosing and treating mental illness.",
 		"answer3": "a biological science.",
-		"answer4": "all of the above.",
+		"answer4": "all of the above.",	
 		"tags": "asdadasd",
 		"correct": "answer4",
-		"hint": "The correct answer is i dont know",
+		"hint": "I would normally give you a hint but this is easy...",
 		"hidden": false
 	},
 	{
@@ -31,7 +31,7 @@
 		"answer4": "Psychology studies groups and cultures; sociology studies human behavior.",
 		"tags": "tasdasdasd",
 		"correct": "answer3",
-		"hint": "The correct answer is i dont know",
+		"hint": "I would normally give you a hint but this is easy...",
 		"hidden": false
 	},
 	{
@@ -43,7 +43,7 @@
 		"answer4": "educational psychology",
 		"correct": "answer1",
 		"tags": "alex",
-		"hint": "The correct answer is i dont know",
+		"hint": "I would normally give you a hint but this is easy...",
 		"hidden": false
 	},
 	{
@@ -179,8 +179,248 @@
 		"hidden": false
 	},
 	{
+		"question": "The scientific method consists of",
+		"chapter": "chapter-2",
+		"answer1": "observing, predicting, testing",
+		"answer2": "observing, predicting, trying.",
+		"answer3": "observing, predicting, testing, communicating.",
+		"answer4": "observing, predicting, testing, interpreting, communicating.",
+		"correct": "answer1",
+		"hint": "The hint is...",
+		"tags": "test, test 1, test ",
+		"hidden": false
+	},
+	{
+		"question": "Which of the following is NOT a characteristic of science?",
+		"chapter": "chapter-2",
+		"answer1": "It is cumulative.",
+		"answer2": "It is a search for truth.",
+		"answer3": "It is an attitude.",
+		"answer4": "It requires intellectual honesty.",
+		"correct": "answer1",
+		"hint": "The hint is...",
+		"tags": "test, test 1, test ",
+		"hidden": false
+	},
+	{
+		"question": "Scientific theories are",
+		"chapter": "chapter-2",
+		"answer1": "a set of related assumptions that guide and explain observations and allow testable predictions to be made.",
+		"answer2": "educated guesses.",
+		"answer3": "hunches.",
+		"answer4": "hypotheses.",
+		"correct": "answer1",
+		"hint": "The hint is...",
+		"tags": "test, test 1, test ",
+		"hidden": false
+	},
+	{
+		"question": "What distinguishes science from pseudoscience?",
+		"chapter": "chapter-2",
+		"answer1": "the use of statistics",
+		"answer2": "the content area studied",
+		"answer3": "open skepticism",
+		"answer4": "the search for truth",
+		"correct": "answer1",
+		"hint": "The hint is...",
+		"tags": "test, test 1, test ",
+		"hidden": false
+	},
+	{
+		"question": "Dr. Lovejoy wanted to do research on real-world conditions that lead to aggression in 10-year-old children, defining aggression as “intent to harm another person.” She went to a local elementary school and videotaped a 10-minute recess period. She and her trained coders then coded the behavior of every child and counted the number of times each child acted aggressively. This is an example of what kind of research design?",
+		"chapter": "chapter-2",
+		"answer1": "descriptive",
+		"answer2": "correlational",
+		"answer3": "case study",
+		"answer4": "experimental",
+		"correct": "answer1",
+		"hint": "The hint is...",
+		"tags": "test, test 1, test ",
+		"hidden": false
+	},
+	{
+		"question": "templateIf Dr. Lovejoy wanted to examine whether certain personality traits make aggression more likely, she would probably use what kind of research design?",
+		"chapter": "chapter-2",
+		"answer1": "descriptive",
+		"answer2": "correlational",
+		"answer3": "interview",
+		"answer4": "experimental",
+		"correct": "answer1",
+		"hint": "The hint is...",
+		"tags": "test, test 1, test ",
+		"hidden": false
+	},
+	{
+		"question": "Researchers have consistently found that married men live longer than single men. From this finding, we can conclude that",
+		"chapter": "chapter-2",
+		"answer1": "if a man gets married, he adds years to his life.",
+		"answer2": "marriage causes men to live longer.",
+		"answer3": "being single causes men to die earlier.",
+		"answer4": "marriage correlates with longer life in men.",
+		"correct": "answer1",
+		"hint": "The hint is...",
+		"tags": "test, test 1, test ",
+		"hidden": false
+	},
+	{
+		"question": "In research on whether sugar causes hyperactivity, researchers randomly assign children to receive no sugar, small amounts of sugar, or large amounts of sugar. They then observe and code activity levels. In this case, the sugar level is the",
+		"chapter": "chapter-2",
+		"answer1": "outcome variable.",
+		"answer2": "dependent variable.",
+		"answer3": "independent variable.",
+		"answer4": "control condition.",
+		"correct": "answer1",
+		"hint": "The hint is...",
+		"tags": "test, test 1, test ",
+		"hidden": false
+	},
+	{
+		"question": "In contrast to other kinds of research designs, a true experimental design must have two things:",
+		"chapter": "chapter-2",
+		"answer1": "random assignment of participants to conditions and statistical analysis.",
+		"answer2": "random assignment of participants to conditions and manipulation of an independent variable.",
+		"answer3": "manipulation of an independent variable and a dependent variable.",
+		"answer4": "hypothesis testing and observation.",
+		"correct": "answer1",
+		"hint": "The hint is...",
+		"tags": "test, test 1, test ",
+		"hidden": false
+	},
+	{
+		"question": "One explanation for experimenter expectancy effect is",
+		"chapter": "chapter-2",
+		"answer1": "double-blind studies.",
+		"answer2": "self-fulfilling prophecy.",
+		"answer3": "confounding variables.",
+		"answer4": "experimental manipulation",
+		"correct": "answer1",
+		"hint": "The hint is...",
+		"tags": "test, test 1, test ",
+		"hidden": false
+	},
+	{
+		"question": "The best way to lessen the effects of experimenter expectancy is to design a study that uses",
+		"chapter": "chapter-2",
+		"answer1": "single-blind methods.",
+		"answer2": "double-blind methods.",
+		"answer3": "triple-blind methods.",
+		"answer4": "quasi-experimental methods.",
+		"correct": "answer1",
+		"hint": "The hint is...",
+		"tags": "test, test 1, test ",
+		"hidden": false
+	},
+	{
+		"question": "An advantage of self-report questionnaires is that they are easy to administer to large numbers of participants. A disadvantage of questionnaires is that",
+		"chapter": "chapter-2",
+		"answer1": "they cost too much.",
+		"answer2": "people do not always accurately report their true thoughts or feelings.",
+		"answer3": "scoring responses is subjective.",
+		"answer4": "they have low reliability.",
+		"correct": "answer1",
+		"hint": "The hint is...",
+		"tags": "test, test 1, test ",
+		"hidden": false
+	},
+	{
+		"question": "One advantage of behavioral measures compared with self-reported measures is that they",
+		"chapter": "chapter-2",
+		"answer1": "are less prone to social desirability bias.",
+		"answer2": "are less time-intensive.",
+		"answer3": "are always more valid.",
+		"answer4": "cost less.",
+		"correct": "answer1",
+		"hint": "The hint is...",
+		"tags": "test, test 1, test ",
+		"hidden": false
+	},
+	{
+		"question": "A psychologist who is interested in how brain activity relates to behavior will most likely use which kind of measure?",
+		"chapter": "chapter-2",
+		"answer1": "interview",
+		"answer2": "questionnaire",
+		"answer3": "behavioral",
+		"answer4": "physiological",
+		"correct": "answer1",
+		"hint": "The hint is...",
+		"tags": "test, test 1, test ",
+		"hidden": false
+	},
+	{
+		"question": "If two sets of scores have the same mean, then",
+		"chapter": "chapter-2",
+		"answer1": "they must have the same variability",
+		"answer2": "they must have similar variabilities.",
+		"answer3": "they must have different variabilities",
+		"answer4": "their variabilities could be the same or they could be different",
+		"correct": "answer1",
+		"hint": "The hint is...",
+		"tags": "test, test 1, test ",
+		"hidden": false
+	},
+	{
+		"question": "Why is GPA a good example of the statistic mean?",
+		"chapter": "chapter-2",
+		"answer1": "It is calculated by adding scores and dividing by the number of scores.",
+		"answer2": "It is a good measure of how well a student is doing.",
+		"answer3": "It measures the spread, or variability, of a student’s performance.",
+		"answer4": "We can plot it on a graph",
+		"correct": "answer1",
+		"hint": "The hint is...",
+		"tags": "test, test 1, test ",
+		"hidden": false
+	},
+	{
+		"question": "Scores that are widely spread apart have a",
+		"chapter": "chapter-2",
+		"answer1": "high standard deviation.",
+		"answer2": "low standard deviation.",
+		"answer3": "high mean.",
+		"answer4": "low reliability.",
+		"correct": "answer1",
+		"hint": "The hint is...",
+		"tags": "test, test 1, test ",
+		"hidden": false
+	},
+	{
+		"question": "When conducting research with humans, researchers",
+		"chapter": "chapter-2",
+		"answer1": "never have to obtain informed consent if it interferes with the research.",
+		"answer2": "almost always must obtain informed consent.",
+		"answer3": "always must obtain informed consent.",
+		"answer4": "used to be required to obtain informed consent, but this requirement has been discontinued.",
+		"correct": "answer1",
+		"hint": "The hint is...",
+		"tags": "test, test 1, test ",
+		"hidden": false
+	},
+	{
+		"question": "Current guidelines on research ethics state that, when studying humans, deception",
+		"chapter": "chapter-2",
+		"answer1": "must be avoided whenever possible.",
+		"answer2": "can be used only if it’s part of the research design.",
+		"answer3": "must be followed by debriefing and must be fully justified.",
+		"answer4": "all of the above.",
+		"correct": "answer1",
+		"hint": "The hint is...",
+		"tags": "test, test 1, test ",
+		"hidden": false
+	},
+	{
+		"question": "Ethical guidelines for research with nonhuman animals state that",
+		"chapter": "chapter-2",
+		"answer1": "informed consent is always required.",
+		"answer2": "ethical and humane conditions must exist throughout the research process.",
+		"answer3": "computer modeling must always be tried before research with animals.",
+		"answer4": "deception can be used if fully justified.",
+		"correct": "answer1",
+		"hint": "The hint is...",
+		"tags": "test, test 1, test ",
+		"hidden": false
+	},
+	{
 		"question": "template",
-		"chapter": "chapter-1",
+		"chapter": "chapter-5",
 		"answer1": "answer1",
 		"answer2": "answer2",
 		"answer3": "answer3",
@@ -192,7 +432,7 @@
 	},
 	{
 		"question": "template",
-		"chapter": "chapter-1",
+		"chapter": "chapter-5",
 		"answer1": "answer1",
 		"answer2": "answer2",
 		"answer3": "answer3",
@@ -204,7 +444,7 @@
 	},
 	{
 		"question": "template",
-		"chapter": "chapter-1",
+		"chapter": "chapter-5",
 		"answer1": "answer1",
 		"answer2": "answer2",
 		"answer3": "answer3",
@@ -216,7 +456,7 @@
 	},
 	{
 		"question": "template",
-		"chapter": "chapter-1",
+		"chapter": "chapter-5",
 		"answer1": "answer1",
 		"answer2": "answer2",
 		"answer3": "answer3",
@@ -228,7 +468,7 @@
 	},
 	{
 		"question": "template",
-		"chapter": "chapter-1",
+		"chapter": "chapter-5",
 		"answer1": "answer1",
 		"answer2": "answer2",
 		"answer3": "answer3",
@@ -240,7 +480,7 @@
 	},
 	{
 		"question": "template",
-		"chapter": "chapter-1",
+		"chapter": "chapter-5",
 		"answer1": "answer1",
 		"answer2": "answer2",
 		"answer3": "answer3",
@@ -252,7 +492,7 @@
 	},
 	{
 		"question": "template",
-		"chapter": "chapter-1",
+		"chapter": "chapter-5",
 		"answer1": "answer1",
 		"answer2": "answer2",
 		"answer3": "answer3",
@@ -264,7 +504,7 @@
 	},
 	{
 		"question": "template",
-		"chapter": "chapter-1",
+		"chapter": "chapter-5",
 		"answer1": "answer1",
 		"answer2": "answer2",
 		"answer3": "answer3",
@@ -276,7 +516,7 @@
 	},
 	{
 		"question": "template",
-		"chapter": "chapter-1",
+		"chapter": "chapter-5",
 		"answer1": "answer1",
 		"answer2": "answer2",
 		"answer3": "answer3",
@@ -288,7 +528,7 @@
 	},
 	{
 		"question": "template",
-		"chapter": "chapter-1",
+		"chapter": "chapter-5",
 		"answer1": "answer1",
 		"answer2": "answer2",
 		"answer3": "answer3",
@@ -300,7 +540,7 @@
 	},
 	{
 		"question": "template",
-		"chapter": "chapter-1",
+		"chapter": "chapter-5",
 		"answer1": "answer1",
 		"answer2": "answer2",
 		"answer3": "answer3",
@@ -312,7 +552,7 @@
 	},
 	{
 		"question": "template",
-		"chapter": "chapter-1",
+		"chapter": "chapter-5",
 		"answer1": "answer1",
 		"answer2": "answer2",
 		"answer3": "answer3",
@@ -324,7 +564,7 @@
 	},
 	{
 		"question": "template",
-		"chapter": "chapter-1",
+		"chapter": "chapter-5",
 		"answer1": "answer1",
 		"answer2": "answer2",
 		"answer3": "answer3",
@@ -336,7 +576,7 @@
 	},
 	{
 		"question": "template",
-		"chapter": "chapter-1",
+		"chapter": "chapter-5",
 		"answer1": "answer1",
 		"answer2": "answer2",
 		"answer3": "answer3",
@@ -348,7 +588,7 @@
 	},
 	{
 		"question": "template",
-		"chapter": "chapter-1",
+		"chapter": "chapter-5",
 		"answer1": "answer1",
 		"answer2": "answer2",
 		"answer3": "answer3",
@@ -360,31 +600,7 @@
 	},
 	{
 		"question": "template",
-		"chapter": "chapter-1",
-		"answer1": "answer1",
-		"answer2": "answer2",
-		"answer3": "answer3",
-		"answer4": "answer4",
-		"correct": "answer1",
-		"hint": "The hint is...",
-		"tags": "test, test 1, test ",
-		"hidden": false
-	},
-	{
-		"question": "template",
-		"chapter": "chapter-1",
-		"answer1": "answer1",
-		"answer2": "answer2",
-		"answer3": "answer3",
-		"answer4": "answer4",
-		"correct": "answer1",
-		"hint": "The hint is...",
-		"tags": "test, test 1, test ",
-		"hidden": false
-	},
-	{
-		"question": "template",
-		"chapter": "chapter-1",
+		"chapter": "chapter-5",
 		"answer1": "answer1",
 		"answer2": "answer2",
 		"answer3": "answer3",
