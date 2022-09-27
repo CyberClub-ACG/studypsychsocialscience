@@ -34,8 +34,8 @@
                 <option value="chapter-1">Chapter 1</option>
                 <option value="chapter-2">Chapter 2</option>
                 <option value="chapter-5">Chapter 5</option>
-				<option value="chapter-13">Chapter 13</option>
-				<option value="chapter-14">Chapter 14</option>
+                <option value="chapter-13">Chapter 13</option>
+                <option value="chapter-14">Chapter 14</option>
             </select>
             <p>Correct: <span id="correctnumbers"></span></p>
         </div>
@@ -140,19 +140,19 @@
             Object.entries(datajson).forEach(([key, value]) => {
                 if (value.tags.includes(trimmedKeyword))
                     newlistjson.push(value);
-				else if (value.question.includes(trimmedKeyword))
+                else if (value.question.includes(trimmedKeyword))
                     newlistjson.push(value);
-				else if (value.answer1.includes(trimmedKeyword))
+                else if (value.answer1.includes(trimmedKeyword))
                     newlistjson.push(value);
-				else if (value.answer2.includes(trimmedKeyword))
+                else if (value.answer2.includes(trimmedKeyword))
                     newlistjson.push(value);
-				else if (value.answer3.includes(trimmedKeyword))
+                else if (value.answer3.includes(trimmedKeyword))
                     newlistjson.push(value);
-				else if (value.answer4.includes(trimmedKeyword))
+                else if (value.answer4.includes(trimmedKeyword))
                     newlistjson.push(value);
-				else if (value.chapter.includes(trimmedKeyword))
+                else if (value.chapter.includes(trimmedKeyword))
                     newlistjson.push(value);
-				else if (value.hint.includes(trimmedKeyword))
+                else if (value.hint.includes(trimmedKeyword))
                     newlistjson.push(value);
             });
 
@@ -188,12 +188,12 @@
                 nodes[i].disabled = false;
             }
 
+            datajson = datatoshow;
             showData(datatoshow);
         }
 
         function testAnswer(index, answerselected, indexBtn) {
             const coorectanswer = datajson[index].correct;
-
             if (coorectanswer === answerselected) {
                 document.getElementById("statushere-" + index).innerText = "✅ You got it right. Keep up the GREAT work buddy👍";
                 document.getElementById("button-" + index + "-" + 0).disabled = true;
