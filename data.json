@@ -7,7 +7,6 @@
 		"answer4": "human thought and behavior.",
 		"tags": "test, test 1, test ",
 		"correct": "answer4",
-		"hint": "I would normally give you a hint but this is easy...",
 		"hidden": false
 	},
 	{
@@ -19,7 +18,6 @@
 		"answer4": "all of the above.",
 		"tags": "asdadasd",
 		"correct": "answer4",
-		"hint": "I would normally give you a hint but this is easy...",
 		"hidden": false
 	},
 	{
@@ -31,7 +29,6 @@
 		"answer4": "Psychology studies groups and cultures; sociology studies human behavior.",
 		"tags": "tasdasdasd",
 		"correct": "answer3",
-		"hint": "I would normally give you a hint but this is easy...",
 		"hidden": false
 	},
 	{
@@ -43,7 +40,6 @@
 		"answer4": "educational psychology",
 		"correct": "answer1",
 		"tags": "alex",
-		"hint": "I would normally give you a hint but this is easy...",
 		"hidden": false
 	},
 	{
@@ -54,7 +50,6 @@
 		"answer3": "a cognitive psychologist.",
 		"answer4": "an industrial/organizational psychologist.",
 		"correct": "answer2",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -66,7 +61,6 @@
 		"answer3": "people with less severe psychological disorders.",
 		"answer4": "people with learning disabilities only.",
 		"correct": "answer3",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -78,7 +72,6 @@
 		"answer3": "structuralism",
 		"answer4": "psychoanalysis",
 		"correct": "answer4",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -90,7 +83,6 @@
 		"answer3": "Functionalists",
 		"answer4": "Gestalt psychologists",
 		"correct": "answer1",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -102,7 +94,6 @@
 		"answer3": "functionalism",
 		"answer4": "introspectionism",
 		"correct": "answer2",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -114,7 +105,6 @@
 		"answer3": "psychoanalysis.",
 		"answer4": "adaptations.",
 		"correct": "answer1",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -126,7 +116,6 @@
 		"answer3": "nurture over nature",
 		"answer4": "nature through nurture",
 		"correct": "answer4",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -138,7 +127,6 @@
 		"answer3": "evolutionary; biological",
 		"answer4": "humanistic; behavioral",
 		"correct": "answer4",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -150,7 +138,6 @@
 		"answer3": "Cognitive.",
 		"answer4": "Psychoanalysis-Psychodynamic.",
 		"correct": "answer4",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -162,7 +149,6 @@
 		"answer3": "making connections within and between chapters",
 		"answer4": "all of the above",
 		"correct": "answer4",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -174,7 +160,6 @@
 		"answer3": "a strong connection between the two.",
 		"answer4": "inconclusive results.",
 		"correct": "answer1",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -186,7 +171,6 @@
 		"answer3": "observing, predicting, testing, communicating.",
 		"answer4": "observing, predicting, testing, interpreting, communicating.",
 		"correct": "answer4",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -198,7 +182,6 @@
 		"answer3": "It is an attitude.",
 		"answer4": "It requires intellectual honesty.",
 		"correct": "answer2",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -210,7 +193,6 @@
 		"answer3": "hunches.",
 		"answer4": "hypotheses.",
 		"correct": "answer1",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -222,7 +204,6 @@
 		"answer3": "open skepticism",
 		"answer4": "the search for truth",
 		"correct": "answer3",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -234,7 +215,6 @@
 		"answer3": "case study",
 		"answer4": "experimental",
 		"correct": "answer1",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -246,7 +226,6 @@
 		"answer3": "interview",
 		"answer4": "experimental",
 		"correct": "answer2",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -258,7 +237,6 @@
 		"answer3": "being single causes men to die earlier.",
 		"answer4": "marriage correlates with longer life in men.",
 		"correct": "answer4",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -270,7 +248,6 @@
 		"answer3": "independent variable.",
 		"answer4": "control condition.",
 		"correct": "answer3",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -282,7 +259,6 @@
 		"answer3": "manipulation of an independent variable and a dependent variable.",
 		"answer4": "hypothesis testing and observation.",
 		"correct": "answer2",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -294,7 +270,6 @@
 		"answer3": "confounding variables.",
 		"answer4": "experimental manipulation",
 		"correct": "answer2",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -306,7 +281,6 @@
 		"answer3": "triple-blind methods.",
 		"answer4": "quasi-experimental methods.",
 		"correct": "answer2",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -318,7 +292,6 @@
 		"answer3": "scoring responses is subjective.",
 		"answer4": "they have low reliability.",
 		"correct": "answer2",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -330,7 +303,6 @@
 		"answer3": "are always more valid.",
 		"answer4": "cost less.",
 		"correct": "answer1",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -342,7 +314,6 @@
 		"answer3": "behavioral",
 		"answer4": "physiological",
 		"correct": "answer4",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -354,7 +325,6 @@
 		"answer3": "they must have different variabilities",
 		"answer4": "their variabilities could be the same or they could be different",
 		"correct": "answer4",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -366,7 +336,6 @@
 		"answer3": "It measures the spread, or variability, of a student’s performance.",
 		"answer4": "We can plot it on a graph",
 		"correct": "answer1",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -378,7 +347,6 @@
 		"answer3": "high mean.",
 		"answer4": "low reliability.",
 		"correct": "answer1",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -390,7 +358,6 @@
 		"answer3": "always must obtain informed consent.",
 		"answer4": "used to be required to obtain informed consent, but this requirement has been discontinued.",
 		"correct": "answer3",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -402,7 +369,6 @@
 		"answer3": "must be followed by debriefing and must be fully justified.",
 		"answer4": "all of the above.",
 		"correct": "answer4",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -414,7 +380,6 @@
 		"answer3": "computer modeling must always be tried before research with animals.",
 		"answer4": "deception can be used if fully justified.",
 		"correct": "answer2",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -426,7 +391,6 @@
 		"answer3": "germinal",
 		"answer4": "cellular",
 		"correct": "answer3",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -438,7 +402,6 @@
 		"answer3": "by taking a reading of fetal respiration",
 		"answer4": "It is not possible to measure fetal preferences.",
 		"correct": "answer2",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -450,7 +413,6 @@
 		"answer3": "inborn fetal taste preferences.",
 		"answer4": "factors that influence the generation of fetal brain tissue.",
 		"correct": "answer1",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -462,7 +424,6 @@
 		"answer3": "vision; hearing",
 		"answer4": "hearing; vision",
 		"correct": "answer4",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -474,7 +435,6 @@
 		"answer3": "pruning.",
 		"answer4": "reductionism.",
 		"correct": "answer3",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -486,7 +446,6 @@
 		"answer3": "a thicker cerebellum",
 		"answer4": "a thicker caudate nucleus",
 		"correct": "answer2",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -498,7 +457,6 @@
 		"answer3": "logical operations",
 		"answer4": "concrete operations",
 		"correct": "answer4",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -510,7 +468,6 @@
 		"answer3": "growth of body hair",
 		"answer4": "all of the above",
 		"correct": "answer4",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -522,7 +479,6 @@
 		"answer3": "frontal lobes",
 		"answer4": "cerebellum",
 		"correct": "answer3",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -534,7 +490,6 @@
 		"answer3": "caffeine",
 		"answer4": "aerobic exercise",
 		"correct": "answer4",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -546,7 +501,6 @@
 		"answer3": "an EEG",
 		"answer4": "psychological testing",
 		"correct": "answer2",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -558,7 +512,6 @@
 		"answer3": "regretful",
 		"answer4": "concerned",
 		"correct": "answer1",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -570,7 +523,6 @@
 		"answer3": "consistency in behavior and identity formation.",
 		"answer4": "uniqueness and change in behavior.",
 		"correct": "answer4",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -582,7 +534,6 @@
 		"answer3": "normally distributed.",
 		"answer4": "skewed distributions.",
 		"correct": "answer3",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -594,7 +545,6 @@
 		"answer3": "repression",
 		"answer4": "projection",
 		"correct": "answer1",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -606,7 +556,6 @@
 		"answer3": "the inferiority complex.",
 		"answer4": "archetypes.",
 		"correct": "answer4",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -618,7 +567,6 @@
 		"answer3": "learn from observing others.",
 		"answer4": "none of the above.",
 		"correct": "answer2",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -630,7 +578,6 @@
 		"answer3": "agreeableness; introversion",
 		"answer4": "anxiousness; introversion",
 		"correct": "answer2",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -642,7 +589,6 @@
 		"answer3": "serotonin",
 		"answer4": "norepinephrine",
 		"correct": "answer1",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -654,7 +600,6 @@
 		"answer3": "twin adoption studies",
 		"answer4": "quantitative trait loci studies",
 		"correct": "answer4",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -666,7 +611,6 @@
 		"answer3": "separation distress",
 		"answer4": "agreeableness",
 		"correct": "answer2",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -678,7 +622,6 @@
 		"answer3": "conscientiousness",
 		"answer4": "agreeableness",
 		"correct": "answer3",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -690,7 +633,6 @@
 		"answer3": "administer questionnaires.",
 		"answer4": "do genetic testing.",
 		"correct": "answer1",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -702,7 +644,6 @@
 		"answer3": "projective test",
 		"answer4": "standardized test",
 		"correct": "answer3",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -714,7 +655,6 @@
 		"answer3": "face valid.",
 		"answer4": "dichotomous.",
 		"correct": "answer2",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -726,7 +666,6 @@
 		"answer3": "social facilitation.",
 		"answer4": "conformity.",
 		"correct": "answer3",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -738,7 +677,6 @@
 		"answer3": "trying to shame them.",
 		"answer4": "being consistent and presenting a well-formed persuasive argument.",
 		"correct": "answer4",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -750,7 +688,6 @@
 		"answer3": "never conform and go along with the group.",
 		"answer4": "pretend not to be paying attention.",
 		"correct": "answer1",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -762,7 +699,6 @@
 		"answer3": "65%",
 		"answer4": "90%",
 		"correct": "answer3",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -774,7 +710,6 @@
 		"answer3": "deception.",
 		"answer4": "the fundamental attribution error.",
 		"correct": "answer4",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -786,7 +721,6 @@
 		"answer3": "a stereotype.",
 		"answer4": "a prejudice.",
 		"correct": "answer3",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -798,7 +732,6 @@
 		"answer3": "believe people outside our group think the same way we do.",
 		"answer4": "believe people inside our group think the same way we do.",
 		"correct": "answer1",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -810,7 +743,6 @@
 		"answer3": "Brandon’s beliefs are based on stereotypes.",
 		"answer4": "Both a and c are true.",
 		"correct": "answer4",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -822,7 +754,6 @@
 		"answer3": "stereotypes.",
 		"answer4": "reaction time.",
 		"correct": "answer2",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -834,7 +765,6 @@
 		"answer3": "attribution.",
 		"answer4": "bias.",
 		"correct": "answer2",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -846,7 +776,6 @@
 		"answer3": "mere exposure.",
 		"answer4": "cognitive dissonance.",
 		"correct": "answer4",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -858,7 +787,6 @@
 		"answer3": "logic, believability, and audience.",
 		"answer4": "pressure to conform, source, and authority.",
 		"correct": "answer1",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -870,7 +798,6 @@
 		"answer3": "a and b",
 		"answer4": "none of the above",
 		"correct": "answer2",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -882,7 +809,6 @@
 		"answer3": "there is no such thing as true altruism, but there is true empathy",
 		"answer4": "empathy and altruism are linked only in cases of heroic rescues.",
 		"correct": "answer1",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -894,7 +820,6 @@
 		"answer3": "faces in which the eyebrow-to-nose ratio is less than 1",
 		"answer4": "none of the above",
 		"correct": "answer2",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	},
@@ -906,7 +831,6 @@
 		"answer3": "avoidant",
 		"answer4": "anxious/ambivalent",
 		"correct": "answer4",
-		"hint": "The hint is...",
 		"tags": "test, test 1, test ",
 		"hidden": false
 	}

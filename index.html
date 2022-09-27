@@ -163,6 +163,8 @@
 
 
         function showOnly(event) {
+            datajson = [...originaldatajson];
+
             let val = event.target.value;
             let datatoshow = [];
             if (val === "0") {
@@ -187,7 +189,9 @@
                 nodes[i].disabled = false;
             }
 
-            datajson = datatoshow;
+
+            datajson = [];
+            datajson = [...datatoshow];
             showData(datatoshow);
         }
 
