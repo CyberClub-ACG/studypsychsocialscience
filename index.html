@@ -3,234 +3,321 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <title>Test yourself - Psychology</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Quiz - Psychology</title>
+    <link href='/Psychology_favicon.png' rel='icon' type='image/png'>
+    <link href="style.css" rel="stylesheet">
 </head>
 
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="./">Quiz</a></li>
-                <li><a href="./">Glossary</a></li>
-                <li><a href="./">Summaries</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+    <nav>
+        <ul>
+            <li><a href="./">Quiz</a></li>
+            <li><a href="./glossary.html">Glossary</a></li>
+            <li>
+                <div class="dropdown" href="./" style="margin: 0; text-decoration: underline">Summaries
+                    <div class="dropdown-content">
+                        <a href="chapter-1.html">Chapter 1</a>
+                        <!--                        <a href="chapter-2.html">Chapter 2</a>-->
+                        <!--                        <a href="chapter-5.html">Chapter 5</a>-->
+                        <!--                        <a href="chapter-10.html">Chapter 10</a>-->
+                        <!--                        <a href="chapter-12.html">Chapter 12</a>-->
+                        <!--                        <a href="chapter-13.html">Chapter 13</a>-->
+                        <!--                        <a href="chapter-14.html">Chapter 14</a>-->
+                        <!--                        <a href="chapter-15.html">Chapter 15</a>-->
+                        <!--                        <a href="chapter-16.html">Chapter 16</a>-->
+                    </div>
+                </div>
+            </li>
+            <li><a href="./bank.html">Questions Bank</a></li>
+            <li><a href="./figures.html">Figures</a></li>
+            <li style="float: right"><a href="./about.html">About</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="js-container container" style="height: 0;"></div>
+
+<main>
+    <div class="search">
+        <input class="searchTerm" id="search" onkeyup="handleChange(event)"
+               placeholder="Filter test question by keyword..."
+               type="text">
+    </div>
+    <div class="selects">
+        <select class="searchTerm" id="chapterselect" onchange="showOnly(event)">
+            <option selected value="0">Select chapter:</option>
+            <option value="chapter-1">Chapter 1</option>
+            <option value="chapter-2">Chapter 2</option>
+            <option value="chapter-5">Chapter 5</option>
+            <option value="chapter-10">Chapter 10</option>
+            <option value="chapter-12">Chapter 12</option>
+            <option value="chapter-13">Chapter 13</option>
+            <option value="chapter-14">Chapter 14</option>
+            <option value="chapter-15">Chapter 15</option>
+            <option value="chapter-16">Chapter 16</option>
+        </select>
+        <p>Correct: <span id="correctnumbers"></span></p>
+    </div>
 
 
-    <main>
-        <div class="search">
-            <input id="search" type="text" class="searchTerm" onkeyup="handleChange(event)"
-                placeholder="Filter test question by keyword...">
-        </div>
-        <div class="selects">
-            <select id="chapterselect" onchange="showOnly(event)" class="searchTerm">
-                <option value="0" selected>Select chapter:</option>
-                <option value="chapter-1">Chapter 1</option>
-                <option value="chapter-2">Chapter 2</option>
-                <option value="chapter-5">Chapter 5</option>
-                <option value="chapter-10">Chapter 10</option>
-                <option value="chapter-12">Chapter 12</option>
-                <option value="chapter-13">Chapter 13</option>
-                <option value="chapter-14">Chapter 14</option>
-                <option value="chapter-15">Chapter 15</option>
-                <option value="chapter-16">Chapter 16</option>
-            </select>
-            <p>Correct: <span id="correctnumbers"></span></p>
-        </div>
+    <div id="root"></div>
 
+    <button onclick="submit()">
+        Submit
+    </button>
 
-        <div id="root"></div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
-        <button onclick="submit()">
-            Submit
-        </button>
-    </main>
+</main>
 
-    <!-- <footer>
-        <p>This project was created by Alexandros Kourtis.</p>
-    </footer> -->
+<footer>
+    <p>This project was created by <a href="https://stackoverflow.com/users/9736497/dreadpirate">Alexandros Kourtis</a>.
+    </p>
+    <p>Credits also go to: <a href="https://codepen.io/andershoff">Anders Hoff</a> for the Confetti and to
+        <a href="https://www.google.com/search?q=psychology+perspectives+and+connections+4th+edition&oq=psychology+perspectives+and+connections+4th+edition&aqs=edge..69i57.207j0j1&sourceid=chrome&ie=UTF-8">Psychology:
+            Perspectives and Connections 4th edition</a> for the Quiz questions
+        inspiration.</p>
+</footer>
 
-    <script type="text/babel">
+<script type="text/babel">
 
-        let questionsnumber = 0;
-        let correctanswers = 0;
+    let questionsnumber = 0;
+    let correctanswers = 0;
 
-        let datajson = []
-        let originaldatajson = [];
+    let datajson = []
+    let originaldatajson = [];
 
-        const root = ReactDOM.createRoot(
-            document.getElementById('root')
-        );
+    const root = ReactDOM.createRoot(
+        document.getElementById('root')
+    );
 
-        init();
+    init();
 
-        function showData(datatoshow) {
-            let elements = new Array();
-            datatoshow.forEach((datum, index) => {
-                const element = (
-                    <section id="chapter-1" key={index}>
-                        <div className="box">
-                            <div className="title">
-                                <h3>{datum.question}</h3>
-                            </div>
-                            <div className="answers">
-                                <ol>
-                                    <li>
-                                        <button className="ansbtn" id={"button-" + index + "-0"} onClick={() => testAnswer(index, "answer1", 0)}>
-                                            {datum.answer1}
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button className="ansbtn" id={"button-" + index + "-1"} onClick={() => testAnswer(index, "answer2", 1)}>
-                                            {datum.answer2}
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button className="ansbtn" id={"button-" + index + "-2"} onClick={() => testAnswer(index, "answer3", 2)}>
-                                            {datum.answer3}
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button className="ansbtn" id={"button-" + index + "-3"} onClick={() => testAnswer(index, "answer4", 3)}>
-                                            {datum.answer4}
-                                        </button>
-                                    </li>
-                                </ol>
-                            </div>
-                            <div className="texts">
-                                <div id={"statushere-" + index}>
-                                </div>
+    function showData(datatoshow) {
+        let elements = [];
+        datatoshow.forEach((datum, index) => {
+            const element = (
+                <section id="chapter-1" key={index}>
+                    <div className="box">
+                        <div className="title">
+                            <h3>{datum.question}</h3>
+                        </div>
+                        <div className="answers">
+                            <ol>
+                                <li>
+                                    <button className="ansbtn" id={"button-" + index + "-0"}
+                                            onClick={() => testAnswer(index, "answer1", 0)}>
+                                        {datum.answer1}
+                                    </button>
+                                </li>
+                                <li>
+                                    <button className="ansbtn" id={"button-" + index + "-1"}
+                                            onClick={() => testAnswer(index, "answer2", 1)}>
+                                        {datum.answer2}
+                                    </button>
+                                </li>
+                                <li>
+                                    <button className="ansbtn" id={"button-" + index + "-2"}
+                                            onClick={() => testAnswer(index, "answer3", 2)}>
+                                        {datum.answer3}
+                                    </button>
+                                </li>
+                                <li>
+                                    <button className="ansbtn" id={"button-" + index + "-3"}
+                                            onClick={() => testAnswer(index, "answer4", 3)}>
+                                        {datum.answer4}
+                                    </button>
+                                </li>
+                            </ol>
+                        </div>
+                        <div className="texts">
+                            <div id={"statushere-" + index}>
                             </div>
                         </div>
-                    </section>
-                );
+                    </div>
+                </section>
+            );
 
-                elements.push(element);
-            });
+            elements.push(element);
+        });
 
-            questionsnumber = datatoshow.length;
-            correctanswers = 0;
-            root.render(elements);
-            updateProgress(questionsnumber);
-        }
-
-
-        function updateProgress(questionsnumber) {
-            const texttowrite = correctanswers + " out of " + questionsnumber + " questions.";
-            document.getElementById("correctnumbers").innerText = texttowrite;
-        }
-
-        function handleChange(event) {
-            const keyword = event.target.value;
-
-            var trimmedKeyword = keyword.toString().trim();
-
-            if (trimmedKeyword === "") {
-                showData(datajson);
-                return;
-            }
-
-            let newlistjson = [];
-
-            Object.entries(datajson).forEach(([key, value]) => {
-                if (value.tags.includes(trimmedKeyword))
-                    newlistjson.push(value);
-                else if (value.question.includes(trimmedKeyword))
-                    newlistjson.push(value);
-                else if (value.answer1.includes(trimmedKeyword))
-                    newlistjson.push(value);
-                else if (value.answer2.includes(trimmedKeyword))
-                    newlistjson.push(value);
-                else if (value.answer3.includes(trimmedKeyword))
-                    newlistjson.push(value);
-                else if (value.answer4.includes(trimmedKeyword))
-                    newlistjson.push(value);
-                else if (value.chapter.includes(trimmedKeyword))
-                    newlistjson.push(value);
-            });
+        questionsnumber = datatoshow.length;
+        correctanswers = 0;
+        root.render(elements);
+        updateProgress(questionsnumber);
+    }
 
 
-            document.getElementById("chapterselect").value = "0";
+    function updateProgress(questionsnumber) {
+        const texttowrite = correctanswers + " out of " + questionsnumber + " questions.";
+        document.getElementById("correctnumbers").innerText = texttowrite;
+    }
 
-            showData(newlistjson);
-        }
+    function handleChange(event) {
+        const keyword = event.target.value;
 
+        var trimmedKeyword = keyword.toString().trim().toLowerCase();
 
-        function showOnly(event) {
-            datajson = [...originaldatajson];
-
-            let val = event.target.value;
-            let datatoshow = [];
-            if (val === "0") {
-                showData(originaldatajson);
-                return;
-            }
-
-            Object.entries(datajson).forEach(([key, value]) => {
-                if (value.chapter === val)
-                    datatoshow.push(value);
-            });
-
-            const nodestexts = document.getElementsByClassName("texts");
-
-            for (let i = 0; i < nodestexts.length; i++) {
-                nodestexts[i].childNodes.forEach(node => node.textContent = "");
-            }
-
-            const nodes = document.getElementsByClassName("ansbtn");
-
-            for (let i = 0; i < nodes.length; i++) {
-                nodes[i].disabled = false;
-            }
-
-
-            datajson = [];
-            datajson = [...datatoshow];
-            showData(datatoshow);
-        }
-
-        function testAnswer(index, answerselected, indexBtn) {
-            const coorectanswer = datajson[index].correct;
-            if (coorectanswer === answerselected) {
-                document.getElementById("statushere-" + index).innerText = "✅ You got it right. Keep up the GREAT work buddy👍";
-                document.getElementById("button-" + index + "-" + 0).disabled = true;
-                document.getElementById("button-" + index + "-" + 1).disabled = true;
-                document.getElementById("button-" + index + "-" + 2).disabled = true;
-                document.getElementById("button-" + index + "-" + 3).disabled = true;
-                correctanswers++;
-            }
-            else {
-                document.getElementById("statushere-" + index).innerText = "This is not the right answer but you are making progress buddy";
-                document.getElementById("button-" + index + "-" + indexBtn).disabled = true;
-            }
-
-            updateProgress(datajson.length);
-        }
-
-        async function init() {
-            datajson = await getData();
-            originaldatajson = datajson;
+        if (trimmedKeyword === "") {
             showData(datajson);
+            return;
         }
 
-        async function getData() {
-            return await fetch('./data.json')
-                .then(response => response.json())
-                .then(data => data)
-                .catch(error => console.log(error));
+        let newlistjson = [];
+
+        Object.entries(datajson).forEach(([key, value]) => {
+            if (value.tags.trim().toLowerCase().includes(trimmedKeyword))
+                newlistjson.push(value);
+            else if (value.question.trim().toLowerCase().includes(trimmedKeyword))
+                newlistjson.push(value);
+            else if (value.answer1.trim().toLowerCase().includes(trimmedKeyword))
+                newlistjson.push(value);
+            else if (value.answer2.trim().toLowerCase().includes(trimmedKeyword))
+                newlistjson.push(value);
+            else if (value.answer3.trim().toLowerCase().includes(trimmedKeyword))
+                newlistjson.push(value);
+            else if (value.answer4.trim().toLowerCase().includes(trimmedKeyword))
+                newlistjson.push(value);
+            else if (value.chapter.trim().toLowerCase().includes(trimmedKeyword))
+                newlistjson.push(value);
+        });
+
+
+        document.getElementById("chapterselect").value = "0";
+
+        showData(newlistjson);
+    }
+
+
+    function showOnly(event) {
+        datajson = [...originaldatajson];
+
+        let val = event.target.value;
+        let datatoshow = [];
+        if (val === "0") {
+            showData(originaldatajson);
+            return;
         }
 
-        function submit() {
-            alert("Congratulations 🎉🎉! You got " + correctanswers + " out of " + questionsnumber);
+        Object.entries(datajson).forEach(([key, value]) => {
+            if (value.chapter === val)
+                datatoshow.push(value);
+        });
+
+        const nodestexts = document.getElementsByClassName("texts");
+
+        for (let i = 0; i < nodestexts.length; i++) {
+            nodestexts[i].childNodes.forEach(node => node.textContent = "");
         }
-    </script>
+
+        const nodes = document.getElementsByClassName("ansbtn");
+
+        for (let i = 0; i < nodes.length; i++) {
+            nodes[i].disabled = false;
+        }
+
+
+        datajson = [];
+        datajson = [...datatoshow];
+        showData(datatoshow);
+    }
+
+    function testAnswer(index, answerselected, indexBtn) {
+        const coorectanswer = datajson[index].correct;
+        if (coorectanswer === answerselected) {
+            document.getElementById("statushere-" + index).innerText = "✅ You got it right. Keep up the GREAT work buddy👍";
+            document.getElementById("button-" + index + "-" + 0).disabled = true;
+            document.getElementById("button-" + index + "-" + 1).disabled = true;
+            document.getElementById("button-" + index + "-" + 2).disabled = true;
+            document.getElementById("button-" + index + "-" + 3).disabled = true;
+            correctanswers++;
+        } else {
+            document.getElementById("statushere-" + index).innerText = "This is not the right answer but you are making progress buddy";
+            document.getElementById("button-" + index + "-" + indexBtn).disabled = true;
+        }
+
+        updateProgress(datajson.length);
+    }
+
+    async function init() {
+        datajson = await getData();
+        originaldatajson = datajson;
+        showData(datajson);
+    }
+
+    async function getData() {
+        return await fetch('./data.json')
+            .then(response => response.json())
+            .then(data => data)
+            .catch(error => console.log(error));
+    }
+
+    function submit() {
+        if (correctanswers === questionsnumber) {
+            alert("Mission accomplished 🎉🎉🍾🍾🍾🍾🎊🎊🎊");
+            window.confettiful = new Confettiful(document.querySelector('.js-container'));
+        } else {
+            alert("Mission failed");
+        }
+    }
+
+    const Confettiful = function (el) {
+        this.el = el;
+        this.containerEl = null;
+        this.confettiColors = ['#EF2964', '#00C09D', '#2D87B0', '#48485E', '#EFFF1D'];
+        this.confettiAnimations = ['slow', 'medium', 'fast'];
+
+        this._setupElements();
+        this._renderConfetti();
+    };
+
+    Confettiful.prototype._setupElements = function () {
+        const containerEl = document.createElement('div');
+        const elPosition = this.el.style.position;
+
+        this.el.style.position = 'fixed';
+
+        containerEl.classList.add('confetti-container');
+        const height = document.documentElement.scrollHeight;
+        containerEl.style.height = height + "px";
+
+        this.el.appendChild(containerEl);
+
+        this.containerEl = containerEl;
+    };
+
+    Confettiful.prototype._renderConfetti = function () {
+        this.confettiInterval = setInterval(() => {
+            const confettiEl = document.createElement('div');
+            const confettiSize = (Math.floor(Math.random() * 3) + 7) + 'px';
+            const confettiBackground = this.confettiColors[Math.floor(Math.random() * this.confettiColors.length)];
+            const confettiLeft = (Math.floor(Math.random() * this.el.offsetWidth)) + 'px';
+            const confettiAnimation = this.confettiAnimations[Math.floor(Math.random() * this.confettiAnimations.length)];
+
+            confettiEl.classList.add('confetti', 'confetti--animation-' + confettiAnimation);
+            confettiEl.style.left = confettiLeft;
+            confettiEl.style.width = confettiSize;
+            confettiEl.style.height = confettiSize;
+            confettiEl.style.backgroundColor = confettiBackground;
+
+            confettiEl.removeTimeout = setTimeout(function () {
+                confettiEl.parentNode.removeChild(confettiEl);
+            }, 3000);
+
+            this.containerEl.appendChild(confettiEl);
+        }, 25);
+    };
+</script>
 </body>
 
 </html>

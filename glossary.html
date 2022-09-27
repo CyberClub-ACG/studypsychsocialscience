@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Glossary - Psychology</title>
+    <link href='/Psychology_favicon.png' rel='icon' type='image/png'>
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="./">Quiz</a></li>
+            <li><a href="./glossary.html">Glossary</a></li>
+            <li>
+                <div class="dropdown" href="./" style="margin: 0; text-decoration: underline">Summaries
+                    <div class="dropdown-content">
+                        <a href="chapter-1.html">Chapter 1</a>
+                        <!--                        <a href="chapter-2.html">Chapter 2</a>-->
+                        <!--                        <a href="chapter-5.html">Chapter 5</a>-->
+                        <!--                        <a href="chapter-10.html">Chapter 10</a>-->
+                        <!--                        <a href="chapter-12.html">Chapter 12</a>-->
+                        <!--                        <a href="chapter-13.html">Chapter 13</a>-->
+                        <!--                        <a href="chapter-14.html">Chapter 14</a>-->
+                        <!--                        <a href="chapter-15.html">Chapter 15</a>-->
+                        <!--                        <a href="chapter-16.html">Chapter 16</a>-->
+                    </div>
+                </div>
+            </li>
+            <li><a href="./bank.html">Questions Bank</a></li>
+            <li><a href="./figures.html">Figures</a></li>
+            <li style="float: right"><a href="./about.html">About</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="js-container container" style="height: 0;"></div>
+
+<main>
+    <div class="search">
+        <input class="searchTerm" id="search" onkeyup="handleChange(event)"
+               placeholder="Filter terms by keyword..."
+               type="text">
+    </div>
+
+    <div id="root"></div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+</main>
+
+<footer>
+    <p>This project was created by <a href="https://stackoverflow.com/users/9736497/dreadpirate">Alexandros Kourtis</a>.
+    </p>
+    <p>Sources for the glossary are the <a href="https://www.macmillandictionary.com/open-dictionary/">macmillandictionary</a>,
+        the
+        <a href="https://www.thefreedictionary.com/Sigmund+Freud">thefreedictionary</a>, and <a
+                href="https://www.wikipedia.org/">Wikipedia</a>.
+    </p>
+</footer>
+
+<script type="text/babel">
+
+    let questionsnumber = 0;
+    let correctanswers = 0;
+
+    let datajson = []
+    let originaldatajson = [];
+
+    const root = ReactDOM.createRoot(
+        document.getElementById('root')
+    );
+
+    init();
+
+    function showData(datatoshow) {
+        let elements = [];
+        datatoshow.forEach((datum, index) => {
+            const element = (
+                <section className="glossaryitem" key={index}>
+                    <div className="box">
+                        <h3>{datum.term}</h3>
+                        <p>
+                            {datum.definition}
+                        </p>
+                    </div>
+                </section>
+            );
+
+            elements.push(element);
+        });
+
+        root.render(elements);
+    }
+
+    function handleChange(event) {
+        const keyword = event.target.value;
+
+        var trimmedKeyword = keyword.toString().trim().toLowerCase();
+
+        if (trimmedKeyword === "") {
+            showData(datajson);
+            return;
+        }
+
+        let newlistjson = [];
+
+        Object.entries(datajson).forEach(([key, value]) => {
+            if (value.term.trim().toLowerCase().includes(trimmedKeyword))
+                newlistjson.push(value);
+            else if (value.definition.trim().toLowerCase().includes(trimmedKeyword))
+                newlistjson.push(value);
+        });
+
+        showData(newlistjson);
+    }
+
+
+    function showOnly(event) {
+        datajson = [...originaldatajson];
+
+        let val = event.target.value;
+        let datatoshow = [];
+        if (val === "0") {
+            showData(originaldatajson);
+            return;
+        }
+
+        Object.entries(datajson).forEach(([key, value]) => {
+            if (value.chapter === val)
+                datatoshow.push(value);
+        });
+
+        const nodestexts = document.getElementsByClassName("texts");
+
+        for (let i = 0; i < nodestexts.length; i++) {
+            nodestexts[i].childNodes.forEach(node => node.textContent = "");
+        }
+
+        const nodes = document.getElementsByClassName("ansbtn");
+
+        for (let i = 0; i < nodes.length; i++) {
+            nodes[i].disabled = false;
+        }
+
+
+        datajson = [];
+        datajson = [...datatoshow];
+        showData(datatoshow);
+    }
+
+    async function init() {
+        datajson = await getData();
+        originaldatajson = datajson;
+        showData(datajson);
+    }
+
+    async function getData() {
+        return await fetch('./terms.json')
+            .then(response => response.json())
+            .then(data => data)
+            .catch(error => console.log(error));
+    }
+</script>
+</body>
+
+</html>
