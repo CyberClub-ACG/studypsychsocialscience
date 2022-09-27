@@ -18,6 +18,10 @@
             <ul>
                 <li><a href="./">Psychology Self Study
                 <li></a>
+                <li><a href="./">Glossary
+                <li></a>
+                <li><a href="./">Summaries
+                <li></a>
             </ul>
         </nav>
     </header>
@@ -102,9 +106,6 @@
                             <div className="texts">
                                 <div id={"statushere-" + index}>
                                 </div>
-                                <div id={"hint-" + index}>
-
-                                </div>
                             </div>
                         </div>
                     </section>
@@ -151,8 +152,6 @@
                 else if (value.answer4.includes(trimmedKeyword))
                     newlistjson.push(value);
                 else if (value.chapter.includes(trimmedKeyword))
-                    newlistjson.push(value);
-                else if (value.hint.includes(trimmedKeyword))
                     newlistjson.push(value);
             });
 
@@ -203,8 +202,7 @@
                 correctanswers++;
             }
             else {
-                document.getElementById("statushere-" + index).innerText = "This is not the right answer but you are making progress buddy👍";
-                document.getElementById("hint-" + index).innerText = datajson[index].hint;
+                document.getElementById("statushere-" + index).innerText = "This is not the right answer but you are making progress buddy";
                 document.getElementById("button-" + index + "-" + indexBtn).disabled = true;
             }
 
