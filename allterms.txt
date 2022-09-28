@@ -1,7 +1,7 @@
 1 starts
 
-adaptations
- asylums
+ adaptations ✅
+ asylums ✅
  behavioral neuroscience
  behaviorism
  biological psychology
@@ -19,7 +19,7 @@ adaptations
  health psychology
  humanistic psychology
  industrial/organizational (I/O)
- psychology
+ psychology ✅
  introspection
  metacognitive thinking
  moral treatment
