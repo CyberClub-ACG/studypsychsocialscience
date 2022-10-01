@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="./libs/http_unpkg.com_@babel_standalone_babel.js"></script>
+    <script src="./libs/http_unpkg.com_react@18_umd_react.development.js"></script>
+    <script src="./libs/http_unpkg.com_react-dom@18_umd_react-dom.development.js"></script>
     <title>Figures - Psychology</title>
     <link href='./Psychology_favicon.png' rel='icon' type='image/png'>
     <link href="style.css" rel="stylesheet">
@@ -22,15 +22,17 @@
             <li>
                 <div class="dropdown" style="margin: 0; text-decoration: underline">Summaries
                     <div class="dropdown-content">
-                        <a href="chapter-1.html">Introduction to Psychology</a>
-                        <!--                        <a href="chapter-2.html">Chapter 2</a>-->
-                        <!--                        <a href="chapter-5.html">Chapter 5</a>-->
-                        <!--                        <a href="chapter-10.html">Chapter 10</a>-->
-                        <!--                        <a href="chapter-12.html">Chapter 12</a>-->
-                        <!--                        <a href="chapter-13.html">Chapter 13</a>-->
-                        <!--                        <a href="chapter-14.html">Chapter 14</a>-->
-                        <!--                        <a href="chapter-15.html">Chapter 15</a>-->
-                        <!--                        <a href="chapter-16.html">Chapter 16</a>-->
+                        <a href="introduction-to-psychology.html">Introduction to Psychology</a>
+                        <a href="conducting-research-in-psychology.html">Conducting Research in Psychology</a>
+                        <a href="human-development.html">Human Development</a>
+                        <a href="intelligence-problem-solving-creativity.html">Intelligence, Problem Solving, and
+                            Creativity</a>
+                        <a href="stress-and-health.html">Stress and Health</a>
+                        <a href="personality-the-uniqueness-of-the-individual.html">Personality: The Uniqueness of the
+                            Individual</a>
+                        <a href="social-behavior.html">Social Behavior</a>
+                        <a href="psychological-disorders.html">Psychological Disorders</a>
+                        <a href="treatment-of-psychological-disorders.html">Treatment of Psychological Disorders</a>
                     </div>
                 </div>
             </li>
@@ -43,34 +45,80 @@
 
 <main>
     <div class="figureslist">
-        <h3>A collection of the figures referenced in the project</h3>
-        <ol>
-            <li>
-                <div style="justify-content: start; display: flex; align-items: center">
-                    <img alt=""
-                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Sigmund_Freud_LIFE.jpg/200px-Sigmund_Freud_LIFE.jpg"
-                         style="width: 150px">
-                    <div style="margin-left: 20px">
-                        <h3><a href="figure.html">Sigmund Freud</a></h3>
-                        <p>He invented the treatment of mental illness and neurosis by means of psychoanalysis Freud is
-                            important in psychology because he studied the unconscious mind...</p>
-                    </div>
-
-                </div>
-            </li>
+        <h3>A collection of important figures in Psychology</h3>
+        <ol id="root">
         </ol>
     </div>
+    <br>
+    <br>
+    <br>
 </main>
 
 <footer>
-    <p>This project was created by <a href="https://stackoverflow.com/users/9736497/dreadpirate">Alexandros Kourtis</a>.
+    <p>This project was created by <a href="https://alexkourtis.me">Alexandros Kourtis</a>
+        and supported by
+        <a href="https://www.acg.edu/undergraduate/academic-enrichment-programs/student-academic-support-services/">SASS</a>
+        and <a href="https://dccyberclub.com">Cyber Club</a>.
     </p>
     <p>Source is <a href="https://simple.wikipedia.org/">Wikipedia</a>.
     </p>
 </footer>
-<script>
 
+<script type="text/babel">
 
+    let datajson = []
+    let originaldatajson = [];
+
+    const root = ReactDOM.createRoot(
+        document.getElementById('root')
+    );
+
+    init();
+
+    function showData(datatoshow) {
+        let elements = [];
+        datatoshow.forEach((datum, index) => {
+            const element = (
+                <li key={index}>
+                    <div style={{
+                        "justifyContent": "start",
+                        "display": "flex",
+                        "alignItems": "center",
+                        "marginBottom": "20px"
+                    }}>
+                        <img alt=""
+                             src={datum.img}
+                             style={{
+                                 "width": "160px",
+                                 "height": "200px",
+                                 "objectFit": "cover"
+                             }}/>
+                        <div style={{"marginLeft": "20px"}}>
+                            <h3><a href={`figure.html?titleslug=${datum.titleslug}`}>{datum.name}</a></h3>
+                            <p>{datum.shortdesc}</p>
+                        </div>
+                    </div>
+                </li>
+            );
+
+            elements.push(element);
+        });
+
+        root.render(elements);
+    }
+
+    async function init() {
+        datajson = await getData();
+        originaldatajson = datajson;
+        showData(datajson);
+    }
+
+    async function getData() {
+        return await fetch('./figures.json')
+            .then(response => response.json())
+            .then(data => data)
+            .catch(error => console.log(error));
+    }
 </script>
 </body>
 

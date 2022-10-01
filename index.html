@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="./libs/http_unpkg.com_@babel_standalone_babel.js"></script>
+    <script src="./libs/http_unpkg.com_react@18_umd_react.development.js"></script>
+    <script src="./libs/http_unpkg.com_react-dom@18_umd_react-dom.development.js"></script>
     <title>Quiz - Psychology</title>
     <link href='./Psychology_favicon.png' rel='icon' type='image/png'>
     <link href="style.css" rel="stylesheet">
@@ -22,15 +22,17 @@
             <li>
                 <div class="dropdown" style="margin: 0; text-decoration: underline">Summaries
                     <div class="dropdown-content">
-                        <a href="chapter-1.html">Introduction to Psychology</a>
-                        <!--                        <a href="chapter-2.html">Chapter 2</a>-->
-                        <!--                        <a href="chapter-5.html">Chapter 5</a>-->
-                        <!--                        <a href="chapter-10.html">Chapter 10</a>-->
-                        <!--                        <a href="chapter-12.html">Chapter 12</a>-->
-                        <!--                        <a href="chapter-13.html">Chapter 13</a>-->
-                        <!--                        <a href="chapter-14.html">Chapter 14</a>-->
-                        <!--                        <a href="chapter-15.html">Chapter 15</a>-->
-                        <!--                        <a href="chapter-16.html">Chapter 16</a>-->
+                        <a href="introduction-to-psychology.html">Introduction to Psychology</a>
+                        <a href="conducting-research-in-psychology.html">Conducting Research in Psychology</a>
+                        <a href="human-development.html">Human Development</a>
+                        <a href="intelligence-problem-solving-creativity.html">Intelligence, Problem Solving, and
+                            Creativity</a>
+                        <a href="stress-and-health.html">Stress and Health</a>
+                        <a href="personality-the-uniqueness-of-the-individual.html">Personality: The Uniqueness of the
+                            Individual</a>
+                        <a href="social-behavior.html">Social Behavior</a>
+                        <a href="psychological-disorders.html">Psychological Disorders</a>
+                        <a href="treatment-of-psychological-disorders.html">Treatment of Psychological Disorders</a>
                     </div>
                 </div>
             </li>
@@ -53,14 +55,18 @@
         <select class="searchTerm" id="chapterselect" onchange="showOnly(event)">
             <option selected value="0">Select chapter:</option>
             <option value="chapter-1">Introduction to Psychology</option>
-            <option value="chapter-2">Chapter 2</option>
-            <option value="chapter-5">Chapter 5</option>
-            <option value="chapter-10">Chapter 10</option>
-            <option value="chapter-12">Chapter 12</option>
-            <option value="chapter-13">Chapter 13</option>
-            <option value="chapter-14">Chapter 14</option>
-            <option value="chapter-15">Chapter 15</option>
-            <option value="chapter-16">Chapter 16</option>
+            <option value="chapter-2">Conducting Research in Psychology</option>
+            <option value="chapter-5">Human Development</option>
+            <option value="chapter-10">Intelligence, Problem Solving,
+                and Creativity
+            </option>
+            <option value="chapter-12">Stress and Health</option>
+            <option value="chapter-13">Personality: The Uniqueness
+                of the Individual
+            </option>
+            <option value="chapter-14">Social Behavior</option>
+            <option value="chapter-15">Psychological Disorders</option>
+            <option value="chapter-16">Treatment of Psychological Disorders</option>
         </select>
         <p>Correct: <span id="correctnumbers"></span></p>
     </div>
@@ -81,7 +87,10 @@
 </main>
 
 <footer>
-    <p>This project was created by <a href="https://stackoverflow.com/users/9736497/dreadpirate">Alexandros Kourtis</a>.
+    <p>This project was created by <a href="https://alexkourtis.me">Alexandros Kourtis</a>
+        and supported by
+        <a href="https://www.acg.edu/undergraduate/academic-enrichment-programs/student-academic-support-services/">SASS</a>
+        and <a href="https://dccyberclub.com">Cyber Club</a>.
     </p>
     <p>Credits also go to: <a href="https://codepen.io/andershoff">Anders Hoff</a> for the Confetti and to
         <a href="https://www.google.com/search?q=psychology+perspectives+and+connections+4th+edition&oq=psychology+perspectives+and+connections+4th+edition&aqs=edge..69i57.207j0j1&sourceid=chrome&ie=UTF-8">Psychology:
