@@ -5,40 +5,45 @@
     <meta charset="UTF-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <script src="./libs/http_unpkg.com_@babel_standalone_babel.js"></script>
-    <script src="./libs/http_unpkg.com_react@18_umd_react.development.js"></script>
-    <script src="./libs/http_unpkg.com_react-dom@18_umd_react-dom.development.js"></script>
+    <script src="../libs/http_unpkg.com_@babel_standalone_babel.js"></script>
+    <script src="../libs/http_unpkg.com_react@18_umd_react.development.js"></script>
+    <script src="../libs/http_unpkg.com_react-dom@18_umd_react-dom.development.js"></script>
     <title>Figures - Psychology</title>
-    <link href='./Psychology_favicon.png' rel='icon' type='image/png'>
-    <link href="style.css" rel="stylesheet">
+    <link href='../img/Psychology_favicon.png' rel='icon' type='image/png'>
+    <link href="../css/style.css" rel="stylesheet">
 </head>
 
 <body>
 <header>
     <nav>
         <ul>
-            <li><a href="./">Quiz</a></li>
+            <li><a href="../index.html">Quiz</a></li>
             <li><a href="./glossary.html">Glossary</a></li>
             <li>
                 <div class="dropdown" style="margin: 0; text-decoration: underline">Summaries
                     <div class="dropdown-content">
-                        <a href="introduction-to-psychology.html">Introduction to Psychology</a>
-                        <a href="conducting-research-in-psychology.html">Conducting Research in Psychology</a>
-                        <a href="human-development.html">Human Development</a>
-                        <a href="intelligence-problem-solving-creativity.html">Intelligence, Problem Solving, and
+                        <a href="../chapters/introduction-to-psychology.html">Introduction to Psychology</a>
+                        <a href="../chapters/conducting-research-in-psychology.html">Conducting Research in
+                            Psychology</a>
+                        <a href="../chapters/human-development.html">Human Development</a>
+                        <a href="../chapters/intelligence-problem-solving-creativity.html">Intelligence, Problem
+                            Solving, and
                             Creativity</a>
-                        <a href="stress-and-health.html">Stress and Health</a>
-                        <a href="personality-the-uniqueness-of-the-individual.html">Personality: The Uniqueness of the
+                        <a href="../chapters/stress-and-health.html">Stress and Health</a>
+                        <a href="../chapters/personality-the-uniqueness-of-the-individual.html">Personality: The
+                            Uniqueness of the
                             Individual</a>
-                        <a href="social-behavior.html">Social Behavior</a>
-                        <a href="psychological-disorders.html">Psychological Disorders</a>
-                        <a href="treatment-of-psychological-disorders.html">Treatment of Psychological Disorders</a>
+                        <a href="../chapters/social-behavior.html">Social Behavior</a>
+                        <a href="../chapters/psychological-disorders.html">Psychological Disorders</a>
+                        <a href="../chapters/treatment-of-psychological-disorders.html">Treatment of Psychological
+                            Disorders</a>
                     </div>
                 </div>
             </li>
             <li><a href="./bank.html">Questions Bank</a></li>
             <li><a href="./figures.html">Figures</a></li>
             <li style="float: right"><a href="./about.html">About</a></li>
+
         </ul>
     </nav>
 </header>
@@ -114,7 +119,7 @@
     }
 
     async function getData() {
-        return await fetch('./figures.json')
+        return await fetch('../json/figures.json')
             .then(response => response.json())
             .then(data => data)
             .catch(error => console.log(error));

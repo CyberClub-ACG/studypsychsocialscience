@@ -327,3 +327,21 @@ p {
     margin-left: 0;
     margin-right: 0;
 }
+
+.app-icons {
+    display: flex;
+    align-items: center;
+}
+
+.vertical {
+    width: 300px;
+    flex-direction: column;
+}
+
+.android {
+    width: 190px;
+}
+
+.apple {
+    width: 150px;
+}
