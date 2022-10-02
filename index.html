@@ -11,6 +11,12 @@
     <title>Quiz - Psychology</title>
     <link href='./img/Psychology_favicon.png' rel='icon' type='image/png'>
     <link href="./css/style.css" rel="stylesheet">
+
+    <style>
+        #root {
+            visibility: hidden;
+        }
+    </style>
 </head>
 
 <body>
@@ -168,8 +174,10 @@
 
         await root.render(elements);
         updateProgress(questionsnumber);
-        await delay(300);
+        await delay(100);
         document.getElementById('root').querySelectorAll("ol").forEach(el => el.shuffleChildren());
+        document.getElementById('root').shuffleChildren();
+        document.getElementById('root').style.visibility = "visible";
     }
 
     function updateProgress(questionsnumber) {
