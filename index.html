@@ -101,7 +101,6 @@
             Perspectives and Connections 4th edition</a> for the Quiz questions
         inspiration.</p>
 </footer>
-
 <script type="text/babel">
 
     let questionsnumber = 0;
@@ -116,11 +115,11 @@
 
     init();
 
-    function showData(datatoshow) {
+    async function showData(datatoshow) {
         let elements = [];
-        datatoshow.forEach((datum, index) => {
+        await datatoshow.forEach((datum, index) => {
             const element = (
-                <section id="chapter-1" key={index}>
+                <section className="chapter" key={index}>
                     <div className="box">
                         <div className="title">
                             <h3>{datum.question}</h3>
@@ -166,20 +165,21 @@
 
         questionsnumber = datatoshow.length;
         correctanswers = 0;
-        root.render(elements);
+
+        await root.render(elements);
         updateProgress(questionsnumber);
+        await delay(300);
+        document.getElementById('root').querySelectorAll("ol").forEach(el => el.shuffleChildren());
     }
 
-
     function updateProgress(questionsnumber) {
-        const texttowrite = correctanswers + " out of " + questionsnumber + " questions.";
-        document.getElementById("correctnumbers").innerText = texttowrite;
+        document.getElementById("correctnumbers").innerText = correctanswers + " out of " + questionsnumber + " questions.";
     }
 
     function handleChange(event) {
         const keyword = event.target.value;
 
-        var trimmedKeyword = keyword.toString().trim().toLowerCase();
+        const trimmedKeyword = keyword.toString().trim().toLowerCase();
 
         if (trimmedKeyword === "") {
             showData(datajson);
@@ -265,8 +265,16 @@
     async function init() {
         datajson = await getData();
         originaldatajson = datajson;
-        showData(datajson);
+        await showData(datajson);
     }
+
+    Element.prototype.shuffleChildren = function () {
+        for (var i = this.children.length; i >= 0; i--) {
+            this.appendChild(this.children[Math.random() * i | 0]);
+        }
+    };
+
+    const delay = ms => new Promise(res => setTimeout(res, ms));
 
     async function getData() {
         return await fetch('./json/data.json')

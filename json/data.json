@@ -1,6 +1,6 @@
 [
   {
-    "question": "Psychology is defined as the scientific study of",
+    "question": "The scientific field of Psychology is the study of",
     "chapter": "chapter-1",
     "answer1": "human behavior.",
     "answer2": "mental illness.",
@@ -11,7 +11,7 @@
     "hidden": false
   },
   {
-    "question": "The field of psychology is",
+    "question": "Psychology is",
     "chapter": "chapter-1",
     "answer1": "a social science.",
     "answer2": "the practice of diagnosing and treating mental illness.",
@@ -22,7 +22,7 @@
     "hidden": false
   },
   {
-    "question": "How is psychology different from the related field of sociology?",
+    "question": "In what way is psychology different from the related field of sociology?",
     "chapter": "chapter-1",
     "answer1": "Psychology studies systems; sociology studies cultures.",
     "answer2": "Psychology studies cultures; sociology studies people.",
@@ -33,7 +33,7 @@
     "hidden": false
   },
   {
-    "question": "What subdiscipline of psychology examines how thoughts, feelings, and behaviors change over the life span?",
+    "question": "Which subdiscipline of psychology studies how feelings, thoughts, and behaviors change over the life span?",
     "chapter": "chapter-1",
     "answer1": "developmental psychology",
     "answer2": "cognitive psychology",
@@ -44,7 +44,7 @@
     "hidden": false
   },
   {
-    "question": "A psychologist has conducted a series of studies on which part of the brain is most active during a memory task. She is probably",
+    "question": "A psychologist has conducted a series of studies on area of the  brain is most active during a memory task. He is probably",
     "chapter": "chapter-1",
     "answer1": "a developmental psychologist.",
     "answer2": "a behavioral neuroscientist.",
@@ -55,7 +55,7 @@
     "hidden": false
   },
   {
-    "question": "The main difference between a clinical and a counseling psychologist is that counseling psychologists treat",
+    "question": "The major difference between a clinical and a counseling psychologist is that counseling psychologists treat",
     "chapter": "chapter-1",
     "answer1": "people with more severe psychological disorders.",
     "answer2": "more children than adults.",
@@ -66,7 +66,7 @@
     "hidden": false
   },
   {
-    "question": "What perspective in psychology assumes that the unconscious is the most powerful force behind most behavior?",
+    "question": "Which perspective in psychology assumes that the unconscious is the most powerful force behind most behavior?",
     "chapter": "chapter-1",
     "answer1": "trephination",
     "answer2": "cognitive psychology",
@@ -77,7 +77,7 @@
     "hidden": false
   },
   {
-    "question": "_______ argued that thoughts, feelings, and motives are unimportant in understanding human behavior.",
+    "question": "_______ argued that thoughts, motives, and feelings motives are not important in understanding human behavior.",
     "chapter": "chapter-1",
     "answer1": "Behaviorists",
     "answer2": "Psychoanalysts",
@@ -88,7 +88,7 @@
     "hidden": false
   },
   {
-    "question": "Positive psychology is a modern version of which school of thought?",
+    "question": "Positive psychology is a contemporary version of which school of thought?",
     "chapter": "chapter-1",
     "answer1": "structuralism",
     "answer2": "humanism",
@@ -99,7 +99,7 @@
     "hidden": false
   },
   {
-    "question": "Charles Darwin’s great contribution was the theory of",
+    "question": "Charles Darwin’s significant contribution was the theory of",
     "chapter": "chapter-1",
     "answer1": "how evolution works (natural selection).",
     "answer2": "evolution.",
@@ -110,7 +110,7 @@
     "hidden": false
   },
   {
-    "question": "Which phrase most accurately reflects a modern perspective in psychology?",
+    "question": "Which statement accurately reflects a modern perspective in psychology?",
     "chapter": "chapter-1",
     "answer1": "nature versus nurture",
     "answer2": "nature over nurture",
@@ -121,7 +121,7 @@
     "hidden": false
   },
   {
-    "question": "A _______ psychologist would be most interested in understanding what it means to be fully functioning, whereas a _______ psychologist would focus on what people do and not what they think or feel.",
+    "question": "A _______ psychologist would be interested in finding out what it means to be fully functioning, whereas a _______ psychologist would focus on what people do and not what they think or feel.",
     "chapter": "chapter-1",
     "answer1": "cognitive; psychoanalytic",
     "answer2": "psychoanalytic; social-learning",
@@ -132,7 +132,7 @@
     "hidden": false
   },
   {
-    "question": "The perspective that argues that unconscious thoughts and feelings are most important in a person’s personality is",
+    "question": "The view that argues that unconscious thoughts and feelings are most important in a person’s personality is",
     "chapter": "chapter-1",
     "answer1": "Behaviorism-Learning.",
     "answer2": "Humanism-Positive.",
@@ -143,7 +143,7 @@
     "hidden": false
   },
   {
-    "question": "Which of the following is a technique we argue for integrating the many perspectives in psychology?",
+    "question": "Which of the following is a view that integrates the many perspectives in psychology?",
     "chapter": "chapter-1",
     "answer1": "using not believing everything you think",
     "answer2": "using the scientific method",
@@ -154,7 +154,7 @@
     "hidden": false
   },
   {
-    "question": "Research on the association between vaccines and autism has shown",
+    "question": "Studies on the association between vaccines and autism has shown",
     "chapter": "chapter-1",
     "answer1": "no connection between the two.",
     "answer2": "a weak connection between the two.",
@@ -176,7 +176,7 @@
     "hidden": false
   },
   {
-    "question": "Which of the following is NOT a characteristic of science?",
+    "question": "Which of the following is NOT a trait of science?",
     "chapter": "chapter-2",
     "answer1": "It is cumulative.",
     "answer2": "It is a search for truth.",
@@ -187,7 +187,7 @@
     "hidden": false
   },
   {
-    "question": "Scientific theories are",
+    "question": "What are scientific theories?",
     "chapter": "chapter-2",
     "answer1": "a set of related assumptions that guide and explain observations and allow testable predictions to be made.",
     "answer2": "educated guesses.",
@@ -198,7 +198,7 @@
     "hidden": false
   },
   {
-    "question": "What distinguishes science from pseudoscience?",
+    "question": "The thing that distinguishes science from pseudoscience is",
     "chapter": "chapter-2",
     "answer1": "the use of statistics",
     "answer2": "the content area studied",
@@ -209,7 +209,7 @@
     "hidden": false
   },
   {
-    "question": "Dr. Lovejoy wanted to do research on real-world conditions that lead to aggression in 10-year-old children, defining aggression as “intent to harm another person.” She went to a local elementary school and videotaped a 10-minute recess period. She and her trained coders then coded the behavior of every child and counted the number of times each child acted aggressively. This is an example of what kind of research design?",
+    "question": "Dr. Dubois wanted to do research on real-world conditions that lead to aggression in 10-year-old children, defining aggression as “intent to harm another person.” She went to a local elementary school and videotaped a 10-minute recess period. She and her trained coders then coded the behavior of every child and counted the number of times each child acted aggressively. This is an example of what kind of research design?",
     "chapter": "chapter-2",
     "answer1": "descriptive",
     "answer2": "correlational",
@@ -220,7 +220,7 @@
     "hidden": false
   },
   {
-    "question": "templateIf Dr. Lovejoy wanted to examine whether certain personality traits make aggression more likely, she would probably use what kind of research design?",
+    "question": "If Dr. Doe wanted to examine whether certain personality traits make aggression more likely, she would probably use what kind of research design?",
     "chapter": "chapter-2",
     "answer1": "descriptive",
     "answer2": "correlational",

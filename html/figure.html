@@ -87,6 +87,7 @@
         const slug = location.search.split('titleslug=')[1]
         const data = await getData();
         const figurejson = data.find(element => element.titleslug === slug);
+        document.title = figurejson.name;
         showFigure(figurejson);
     }
 
