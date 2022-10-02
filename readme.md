@@ -1,4 +1,4 @@
-# PsychWiki
+# studypsychsocialscience
 
 - The purpose of the app is to provide a study aid to those studying Psychology.
 
