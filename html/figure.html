@@ -58,7 +58,7 @@
         <a href="https://www.acg.edu/undergraduate/academic-enrichment-programs/student-academic-support-services/">SASS</a>
         and <a href="https://dccyberclub.com">Cyber Club</a>.
     </p>
-    <p>Source is <a href="https://simple.wikipedia.org/wiki/Sigmund_Freud">Wikipedia</a>.
+    <p>Source is <a href="" id="source">Wikipedia</a>.
     </p>
 </footer>
 
@@ -87,6 +87,7 @@
         const data = await getData();
         const figurejson = data.find(element => element.titleslug === slug);
         document.title = figurejson.name;
+        document.getElementById("source").href = figurejson.source;
         showFigure(figurejson);
     }
 

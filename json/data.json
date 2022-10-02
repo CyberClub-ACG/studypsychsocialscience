@@ -407,10 +407,10 @@
     "hidden": false
   },
   {
-    "question": "Teratogens are",
+    "question": "What are Teratogens?",
     "chapter": "chapter-5",
     "answer1": "substances that can cause birth defects.",
-    "answer2": "substances that can cause birth defects.",
+    "answer2": "genes that turn on or off with exposure to viruses.",
     "answer3": "inborn fetal taste preferences.",
     "answer4": "factors that influence the generation of fetal brain tissue.",
     "correct": "answer1",

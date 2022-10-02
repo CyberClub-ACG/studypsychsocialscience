@@ -250,8 +250,10 @@
         }
 
         let newlistjson = [];
-
         Object.entries(datajson).forEach((value) => {
+            // bug? If you remove the line below... the search breaks because the value objects
+            // has a new field added to it with value === "0"
+            value = value[1];
             if (value.tags.trim().toLowerCase().includes(trimmedKeyword))
                 newlistjson.push(value);
             else if (value.question.trim().toLowerCase().includes(trimmedKeyword))
