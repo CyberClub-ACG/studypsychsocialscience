@@ -244,6 +244,8 @@
 
         const trimmedKeyword = keyword.toString().trim().toLowerCase();
 
+        cleanUpErrorsCorrects();
+
         if (trimmedKeyword === "") {
             showDataWithNoShuffle(datajson);
             return;
@@ -276,6 +278,19 @@
         showDataWithNoShuffle(newlistjson);
     }
 
+    function cleanUpErrorsCorrects() {
+        const nodestexts = document.getElementsByClassName("texts");
+
+        for (let i = 0; i < nodestexts.length; i++) {
+            nodestexts[i].childNodes.forEach(node => node.textContent = "");
+        }
+
+        const nodes = document.getElementsByClassName("ansbtn");
+
+        for (let i = 0; i < nodes.length; i++) {
+            nodes[i].disabled = false;
+        }
+    }
 
     function showOnly(event) {
         datajson = [...originaldatajson];
@@ -292,18 +307,7 @@
                 datatoshow.push(value);
         });
 
-        const nodestexts = document.getElementsByClassName("texts");
-
-        for (let i = 0; i < nodestexts.length; i++) {
-            nodestexts[i].childNodes.forEach(node => node.textContent = "");
-        }
-
-        const nodes = document.getElementsByClassName("ansbtn");
-
-        for (let i = 0; i < nodes.length; i++) {
-            nodes[i].disabled = false;
-        }
-
+        cleanUpErrorsCorrects();
 
         datajson = [];
         datajson = [...datatoshow];
