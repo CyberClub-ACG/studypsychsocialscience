@@ -1386,7 +1386,7 @@
     "hidden": false
   },
   {
-    "question": "José’s therapist asks to hear about José’s week. José tells \nhim about some difficulty he is having with his wife and \nhow he feels worthless in his marriage. The therapist \nexpresses his empathy and understanding. He tells \nJosé he knows what it’s like to feel worthless and how \nuncomfortable that feeling is. What therapeutic approach \nis José’s therapist taking?",
+    "question": "José’s therapist asks to hear about José’s week. José tells him about some difficulty he is having with his wife and how he feels worthless in his marriage. The therapist expresses his empathy and understanding. He tells José he knows what it’s like to feel worthless and how uncomfortable that feeling is. What therapeutic approach is José’s therapist taking?",
     "chapter": "chapter-16",
     "answer1": "humanistic/positive",
     "answer2": "cognitive–behavioral",
@@ -1397,7 +1397,7 @@
     "hidden": false
   },
   {
-    "question": "Which of the following methods is widely used for the ef\u0002fective treatment of simple phobias?",
+    "question": "Which of the following methods is widely used for the effective treatment of simple phobias?",
     "chapter": "chapter-16",
     "answer1": "flooding (implosion therapy)",
     "answer2": "token economies",
@@ -1408,7 +1408,7 @@
     "hidden": false
   },
   {
-    "question": "Often therapists integrate cognitive techniques for \nrestructuring irrational thoughts with behavioral tech\u0002niques to shape desirable behaviors in what is known as",
+    "question": "Often therapists integrate cognitive techniques for restructuring irrational thoughts with behavioral techniques to shape desirable behaviors in what is known as",
     "chapter": "chapter-16",
     "answer1": "cognitive–behavioral therapy.",
     "answer2": "humanistic thought therapy.",
@@ -1419,7 +1419,7 @@
     "hidden": false
   },
   {
-    "question": "Two disorders that virtual reality therapy is especially \nwell suited for treating are",
+    "question": "Two disorders that virtual reality therapy is especially well suited for treating are",
     "chapter": "chapter-16",
     "answer1": "phobias and trauma.",
     "answer2": "phobias and schizophrenia.",
@@ -1441,7 +1441,7 @@
     "hidden": false
   },
   {
-    "question": "Dr. Chisholm believes that different disorders require \ndifferent techniques and strategies for treatment. She is \nmost likely a practitioner of",
+    "question": "Dr. Chisholm believes that different disorders require different techniques and strategies for treatment. She is most likely a practitioner of",
     "chapter": "chapter-16",
     "answer1": "psychoanalysis",
     "answer2": "positive psychotherapy.",
@@ -1452,7 +1452,7 @@
     "hidden": false
   },
   {
-    "question": "Combining drugs with psychotherapy works well for \nwhich of the following disorders?",
+    "question": "Combining drugs with psychotherapy works well for which of the following disorders?",
     "chapter": "chapter-16",
     "answer1": "mood disorders",
     "answer2": "anxiety disorders",
@@ -1474,7 +1474,7 @@
     "hidden": false
   },
   {
-    "question": "Optogenetics has shown promise in the treatment of \nwhich of the following disorders?",
+    "question": "Optogenetics has shown promise in the treatment of which of the following disorders?",
     "chapter": "chapter-16",
     "answer1": "depression",
     "answer2": "schizophrenia",
@@ -1487,8 +1487,8 @@
   {
     "question": "How does Botox work to improve mood?",
     "chapter": "chapter-16",
-    "answer1": "by stimulating the brain centers involved in emotion \nand reward",
-    "answer2": "by paralyzing the facial muscles involved in negative \nemotions",
+    "answer1": "by stimulating the brain centers involved in emotion and reward",
+    "answer2": "by paralyzing the facial muscles involved in negative emotions",
     "answer3": "both a and b",
     "answer4": "neither a nor b",
     "correct": "answer2",
@@ -1496,7 +1496,7 @@
     "hidden": false
   },
   {
-    "question": "Psychedelics have been used to treat which psychological \ndisorder(s)?",
+    "question": "Psychedelics have been used to treat which psychological disorder(s)?",
     "chapter": "chapter-16",
     "answer1": "addiction",
     "answer2": "severe depression",

@@ -121,6 +121,62 @@
 
     init();
 
+    async function showDataWithNoShuffle(datatoshow) {
+        let elements = [];
+        await datatoshow.forEach((datum, index) => {
+            const element = (
+                <section className="chapter" key={index}>
+                    <div className="box">
+                        <div className="title">
+                            <h3>{datum.question}</h3>
+                        </div>
+                        <div className="answers">
+                            <ol>
+                                <li>
+                                    <button className="ansbtn" id={"button-" + index + "-0"}
+                                            onClick={() => testAnswer(index, "answer1", 0)}>
+                                        {datum.answer1}
+                                    </button>
+                                </li>
+                                <li>
+                                    <button className="ansbtn" id={"button-" + index + "-1"}
+                                            onClick={() => testAnswer(index, "answer2", 1)}>
+                                        {datum.answer2}
+                                    </button>
+                                </li>
+                                <li>
+                                    <button className="ansbtn" id={"button-" + index + "-2"}
+                                            onClick={() => testAnswer(index, "answer3", 2)}>
+                                        {datum.answer3}
+                                    </button>
+                                </li>
+                                <li>
+                                    <button className="ansbtn" id={"button-" + index + "-3"}
+                                            onClick={() => testAnswer(index, "answer4", 3)}>
+                                        {datum.answer4}
+                                    </button>
+                                </li>
+                            </ol>
+                        </div>
+                        <div className="texts">
+                            <div id={"statushere-" + index}>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            );
+
+            elements.push(element);
+        });
+
+        questionsnumber = datatoshow.length;
+        correctanswers = 0;
+
+        await root.render(elements);
+        updateProgress(questionsnumber);
+    }
+
+
     async function showData(datatoshow) {
         let elements = [];
         await datatoshow.forEach((datum, index) => {
@@ -190,13 +246,13 @@
         const trimmedKeyword = keyword.toString().trim().toLowerCase();
 
         if (trimmedKeyword === "") {
-            showData(datajson);
+            showDataWithNoShuffle(datajson);
             return;
         }
 
         let newlistjson = [];
 
-        Object.entries(datajson).forEach(([key, value]) => {
+        Object.entries(datajson).forEach((value) => {
             if (value.tags.trim().toLowerCase().includes(trimmedKeyword))
                 newlistjson.push(value);
             else if (value.question.trim().toLowerCase().includes(trimmedKeyword))
@@ -216,7 +272,7 @@
 
         document.getElementById("chapterselect").value = "0";
 
-        showData(newlistjson);
+        showDataWithNoShuffle(newlistjson);
     }
 
 
