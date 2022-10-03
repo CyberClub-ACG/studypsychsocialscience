@@ -133,25 +133,25 @@
                             <ol>
                                 <li>
                                     <button className="ansbtn" id={"button-" + index + "-0"}
-                                            onClick={() => testAnswer(index, "answer1", 0)}>
+                                            onClick={() => testAnswer(index, "answer1", 0, datatoshow)}>
                                         {datum.answer1}
                                     </button>
                                 </li>
                                 <li>
                                     <button className="ansbtn" id={"button-" + index + "-1"}
-                                            onClick={() => testAnswer(index, "answer2", 1)}>
+                                            onClick={() => testAnswer(index, "answer2", 1, datatoshow)}>
                                         {datum.answer2}
                                     </button>
                                 </li>
                                 <li>
                                     <button className="ansbtn" id={"button-" + index + "-2"}
-                                            onClick={() => testAnswer(index, "answer3", 2)}>
+                                            onClick={() => testAnswer(index, "answer3", 2, datatoshow)}>
                                         {datum.answer3}
                                     </button>
                                 </li>
                                 <li>
                                     <button className="ansbtn" id={"button-" + index + "-3"}
-                                            onClick={() => testAnswer(index, "answer4", 3)}>
+                                            onClick={() => testAnswer(index, "answer4", 3, datatoshow)}>
                                         {datum.answer4}
                                     </button>
                                 </li>
@@ -189,25 +189,25 @@
                             <ol>
                                 <li>
                                     <button className="ansbtn" id={"button-" + index + "-0"}
-                                            onClick={() => testAnswer(index, "answer1", 0)}>
+                                            onClick={() => testAnswer(index, "answer1", 0, datatoshow)}>
                                         {datum.answer1}
                                     </button>
                                 </li>
                                 <li>
                                     <button className="ansbtn" id={"button-" + index + "-1"}
-                                            onClick={() => testAnswer(index, "answer2", 1)}>
+                                            onClick={() => testAnswer(index, "answer2", 1, datatoshow)}>
                                         {datum.answer2}
                                     </button>
                                 </li>
                                 <li>
                                     <button className="ansbtn" id={"button-" + index + "-2"}
-                                            onClick={() => testAnswer(index, "answer3", 2)}>
+                                            onClick={() => testAnswer(index, "answer3", 2, datatoshow)}>
                                         {datum.answer3}
                                     </button>
                                 </li>
                                 <li>
                                     <button className="ansbtn" id={"button-" + index + "-3"}
-                                            onClick={() => testAnswer(index, "answer4", 3)}>
+                                            onClick={() => testAnswer(index, "answer4", 3, datatoshow)}>
                                         {datum.answer4}
                                     </button>
                                 </li>
@@ -314,8 +314,8 @@
         showData(datatoshow);
     }
 
-    function testAnswer(index, answerselected, indexBtn) {
-        const coorectanswer = datajson[index].correct;
+    function testAnswer(index, answerselected, indexBtn, data) {
+        const coorectanswer = data[index].correct;
         if (coorectanswer === answerselected) {
             document.getElementById("statushere-" + index).innerText = "✅ You got it right. Keep up the GREAT work buddy👍";
             document.getElementById("button-" + index + "-" + 0).disabled = true;
