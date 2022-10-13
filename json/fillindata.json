@@ -1,0 +1,102 @@
+[
+  {
+    "id": 0,
+    "question": "_______ explores how _______ and _______ change and show stability across the _______ span.",
+    "chapter": "chapter-1",
+    "answers": {
+      "answer1": "Developmental Psychology",
+      "answer2": "behavior",
+      "answer3": "thought",
+      "answer4": "life"
+    },
+    "tags": "test, test 1, test ",
+    "amountofspaces": 4,
+    "correct": [
+      "Developmental Psychology",
+      "thought",
+      "behavior",
+      "life"
+    ],
+    "hidden": false
+  },
+  {
+    "id": 1,
+    "question": "__________ is the branch of psychology that aims to uncover the adaptive problems the human mind may have solved in the distant past and the effect of natural selection on behavior today.",
+    "chapter": "chapter-1",
+    "answers": {
+      "answer1": "Evolutionary",
+      "answer2": "Adaptive",
+      "answer3": "Functional"
+    },
+    "tags": "test, test 1, test ",
+    "amountofspaces": 1,
+    "correct": [
+      "Evolutionary"
+    ],
+    "hidden": false
+  },
+  {
+    "id": 2,
+    "question": "The 19th century school of _________ proposed that we remember, think and feel the ways we do because they help us survive as a species.",
+    "chapter": "chapter-1",
+    "answers": {
+      "answer1": "Structuralism",
+      "answer2": "Empiricism",
+      "answer3": "Functionalism"
+    },
+    "tags": "test, test 1, test ",
+    "amountofspaces": 1,
+    "correct": [
+      "Functionalism"
+    ],
+    "hidden": false
+  },
+  {
+    "id": 3,
+    "question": "The person who first taught the science of psychology by studying the mind at a Laboratory in Germany is ________.",
+    "chapter": "chapter-1",
+    "answers": {
+      "answer1": "Wilhelm Wundt",
+      "answer2": "William James",
+      "answer3": "Sigmund Freud"
+    },
+    "tags": "test, test 1, test ",
+    "amountofspaces": 1,
+    "correct": [
+      "Wilhelm Wundt"
+    ],
+    "hidden": false
+  },
+  {
+    "id": 4,
+    "question": "___________ is the study of how people psychologically perceive physical stimuli, such as light, sound and touch.",
+    "chapter": "chapter-1",
+    "answers": {
+      "answer1": "Empiricism",
+      "answer2": "Cognitivism",
+      "answer3": "Psychophysics"
+    },
+    "tags": "test, test 1, test ",
+    "amountofspaces": 1,
+    "correct": [
+      "Psychophysics"
+    ],
+    "hidden": false
+  },
+  {
+    "id": 5,
+    "question": "The philosophical view which emphasized the origins of knowledge from experience and contributed to the development of scientific Psychology is known as _________.",
+    "chapter": "chapter-1",
+    "answers": {
+      "answer1": "Empiricism",
+      "answer2": "Scientifism",
+      "answer3": "Reasonism"
+    },
+    "tags": "test, test 1, test ",
+    "amountofspaces": 1,
+    "correct": [
+      "Empiricism"
+    ],
+    "hidden": false
+  }
+]
