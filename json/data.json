@@ -1,5 +1,4 @@
-[
-  {
+[{
     "question": "According to the definition of psychology, which of the following is a thought process?",
     "chapter": "chapter-1",
     "answer1": "swimming",
@@ -410,7 +409,7 @@
     "question": "An additional variable whose influence cannot be separated from the independent variable being examined is termed as a(n) _________.",
     "chapter": "chapter-2",
     "answer1": "dependent variable",
-    "answer2": "confounding variable",
+    "answer2": "cofounding variable",
     "answer3": "average variable",
     "answer4": "quantitative variable",
     "tags": "test, test 1, test ",
@@ -1430,14 +1429,220 @@
     "hidden": false
   },
   {
-    "question": "Is",
+    "question": "In an experiment, the outcome or response to the experimental manipulation.",
     "chapter": "chapter-2",
-    "answer1": "interview",
-    "answer2": "qualitative",
-    "answer3": "quantitative",
-    "answer4": "sampling",
+    "answer1": "dependent variable",
+    "answer2": "independent variable",
+    "answer3": "experiment",
+    "answer4": "sample",
+    "tags": "test, test 1, test ",
+    "correct": "answer1",
+    "hidden": false
+  },
+  {
+    "question": "A property that is manipulated by the experimenter under controlled conditions to determine whether it causes the predicted outcome of an experiment.",
+    "chapter": "chapter-2",
+    "answer1": "dependent variable",
+    "answer2": "independent variable",
+    "answer3": "sample",
+    "answer4": "confound varable",
+    "tags": "test, test 1, test ",
+    "correct": "answer2",
+    "hidden": false
+  },
+  {
+    "question": "The method used to assign participants to different research conditions, so that all participants have the same chance of being in any specific group.",
+    "chapter": "chapter-2",
+    "answer1": "random assignment",
+    "answer2": "experimental assignment",
+    "answer3": "control group",
+    "answer4": "placebo",
+    "tags": "test, test 1, test ",
+    "correct": "answer1",
+    "hidden": false
+  },
+  {
+    "question": "A group consisting of those participants who will receive the treatment or whatever is predicted to change behavior",
+    "chapter": "chapter-2",
+    "answer1": "control group",
+    "answer2": "experimental group",
+    "tags": "test, test 1, test ",
+    "correct": "answer2",
+    "hidden": false
+  },
+  {
+    "question": "control group",
+    "chapter": "chapter-2",
+    "answer1": "experimental group",
+    "answer2": "control group",
+    "tags": "test, test 1, test ",
+    "correct": "answer2",
+    "hidden": false
+  },
+  {
+    "question": "A substance or treatment that appears identical to the actual treatment but lacks the active substance.",
+    "chapter": "chapter-2",
+    "answer1": "placebo",
+    "answer2": "nocebo",
+    "tags": "test, test 1, test ",
+    "correct": "answer1",
+    "hidden": false
+  },
+  {
+    "question": "The variable whose influence on the dependent variable cannot be separated from the independent variable being examined",
+    "chapter": "chapter-2",
+    "answer1": "placebo",
+    "answer2": "nocebo",
+    "answer3": "experimental",
+    "answer4": "cofounding variable",
     "tags": "test, test 1, test ",
     "correct": "answer4",
+    "hidden": false
+  },
+  {
+    "question": "A harmless substance or treatment that when taken by or administered to a patient is associated with harmful side effects or worsening of symptoms due to negative expectations or the psychological condition of the patient.",
+    "chapter": "chapter-2",
+    "answer1": "nocebo",
+    "answer2": "placebo",
+    "tags": "test, test 1, test ",
+    "correct": "answer1",
+    "hidden": false
+  },
+  {
+    "question": "A research method similar to an experimental design except that it makes use of naturally occurring groups rather than randomly assigning subjects to groups.",
+    "chapter": "chapter-2",
+    "answer1": "double-experimental design",
+    "answer2": "quasi-experimental design",
+    "answer3": "single blind",
+    "answer4": "double blind",
+    "tags": "test, test 1, test ",
+    "correct": "answer1",
+    "hidden": false
+  },
+  {
+    "question": "Studies in which participants do not know the experimental condition (group) to which they have been assigned.",
+    "chapter": "chapter-2",
+    "answer1": "single-blind studies",
+    "answer2": "double-blind studies",
+    "answer3": "triple-blind studies",
+    "answer4": "quasi-blind studies",
+    "tags": "test, test 1, test ",
+    "correct": "answer1",
+    "hidden": false
+  },
+  {
+    "question": "Studies in which neither the participants nor the researchers administering the treatment know who has been assigned to the experimental or control group.",
+    "chapter": "chapter-2",
+    "answer1": "single-blind studies",
+    "answer2": "double-blind studies",
+    "answer3": "triple-blind studies",
+    "answer4": "quasi-blind studies",
+    "tags": "test, test 1, test ",
+    "correct": "answer2",
+    "hidden": false
+  },
+  {
+    "question": "A result that occurs when the behavior of the participants is influenced by the experimenter’s knowledge of who is in the control group and who is in the experimental group",
+    "chapter": "chapter-2",
+    "answer1": "experimenter expectancy effects",
+    "answer2": "double-blind methods",
+    "answer3": "self fulfilling prophecy",
+    "answer4": "single blind study",
+    "tags": "test, test 1, test ",
+    "correct": "answer1",
+    "hidden": false
+  },
+  {
+    "question": "Subtle, often unconscious, cues given by experimenters to the participants as to how they should behave in the role of participant",
+    "chapter": "chapter-2",
+    "answer1": "experimenter expectancy effects",
+    "answer2": "double-blind methods",
+    "answer3": "demand characteristics",
+    "answer4": "single blind study",
+    "tags": "test, test 1, test ",
+    "correct": "answer2",
+    "hidden": false
+  },
+  {
+    "question": "Make observations of the same people over time, ranging from months to decades.",
+    "chapter": "chapter-2",
+    "answer1": "longitudinal designs",
+    "answer2": "short term studies",
+    "answer3": "longitudinal research studies",
+    "answer4": "longterm designs",
+    "tags": "test, test 1, test ",
+    "correct": "answer4",
+    "hidden": false
+  },
+  {
+    "question": "Twins that develop from a single fertilized egg that splits into two independent cells",
+    "chapter": "chapter-2",
+    "answer1": "identical twins",
+    "answer2": "frateranl twins",
+    "tags": "test, test 1, test ",
+    "correct": "answer1",
+    "hidden": false
+  },
+  {
+    "question": "Twins that develop from two different eggs fertilized by two different sperm.",
+    "chapter": "chapter-2",
+    "answer1": "identical twins",
+    "answer2": "frateranl twins",
+    "tags": "test, test 1, test ",
+    "correct": "answer2",
+    "hidden": false
+  },
+  {
+    "question": "A method of studying heritability by comparing genetic markers; allows researchers to assess how genetic differences interact with the environment to produce certain behaviors in some people but not in others.",
+    "chapter": "chapter-2",
+    "answer1": "gene-by-environment interaction research",
+    "answer2": "gene-by-nurture interaction research",
+    "answer3": "gene-by-nature interaction research",
+    "answer4": "gene-by-nature research",
+    "tags": "test, test 1, test ",
+    "correct": "answer1",
+    "hidden": false
+  },
+  {
+    "question": "A research technique for combining all research results on one question and drawing a conclusion.",
+    "chapter": "chapter-2",
+    "answer1": "meta-analysis",
+    "answer2": "critical analysis",
+    "answer3": "meta thinking",
+    "answer4": "meta cognitive thinking",
+    "tags": "test, test 1, test ",
+    "correct": "answer1",
+    "hidden": false
+  },
+  {
+    "question": "A measure of the strength of the relationship between two variables or the extent of an experimental effect.",
+    "chapter": "chapter-2",
+    "answer1": "effect size",
+    "answer2": "effect signifance",
+    "answer3": "correlation signifance",
+    "answer4": "correlation size",
+    "tags": "test, test 1, test ",
+    "correct": "answer1",
+    "hidden": false
+  },
+  {
+    "question": "Extremely large amount of data captured from online behaviors (especially social media), which are then collected and analyzed for patterns by sophisticated analytic programs.",
+    "chapter": "chapter-2",
+    "answer1": "big data",
+    "answer2": "large scale",
+    "answer3": "scaling",
+    "answer4": "AI",
+    "tags": "test, test 1, test ",
+    "correct": "answer1",
+    "hidden": false
+  },
+  {
+    "question": "A statement that affects events to cause the prediction to become true",
+    "chapter": "chapter-2",
+    "answer1": "self-fulfilling prophecy",
+    "answer2": "self-serving prophecy",
+    "tags": "test, test 1, test ",
+    "correct": "answer1",
     "hidden": false
   },
   {
@@ -1535,50 +1740,6 @@
     "answer2": "case study",
     "answer3": "correlational",
     "answer4": "experimental",
-    "tags": "test, test 1, test ",
-    "correct": "answer2",
-    "hidden": false
-  },
-  {
-    "question": "___dsasdasdadasdadsdadasdasdasde",
-    "chapter": "chapter-2",
-    "answer1": "testoneasdadas",
-    "answer2": "correct",
-    "answer3": "",
-    "answer4": "",
-    "tags": "test, test 1, test ",
-    "correct": "answer2",
-    "hidden": false
-  },
-  {
-    "question": "_______ testone",
-    "chapter": "chapter-2",
-    "answer1": "testone",
-    "answer2": "testone",
-    "answer3": "testone.",
-    "answer4": "testone",
-    "tags": "test, test 1, test ",
-    "correct": "answer2",
-    "hidden": false
-  },
-  {
-    "question": "_______ testone",
-    "chapter": "chapter-2",
-    "answer1": "testone",
-    "answer2": "testone",
-    "answer3": "testone.",
-    "answer4": "testone",
-    "tags": "test, test 1, test ",
-    "correct": "answer2",
-    "hidden": false
-  },
-  {
-    "question": "_______ testone",
-    "chapter": "chapter-2",
-    "answer1": "testone",
-    "answer2": "testone",
-    "answer3": "testone.",
-    "answer4": "testone",
     "tags": "test, test 1, test ",
     "correct": "answer2",
     "hidden": false
@@ -1687,7 +1848,7 @@
     "chapter": "chapter-2",
     "answer1": "double-blind studies.",
     "answer2": "self-fulfilling prophecy.",
-    "answer3": "confounding variables.",
+    "answer3": "cofounding variables.",
     "answer4": "experimental manipulation",
     "correct": "answer2",
     "tags": "test, test 1, test ",
