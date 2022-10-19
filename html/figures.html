@@ -14,116 +14,116 @@
 </head>
 
 <body>
-<header>
-    <nav>
-        <ul>
-            <li><a href="../index.html">Quiz</a></li>
-            <li><a href="./fillin.html">Fill in</a></li>
-            <li>
-                <div class="dropdown" style="margin: 0; text-decoration: underline">Summaries
-                    <div class="dropdown-content">
-                        <a href="../chapters/introduction-to-psychology.html">Introduction to Psychology</a>
-                        <a href="../chapters/conducting-research-in-psychology.html">Conducting Research in
-                            Psychology</a>
-                        <a href="../chapters/human-development.html">Human Development</a>
-                        <a href="../chapters/intelligence-problem-solving-creativity.html">Intelligence, Problem
-                            Solving, and
-                            Creativity</a>
-                        <a href="../chapters/stress-and-health.html">Stress and Health</a>
-                        <a href="../chapters/personality-the-uniqueness-of-the-individual.html">Personality: The
-                            Uniqueness of the
-                            Individual</a>
-                        <a href="../chapters/social-behavior.html">Social Behavior</a>
-                        <a href="../chapters/psychological-disorders.html">Psychological Disorders</a>
-                        <a href="../chapters/treatment-of-psychological-disorders.html">Treatment of Psychological
-                            Disorders</a>
-                    </div>
-                </div>
-            </li>
-            <li><a href="./bank.html">Questions Bank</a></li>
-            <li><a href="./figures.html">Figures</a></li>
-            <li style="float: right"><a href="./about.html">About</a></li>
-
-        </ul>
-    </nav>
-</header>
-
-<main>
-    <div class="figureslist">
-        <h3>A collection of important figures in Psychology</h3>
-        <ol id="root">
-        </ol>
-    </div>
-    <br>
-    <br>
-    <br>
-</main>
-
-<footer>
-    <p>This project was created by <a href="https://alexkourtis.me">Alexandros Kourtis</a>
-        <!--        and supported by-->
-        <!--        <a href="https://www.acg.edu/undergraduate/academic-enrichment-programs/student-academic-support-services/">SASS</a>-->
-        <!--        and <a href="https://dccyberclub.com">Cyber Club</a>.-->
-    </p>
-    <p>Source is <a href="https://simple.wikipedia.org/">Wikipedia</a>.
-    </p>
-</footer>
-
-<script type="text/babel">
-
-    let datajson = []
-    let originaldatajson = [];
-
-    const root = ReactDOM.createRoot(
-        document.getElementById('root')
-    );
-
-    init();
-
-    function showData(datatoshow) {
-        let elements = [];
-        datatoshow.forEach((datum, index) => {
-            const element = (
-                <li key={index}>
-                    <div style={{
-                        "justifyContent": "start",
-                        "display": "flex",
-                        "alignItems": "center",
-                        "marginBottom": "20px"
-                    }}>
-                        <img alt=""
-                             src={datum.img}
-                             style={{
-                                 "width": "150px",
-                                 "objectFit": "contain"
-                             }}/>
-                        <div style={{"marginLeft": "20px"}}>
-                            <h3><a href={`figure.html?titleslug=${datum.titleslug}`}>{datum.name}</a></h3>
-                            <p>{datum.shortdesc}</p>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Quiz</a></li>
+                <li><a href="./fillin.html">Fill in</a></li>
+                <li>
+                    <div class="dropdown" style="margin: 0; text-decoration: underline">Summaries
+                        <div class="dropdown-content">
+                            <a href="../chapters/introduction-to-psychology.html">Introduction to Psychology</a>
+                            <a href="../chapters/conducting-research-in-psychology.html">Conducting Research in
+                                Psychology</a>
+                            <!-- <a href="../chapters/human-development.html">Human Development</a>
+                    <a href="../chapters/intelligence-problem-solving-creativity.html">Intelligence, Problem
+                        Solving, and
+                        Creativity</a>
+                    <a href="../chapters/stress-and-health.html">Stress and Health</a>
+                    <a href="../chapters/personality-the-uniqueness-of-the-individual.html">Personality: The
+                        Uniqueness of the
+                        Individual</a> -->
+                            <a href="../chapters/social-behavior.html">Social Behavior</a>
+                            <!-- <a href="../chapters/psychological-disorders.html">Psychological Disorders</a> -->
+                            <!-- <a href="../chapters/treatment-of-psychological-disorders.html">Treatment of Psychological -->
+                            <!-- Disorders</a> -->
                         </div>
                     </div>
                 </li>
-            );
+                <li><a href="./bank.html">Questions Bank</a></li>
+                <li><a href="./figures.html">Figures</a></li>
+                <li style="float: right"><a href="./about.html">About</a></li>
 
-            elements.push(element);
-        });
+            </ul>
+        </nav>
+    </header>
 
-        root.render(elements);
-    }
+    <main>
+        <div class="figureslist">
+            <h3>A collection of important figures in Psychology</h3>
+            <ol id="root">
+            </ol>
+        </div>
+        <br>
+        <br>
+        <br>
+    </main>
 
-    async function init() {
-        datajson = await getData();
-        originaldatajson = datajson;
-        showData(datajson);
-    }
+    <footer>
+        <p>This project was created by <a href="https://alexkourtis.me">Alexandros Kourtis</a>
+            <!--        and supported by-->
+            <!--        <a href="https://www.acg.edu/undergraduate/academic-enrichment-programs/student-academic-support-services/">SASS</a>-->
+            <!--        and <a href="https://dccyberclub.com">Cyber Club</a>.-->
+        </p>
+        <p>Source is <a href="https://simple.wikipedia.org/">Wikipedia</a>.
+        </p>
+    </footer>
 
-    async function getData() {
-        return await fetch('../json/figures.json')
-            .then(response => response.json())
-            .then(data => data)
-            .catch(error => console.log(error));
-    }
-</script>
+    <script type="text/babel">
+
+        let datajson = []
+        let originaldatajson = [];
+
+        const root = ReactDOM.createRoot(
+            document.getElementById('root')
+        );
+
+        init();
+
+        function showData(datatoshow) {
+            let elements = [];
+            datatoshow.forEach((datum, index) => {
+                const element = (
+                    <li key={index}>
+                        <div style={{
+                            "justifyContent": "start",
+                            "display": "flex",
+                            "alignItems": "center",
+                            "marginBottom": "20px"
+                        }}>
+                            <img alt=""
+                                src={datum.img}
+                                style={{
+                                    "width": "150px",
+                                    "objectFit": "contain"
+                                }} />
+                            <div style={{ "marginLeft": "20px" }}>
+                                <h3><a href={`figure.html?titleslug=${datum.titleslug}`}>{datum.name}</a></h3>
+                                <p>{datum.shortdesc}</p>
+                            </div>
+                        </div>
+                    </li>
+                );
+
+                elements.push(element);
+            });
+
+            root.render(elements);
+        }
+
+        async function init() {
+            datajson = await getData();
+            originaldatajson = datajson;
+            showData(datajson);
+        }
+
+        async function getData() {
+            return await fetch('../json/figures.json')
+                .then(response => response.json())
+                .then(data => data)
+                .catch(error => console.log(error));
+        }
+    </script>
 </body>
 
 </html>
