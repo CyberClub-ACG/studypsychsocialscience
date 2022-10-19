@@ -39,25 +39,25 @@
     "answer3": "modeling appropriate behaviors.",
     "answer4": "helping them change their environment.",
     "tags": "test, test 1, test ",
-    "correct": "answer2",
+    "correct": "answer1",
     "hidden": false
   },
   {
     "question": "The organizational side of industrial/organizational psychology: ",
     "chapter": "chapter-1",
-    "answer1": "involves matching employees to their job and uses psychological methods to select and evaluate employees.",
+    "answer1": "involves matching employees to their job and uses psychological methods to select and evaluate employees/aims to increase productivity and satisfaction of workers by considering how the work environment and management styles influence worker motivation, satisfaction, and productivity.",
     "answer2": "focuses on the treatment of mental, emotional, and behavioral disorders and ways to promote psychological health.",
-    "answer3": "aims to increase productivity and satisfaction of workers by considering how the work environment and management styles influence worker motivation, satisfaction, and productivity.",
-    "answer4": "considers what makes people unique as well as the consistencies in people's behavior across time and situations.",
+    "answer3": "",
+    "answer4": "",
     "tags": "test, test 1, test ",
-    "correct": "answer2",
+    "correct": "answer1",
     "hidden": false
   },
   {
     "question": "Which of the following statements is true of psychology? ",
     "chapter": "chapter-1",
     "answer1": "It is more likely to study the brain and behavior than the mind.",
-    "answer2": "It uses common sense and introspection.",
+    "answer2": "It is a core science.",
     "answer3": "It uses common sense and introspection.",
     "answer4": "It is not a science, but a clinical practice.",
     "tags": "test, test 1, test ",
@@ -65,14 +65,14 @@
     "hidden": false
   },
   {
-    "question": "Alexia wrote at popular magazine an article titled 'Dating in the 21st Century' where she analyzed her own dating experiences and those of her friends. This type of psychology is known as _____________.",
+    "question": "Alexia wrote at a popular magazine an article titled 'Dating in the 21st Century' where she analyzed her own dating experiences and those of her friends. This type of psychology is known as _____________.",
     "chapter": "chapter-1",
     "answer1": "folk psychology",
     "answer2": "social psychology",
     "answer3": "social psychology",
     "answer4": "human attraction psychology",
     "tags": "test, test 1, test ",
-    "correct": "answer2",
+    "correct": "answer1",
     "hidden": false
   },
   {
@@ -94,7 +94,7 @@
     "answer3": "Counseling",
     "answer4": "Clinical",
     "tags": "test, test 1, test ",
-    "correct": "answer2",
+    "correct": "answer3",
     "hidden": false
   },
   {
@@ -105,7 +105,7 @@
     "answer3": "Providing career counseling to students of criminal justice",
     "answer4": "Evaluating the state of mind of a defendant at the time of a crime",
     "tags": "test, test 1, test ",
-    "correct": "answer2",
+    "correct": "answer4",
     "hidden": false
   },
   {
@@ -116,7 +116,7 @@
     "answer3": "is a modern view, known as the medical model perspective ",
     "answer4": "is associated with the method of trephination ",
     "tags": "test, test 1, test ",
-    "correct": "answer2",
+    "correct": "answer3",
     "hidden": false
   },
   {
@@ -125,9 +125,9 @@
     "answer1": "psychologists test predictions about behavior with systematic observations and by gathering data.",
     "answer2": "psychology is based on the laws of nature.",
     "answer3": "psychology originates from medicine.",
-    "answer4": "psychology originates from medicine.",
+    "answer4": "",
     "tags": "test, test 1, test ",
-    "correct": "answer2",
+    "correct": "answer1",
     "hidden": false
   },
   {
@@ -149,7 +149,7 @@
     "answer3": "behaviorist",
     "answer4": "gestalt psychologist",
     "tags": "test, test 1, test ",
-    "correct": "answer2",
+    "correct": "answer3",
     "hidden": false
   },
   {
@@ -160,7 +160,7 @@
     "answer3": "Gestalt",
     "answer4": "Positive",
     "tags": "test, test 1, test ",
-    "correct": "answer2",
+    "correct": "answer4",
     "hidden": false
   },
   {
@@ -171,7 +171,7 @@
     "answer3": "inborn tendencies and genetically based traits.",
     "answer4": "introspection and analysis.",
     "tags": "test, test 1, test ",
-    "correct": "answer2",
+    "correct": "answer3",
     "hidden": false
   },
   {
@@ -182,7 +182,7 @@
     "answer3": "an emphasis on careful, controlled observation",
     "answer4": "a belief in the power of suggestion",
     "tags": "test, test 1, test ",
-    "correct": "answer2",
+    "correct": "answer3",
     "hidden": false
   },
   {
@@ -193,7 +193,7 @@
     "answer3": "psychoanalysis",
     "answer4": "behaviorism",
     "tags": "test, test 1, test ",
-    "correct": "answer2",
+    "correct": "answer1",
     "hidden": false
   },
   {
@@ -204,7 +204,7 @@
     "answer3": "cognitive psychologist",
     "answer4": "humanistic psychologist",
     "tags": "test, test 1, test ",
-    "correct": "answer2",
+    "correct": "answer3",
     "hidden": false
   },
   {
@@ -215,24 +215,13 @@
     "answer3": "Positive",
     "answer4": "Holistic",
     "tags": "test, test 1, test ",
-    "correct": "answer2",
-    "hidden": false
-  },
-  {
-    "question": "According to the nature-only view, who we are comes from: ",
-    "chapter": "chapter-1",
-    "answer1": "environmental forces.",
-    "answer2": "inborn tendencies and genetically based traits. ",
-    "answer3": "our experiences.",
-    "answer4": "introspection and analysis.",
-    "tags": "test, test 1, test ",
-    "correct": "answer2",
+    "correct": "answer1",
     "hidden": false
   },
   {
     "question": "Which of the following is an example of social facilitation? ",
     "chapter": "chapter-14",
-    "answer1": "Which of the following is an example of social facilitation? ",
+    "answer1": "",
     "answer2": "Natalia works better at meeting deadlines when she is not the only one working on a project.",
     "answer3": "Joe and a group of tourists he is guiding witness a crime but do not move forward to help, thinking that the other witnesses will.",
     "answer4": "Tom allows himself to get persuaded by his peers to drink a few extra beers.",
@@ -248,7 +237,7 @@
     "answer3": "Individuals tend to relax their standards in the presence of others.",
     "answer4": "People readily get influenced by others in order to be more widely accepted.",
     "tags": "test, test 1, test ",
-    "correct": "answer2",
+    "correct": "answer3",
     "hidden": false
   },
   {
@@ -259,7 +248,7 @@
     "answer3": "They are environmental factors that enable people to perform a task better in the presence of others.",
     "answer4": "They are the same across cultures.",
     "tags": "test, test 1, test ",
-    "correct": "answer2",
+    "correct": "answer1",
     "hidden": false
   },
   {
@@ -270,7 +259,7 @@
     "answer3": "Prosocial behavior",
     "answer4": "Informational social influence",
     "tags": "test, test 1, test ",
-    "correct": "answer2",
+    "correct": "answer4",
     "hidden": false
   },
   {
@@ -287,9 +276,9 @@
   {
     "question": "Psychologist Stanley Milgram's experiments show that:",
     "chapter": "chapter-2",
-    "answer1": "reasonable people may do things that seem cruel and unusual in the presence of powerful social influence.",
+    "answer1": "",
     "answer2": "reasonable people may do things that seem cruel and unusual in the presence of powerful social influence.",
-    "answer3": "people tend to explain others' behavior based on their own personal experiences.",
+    "answer3": "",
     "answer4": "people tend to explain others' behavior based on their own personal experiences.",
     "tags": "test, test 1, test ",
     "correct": "answer2",
@@ -303,7 +292,7 @@
     "answer3": "informational social influence",
     "answer4": "diffusion of responsibility",
     "tags": "test, test 1, test ",
-    "correct": "answer2",
+    "correct": "answer4",
     "hidden": false
   },
   {
@@ -314,7 +303,7 @@
     "answer3": "behavioral",
     "answer4": "informational",
     "tags": "test, test 1, test ",
-    "correct": "answer2",
+    "correct": "answer3",
     "hidden": false
   },
   {
@@ -336,7 +325,7 @@
     "answer3": "Science encourages open skepticism of its findings, whereas pseudoscience does not.",
     "answer4": "Science makes no real advances in knowledge, whereas pseudoscience does.",
     "tags": "test, test 1, test ",
-    "correct": "answer2",
+    "correct": "answer3",
     "hidden": false
   },
   {
@@ -347,7 +336,7 @@
     "answer3": "test",
     "answer4": "predict",
     "tags": "test, test 1, test ",
-    "correct": "answer2",
+    "correct": "answer1",
     "hidden": false
   },
   {
@@ -369,7 +358,7 @@
     "answer3": "nocebo",
     "answer4": "placebo",
     "tags": "test, test 1, test ",
-    "correct": "answer2",
+    "correct": "answer1",
     "hidden": false
   },
   {
@@ -380,7 +369,7 @@
     "answer3": "Behavioral measures",
     "answer4": "Physiological measures",
     "tags": "test, test 1, test ",
-    "correct": "answer2",
+    "correct": "answer4",
     "hidden": false
   },
   {
@@ -2672,190 +2661,366 @@
     "hidden": false
   },
   {
-    "question": "Istesttesttest",
+    "question": "A phenomenon in which the presence of others improves one’s performance.",
     "chapter": "chapter-14",
-    "answer1": "interview",
-    "answer2": "qualitative",
-    "answer3": "quantitative",
-    "answer4": "sampling",
+    "answer1": "social intervention",
+    "answer2": "social loafing",
+    "answer3": "social facilitation",
+    "answer4": "social improvement",
+    "tags": "test, test 1, test ",
+    "correct": "answer2",
+    "hidden": false
+  },
+  {
+    "question": "A phenomenon in which the presence of others causes one to relax one’s standards and slack off.",
+    "chapter": "chapter-14",
+    "answer1": "social intervention",
+    "answer2": "social loafing",
+    "answer3": "social facilitation",
+    "answer4": "social improvement",
+    "tags": "test, test 1, test ",
+    "correct": "answer2",
+    "hidden": false
+  },
+  {
+    "question": "Rules about acceptable behavior imposed by the cultural context in which one lives.",
+    "chapter": "chapter-14",
+    "answer1": "social rules",
+    "answer2": "socially accepted rules",
+    "answer3": "cultural norm",
+    "answer4": "social norms",
     "tags": "test, test 1, test ",
     "correct": "answer4",
     "hidden": false
   },
   {
-    "question": "Istesttesttest",
+    "question": "The tendency of people to adjust their behavior to what others are doing or to adhere to the norms of their culture.",
     "chapter": "chapter-14",
-    "answer1": "interview",
-    "answer2": "qualitative",
-    "answer3": "quantitative",
-    "answer4": "sampling",
+    "answer1": "conformity",
+    "answer2": "social norms",
+    "answer3": "attitude",
+    "answer4": "attribution",
+    "tags": "test, test 1, test ",
+    "correct": "answer1",
+    "hidden": false
+  },
+  {
+    "question": "Conformity to the behavior of others because one views them as a source of knowledge about what one is supposed to do.",
+    "chapter": "chapter-14",
+    "answer1": "informational social influence",
+    "answer2": "normative social influence",
+    "answer3": "",
+    "answer4": "",
+    "tags": "test, test 1, test ",
+    "correct": "answer1",
+    "hidden": false
+  },
+  {
+    "question": "Conformity to the behavior of others in order to be accepted by them.",
+    "chapter": "chapter-14",
+    "answer1": "informational social influence",
+    "answer2": "normative social influence",
+    "answer3": "",
+    "answer4": "",
+    "tags": "test, test 1, test ",
+    "correct": "answer2",
+    "hidden": false
+  },
+  {
+    "question": "A situation in which the thinking of the group takes over, so much so that group members forgo logic or critical analysis in the service of reaching a decision.",
+    "chapter": "chapter-14",
+    "answer1": "group-mentality",
+    "answer2": "groupthink",
+    "answer3": "",
+    "answer4": "",
+    "tags": "test, test 1, test ",
+    "correct": "answer2",
+    "hidden": false
+  },
+  {
+    "question": "When a small number of individuals in a larger group shifts majority opinion by presenting a consistent, unwavering message.",
+    "chapter": "chapter-14",
+    "answer1": "minority social influence",
+    "answer2": "minority social conviction",
+    "answer3": "minority influence",
+    "answer4": "minority shift",
+    "tags": "test, test 1, test ",
+    "correct": "answer1",
+    "hidden": false
+  },
+  {
+    "question": "A type of social influence in which a person yields to the will of another person, complying with their demands.",
+    "chapter": "chapter-14",
+    "answer1": "obedience",
+    "answer2": "attitude",
+    "answer3": "attribution",
+    "answer4": "influence",
+    "tags": "test, test 1, test ",
+    "correct": "answer1",
+    "hidden": false
+  },
+  {
+    "question": "Inferences made about the causes of other people’s behavior.",
+    "chapter": "chapter-14",
+    "answer1": "obedience",
+    "answer2": "attitude",
+    "answer3": "attribution",
+    "answer4": "influence",
+    "tags": "test, test 1, test ",
+    "correct": "answer3",
+    "hidden": false
+  },
+  {
+    "question": "The tendency to make situational attributions for our failures but dispositional attributions for our successes.",
+    "chapter": "chapter-14",
+    "answer1": "",
+    "answer2": "self-serving bias",
+    "answer3": "fundamental attribution error",
+    "answer4": "",
+    "tags": "test, test 1, test ",
+    "correct": "answer2",
+    "hidden": false
+  },
+  {
+    "question": "The tendency to explain others’ behavior in dispositional rather than situational terms.",
+    "chapter": "chapter-14",
+    "answer1": "",
+    "answer2": "self-serving bias",
+    "answer3": "fundamental attribution error",
+    "answer4": "",
+    "tags": "test, test 1, test ",
+    "correct": "answer3",
+    "hidden": false
+  },
+  {
+    "question": "Schemas of how people are likely to behave based simply on groups to which they belong; they are oversimplified perspectives of people based solely on their group membership.",
+    "chapter": "chapter-14",
+    "answer1": "stereotypes",
+    "answer2": "schemas",
+    "answer3": "depictions",
+    "answer4": "prejudice",
+    "tags": "test, test 1, test ",
+    "correct": "answer1",
+    "hidden": false
+  },
+  {
+    "question": "A tendency to portray a group of people as unworthy of human rights and traits—intended to make them feel unworthy.",
+    "chapter": "chapter-14",
+    "answer1": "dehumanization",
+    "answer2": "schemas",
+    "answer3": "depictions",
+    "answer4": "prejudice",
+    "tags": "test, test 1, test ",
+    "correct": "answer1",
+    "hidden": false
+  },
+  {
+    "question": "A tendency to show positive feelings toward people who belong to the same group as we do, and negative feelings toward those in other groups.",
+    "chapter": "chapter-14",
+    "answer1": "in-group/out-group bias",
+    "answer2": "",
+    "answer3": "",
+    "answer4": "in-group/out-group prejudice",
+    "tags": "test, test 1, test ",
+    "correct": "answer1",
+    "hidden": false
+  },
+  {
+    "question": "The tendency to see all members of an out-group as the same.",
+    "chapter": "chapter-14",
+    "answer1": "in-group homogeneity",
+    "answer2": "out-group homogeneity",
+    "answer3": "",
+    "answer4": "",
+    "tags": "test, test 1, test ",
+    "correct": "answer2",
+    "hidden": false
+  },
+  {
+    "question": "A biased attitude toward a group of people or an individual member of a group based on unfair generalizations about what members of that group are like",
+    "chapter": "chapter-14",
+    "answer1": "dehumanization",
+    "answer2": "schemas",
+    "answer3": "depictions",
+    "answer4": "prejudice",
     "tags": "test, test 1, test ",
     "correct": "answer4",
     "hidden": false
   },
   {
-    "question": "Istesttesttest",
+    "question": "The preferential treatment of certain people, usually driven by prejudicial attitudes.",
     "chapter": "chapter-14",
-    "answer1": "interview",
-    "answer2": "qualitative",
-    "answer3": "quantitative",
-    "answer4": "sampling",
+    "answer1": "",
+    "answer2": "discrimination",
+    "answer3": "prejudice",
+    "answer4": "",
+    "tags": "test, test 1, test ",
+    "correct": "answer2",
+    "hidden": false
+  },
+  {
+    "question": "An individual’s favorable or unfavorable beliefs, feelings, or actions toward an object, an idea, or a person",
+    "chapter": "chapter-14",
+    "answer1": "",
+    "answer2": "attitudes",
+    "answer3": "attributions",
+    "answer4": "",
+    "tags": "test, test 1, test ",
+    "correct": "answer2",
+    "hidden": false
+  },
+  {
+    "question": "The feeling of discomfort caused by information that is different from a person’s conception of himself or herself as a reasonable and sensible person",
+    "chapter": "chapter-14",
+    "answer1": "cognitive",
+    "answer2": "cognitive dissonance",
+    "answer3": "dissonance",
+    "answer4": "dilemma",
+    "tags": "test, test 1, test ",
+    "correct": "answer2",
+    "hidden": false
+  },
+  {
+    "question": "The act of attempting to change the opinions, beliefs, or choices of others by explanation or argument.",
+    "chapter": "chapter-14",
+    "answer1": "persuasion",
+    "answer2": "conviction",
+    "answer3": "shift",
+    "answer4": "argumentation",
+    "tags": "test, test 1, test ",
+    "correct": "answer1",
+    "hidden": false
+  },
+  {
+    "question": "Violent behavior that is intended to cause psychological or physical harm, or both, to another being.",
+    "chapter": "chapter-14",
+    "answer1": "violence",
+    "answer2": "aggression",
+    "answer3": "",
+    "answer4": "",
+    "tags": "test, test 1, test ",
+    "correct": "answer2",
+    "hidden": false
+  },
+  {
+    "question": "Action that is beneficial to others.",
+    "chapter": "chapter-14",
+    "answer1": "social behavior",
+    "answer2": "good behavior",
+    "answer3": "positive behavior",
+    "answer4": "prosocial behavior",
     "tags": "test, test 1, test ",
     "correct": "answer4",
     "hidden": false
   },
   {
-    "question": "Istesttesttest",
+    "question": "A phenomenon in which the greater the number of bystanders who witness an emergency, the less likely any one of them is to help.",
     "chapter": "chapter-14",
-    "answer1": "interview",
-    "answer2": "qualitative",
-    "answer3": "quantitative",
-    "answer4": "sampling",
+    "answer1": "bystander effect",
+    "answer2": "idle effect",
+    "answer3": "",
+    "answer4": "",
+    "tags": "test, test 1, test ",
+    "correct": "answer1",
+    "hidden": false
+  },
+  {
+    "question": "Selfless attitudes and behavior toward others.",
+    "chapter": "chapter-14",
+    "answer1": "alcruism",
+    "answer2": "niceness",
+    "answer3": "altruism",
+    "answer4": "prosocial behavior",
+    "tags": "test, test 1, test ",
+    "correct": "answer3",
+    "hidden": false
+  },
+  {
+    "question": "The evolutionary favoring of genes that prompt individuals to help their relatives, or kin.",
+    "chapter": "chapter-14",
+    "answer1": "kin selection",
+    "answer2": "familiarity selection",
+    "answer3": "groupthink selection",
+    "answer4": "prosocial selection",
+    "tags": "test, test 1, test ",
+    "correct": "answer1",
+    "hidden": false
+  },
+  {
+    "question": "The act of helping others in the hope that they will help us in the future.",
+    "chapter": "chapter-14",
+    "answer1": "reciprocal altruism",
+    "answer2": "kin selection",
+    "answer3": "Prosocial behavior",
+    "answer4": "social exchange theory",
+    "tags": "test, test 1, test ",
+    "correct": "answer1",
+    "hidden": false
+  },
+  {
+    "question": "The idea that we help others when we understand that the benefits to ourselves are likely to outweigh the costs.",
+    "chapter": "chapter-14",
+    "answer1": "reciprocal altruism",
+    "answer2": "kin selection",
+    "answer3": "Prosocial behavior",
+    "answer4": "social exchange theory",
     "tags": "test, test 1, test ",
     "correct": "answer4",
     "hidden": false
   },
   {
-    "question": "Istesttesttest",
+    "question": "The ability to share the feelings of others and understand their situations.",
     "chapter": "chapter-14",
-    "answer1": "interview",
-    "answer2": "qualitative",
-    "answer3": "quantitative",
-    "answer4": "sampling",
+    "answer1": "reciprocal altruism",
+    "answer2": "empathy",
+    "answer3": "Prosocial behavior",
+    "answer4": "social exchange theory",
     "tags": "test, test 1, test ",
-    "correct": "answer4",
+    "correct": "answer2",
     "hidden": false
   },
   {
-    "question": "Istesttesttest",
+    "question": "The idea that people help others selflessly only when they feel empathy for them.",
     "chapter": "chapter-14",
-    "answer1": "interview",
-    "answer2": "qualitative",
-    "answer3": "quantitative",
-    "answer4": "sampling",
+    "answer1": "empathy-altruism hypothesis",
+    "answer2": "empathy",
+    "answer3": "Prosocial behavior",
+    "answer4": "social exchange theory",
     "tags": "test, test 1, test ",
-    "correct": "answer4",
+    "correct": "answer1",
     "hidden": false
   },
   {
-    "question": "Istesttesttest",
+    "question": "A state of relationship in which one feels kindness toward another who is suffering and one feels motivated to help relieve that suffering.",
     "chapter": "chapter-14",
-    "answer1": "interview",
-    "answer2": "qualitative",
-    "answer3": "quantitative",
-    "answer4": "sampling",
+    "answer1": "compassion",
+    "answer2": "empathy",
+    "answer3": "",
+    "answer4": "",
     "tags": "test, test 1, test ",
-    "correct": "answer4",
+    "correct": "answer1",
     "hidden": false
   },
   {
-    "question": "Istesttesttest",
+    "question": "The idea that men and women face different problems when they seek out mates, so they often approach relationships in very different ways.",
     "chapter": "chapter-14",
-    "answer1": "interview",
-    "answer2": "qualitative",
-    "answer3": "quantitative",
-    "answer4": "sampling",
+    "answer1": "sexual strategies theory",
+    "answer2": "triangular theory of love",
+    "answer3": "",
+    "answer4": "",
     "tags": "test, test 1, test ",
-    "correct": "answer4",
+    "correct": "answer1",
     "hidden": false
   },
   {
-    "question": "Istesttesttest",
+    "question": "Sternberg’s idea that three components (intimacy, passion, and commitment), in various combinations, can explain all the forms of human love.",
     "chapter": "chapter-14",
-    "answer1": "interview",
-    "answer2": "qualitative",
-    "answer3": "quantitative",
-    "answer4": "sampling",
+    "answer1": "sexual strategies theory",
+    "answer2": "triangular theory of love",
+    "answer3": "",
+    "answer4": "",
     "tags": "test, test 1, test ",
-    "correct": "answer4",
-    "hidden": false
-  },
-  {
-    "question": "Istesttesttest",
-    "chapter": "chapter-14",
-    "answer1": "interview",
-    "answer2": "qualitative",
-    "answer3": "quantitative",
-    "answer4": "sampling",
-    "tags": "test, test 1, test ",
-    "correct": "answer4",
-    "hidden": false
-  },
-  {
-    "question": "Istesttesttest",
-    "chapter": "chapter-14",
-    "answer1": "interview",
-    "answer2": "qualitative",
-    "answer3": "quantitative",
-    "answer4": "sampling",
-    "tags": "test, test 1, test ",
-    "correct": "answer4",
-    "hidden": false
-  },
-  {
-    "question": "Istesttesttest",
-    "chapter": "chapter-14",
-    "answer1": "interview",
-    "answer2": "qualitative",
-    "answer3": "quantitative",
-    "answer4": "sampling",
-    "tags": "test, test 1, test ",
-    "correct": "answer4",
-    "hidden": false
-  },
-  {
-    "question": "Istesttesttest",
-    "chapter": "chapter-14",
-    "answer1": "interview",
-    "answer2": "qualitative",
-    "answer3": "quantitative",
-    "answer4": "sampling",
-    "tags": "test, test 1, test ",
-    "correct": "answer4",
-    "hidden": false
-  },
-  {
-    "question": "Istesttesttest",
-    "chapter": "chapter-14",
-    "answer1": "interview",
-    "answer2": "qualitative",
-    "answer3": "quantitative",
-    "answer4": "sampling",
-    "tags": "test, test 1, test ",
-    "correct": "answer4",
-    "hidden": false
-  },
-  {
-    "question": "Istesttesttest",
-    "chapter": "chapter-14",
-    "answer1": "interview",
-    "answer2": "qualitative",
-    "answer3": "quantitative",
-    "answer4": "sampling",
-    "tags": "test, test 1, test ",
-    "correct": "answer4",
-    "hidden": false
-  },
-  {
-    "question": "Istesttesttest",
-    "chapter": "chapter-14",
-    "answer1": "interview",
-    "answer2": "qualitative",
-    "answer3": "quantitative",
-    "answer4": "sampling",
-    "tags": "test, test 1, test ",
-    "correct": "answer4",
-    "hidden": false
-  },
-  {
-    "question": "Istesttesttest",
-    "chapter": "chapter-14",
-    "answer1": "interview",
-    "answer2": "qualitative",
-    "answer3": "quantitative",
-    "answer4": "sampling",
-    "tags": "test, test 1, test ",
-    "correct": "answer4",
+    "correct": "answer2",
     "hidden": false
   },
   {

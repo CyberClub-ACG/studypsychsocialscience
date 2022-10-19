@@ -217,30 +217,58 @@
                             </div>
                             <div className="answers">
                                 <ol>
-                                    <li>
-                                        <button className="ansbtn" id={"button-" + index + "-0"}
-                                            onClick={() => testAnswer(index, "answer1", 0, datatoshow)}>
-                                            {datum.answer1}
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button className="ansbtn" id={"button-" + index + "-1"}
-                                            onClick={() => testAnswer(index, "answer2", 1, datatoshow)}>
-                                            {datum.answer2}
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button className="ansbtn" id={"button-" + index + "-2"}
-                                            onClick={() => testAnswer(index, "answer3", 2, datatoshow)}>
-                                            {datum.answer3}
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button className="ansbtn" id={"button-" + index + "-3"}
-                                            onClick={() => testAnswer(index, "answer4", 3, datatoshow)}>
-                                            {datum.answer4}
-                                        </button>
-                                    </li>
+                                    {(() => {
+                                        if (datum.answer1.trim() !== '') {
+                                            return (
+                                                <li>
+                                                    <button className="ansbtn" id={"button-" + index + "-0"}
+                                                        onClick={() => testAnswer(index, "answer1", 0, datatoshow)}>
+                                                        {datum.answer1}
+                                                    </button>
+                                                </li>
+                                            )
+                                        }
+                                        return null;
+                                    })()}
+                                    {(() => {
+                                        if (datum.answer2.trim() !== '') {
+                                            return (
+                                                <li>
+                                                    <button className="ansbtn" id={"button-" + index + "-1"}
+                                                        onClick={() => testAnswer(index, "answer2", 1, datatoshow)}>
+                                                        {datum.answer2}
+                                                    </button>
+                                                </li>
+                                            )
+                                        }
+                                        return null;
+                                    })()}
+                                    {(() => {
+                                        if (datum.answer3.trim() !== '') {
+                                            return (
+                                                <li>
+                                                    <button className="ansbtn" id={"button-" + index + "-2"}
+                                                        onClick={() => testAnswer(index, "answer3", 2, datatoshow)}>
+                                                        {datum.answer3}
+                                                    </button>
+                                                </li>
+                                            )
+                                        }
+                                        return null;
+                                    })()}
+                                    {(() => {
+                                        if (datum.answer4.trim() !== '') {
+                                            return (
+                                                <li>
+                                                    <button className="ansbtn" id={"button-" + index + "-3"}
+                                                        onClick={() => testAnswer(index, "answer4", 3, datatoshow)}>
+                                                        {datum.answer4}
+                                                    </button>
+                                                </li>
+                                            )
+                                        }
+                                        return null;
+                                    })()}
                                 </ol>
                             </div>
                             <div className="texts">
@@ -344,14 +372,31 @@
             showData(datatoshow);
         }
 
+        function grayOutButtons(index) {
+            const button1 = document.getElementById("button-" + index + "-" + 0);
+            if (button1) {
+                button1.disabled = true;
+            }
+            const button2 = document.getElementById("button-" + index + "-" + 1);
+            if (button2) {
+                button2.disabled = true;
+            }
+            const button3 = document.getElementById("button-" + index + "-" + 2);
+            if (button3) {
+                button3.disabled = true;
+            }
+            const button4 = document.getElementById("button-" + index + "-" + 3);
+            if (button4) {
+                button4.disabled = true;
+            }
+        }
+
         function testAnswer(index, answerselected, indexBtn, data) {
             const coorectanswer = data[index].correct;
             if (coorectanswer === answerselected) {
                 document.getElementById("statushere-" + index).innerText = "✅ You got it right. Keep up the GREAT work buddy👍";
-                document.getElementById("button-" + index + "-" + 0).disabled = true;
-                document.getElementById("button-" + index + "-" + 1).disabled = true;
-                document.getElementById("button-" + index + "-" + 2).disabled = true;
-                document.getElementById("button-" + index + "-" + 3).disabled = true;
+                grayOutButtons(index);
+                document.getElementById("button-" + index + "-" + indexBtn).style.backgroundColor = "#4BB543";
                 correctanswers++;
             } else {
                 document.getElementById("statushere-" + index).innerText = "This is not the right answer but you are making progress buddy";
