@@ -20,469 +20,470 @@
 </head>
 
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="./index.html">Quiz</a></li>
-                <li><a href="html/fillin.html">Fill in</a></li>
-                <li>
-                    <div class="dropdown" style="margin: 0; text-decoration: underline">Summaries
-                        <div class="dropdown-content">
-                            <a href="chapters/introduction-to-psychology.html">Introduction to Psychology</a>
-                            <a href="chapters/conducting-research-in-psychology.html">Conducting Research in
-                                Psychology</a>
-                            <!-- <a href="chapters/human-development.html">Human Development</a> -->
-                            <!-- <a href="chapters/intelligence-problem-solving-creativity.html">Intelligence, Problem
-                                Solving, and
-                                Creativity</a>
-                            <a href="chapters/stress-and-health.html">Stress and Health</a>
-                            <a href="chapters/personality-the-uniqueness-of-the-individual.html">Personality: The
-                                Uniqueness of the
-                                Individual</a> -->
-                            <a href="chapters/social-behavior.html">Social Behavior</a>
-                            <!-- <a href="chapters/psychological-disorders.html">Psychological Disorders</a> -->
-                            <!-- <a href="chapters/treatment-of-psychological-disorders.html">Treatment of Psychological -->
-                            <!-- Disorders</a> -->
+<header>
+    <nav>
+        <ul>
+            <li><a href="./index.html">Quiz</a></li>
+            <li><a href="html/fillin.html">Fill in</a></li>
+            <li>
+                <div class="dropdown" style="margin: 0; text-decoration: underline">Summaries
+                    <div class="dropdown-content">
+                        <a href="chapters/introduction-to-psychology.html">Introduction to Psychology</a>
+                        <a href="chapters/conducting-research-in-psychology.html">Conducting Research in
+                            Psychology</a>
+                        <!-- <a href="chapters/human-development.html">Human Development</a> -->
+                        <!-- <a href="chapters/intelligence-problem-solving-creativity.html">Intelligence, Problem
+                            Solving, and
+                            Creativity</a>
+                        <a href="chapters/stress-and-health.html">Stress and Health</a>
+                        <a href="chapters/personality-the-uniqueness-of-the-individual.html">Personality: The
+                            Uniqueness of the
+                            Individual</a> -->
+                        <a href="chapters/social-behavior.html">Social Behavior</a>
+                        <!-- <a href="chapters/psychological-disorders.html">Psychological Disorders</a> -->
+                        <!-- <a href="chapters/treatment-of-psychological-disorders.html">Treatment of Psychological -->
+                        <!-- Disorders</a> -->
+                    </div>
+                </div>
+            </li>
+            <li><a href="html/bank.html">Questions Bank</a></li>
+            <li><a href="html/figures.html">Figures</a></li>
+            <li style="float: right"><a href="html/about.html">About</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="js-container container" style="height: 0;"></div>
+
+<main>
+    <div class="search">
+        <input class="searchTerm" id="search" onkeyup="handleChange(event)"
+               placeholder="Filter test question by keyword..." type="text">
+    </div>
+    <div class="selects">
+        <select class="searchTerm" id="chapterselect" onchange="showOnly(event)">
+            <option selected value="0">Select chapter:</option>
+            <option value="chapter-1">Introduction to Psychology</option>
+            <option value="chapter-2">Conducting Research in Psychology</option>
+            <!-- <option value="chapter-5">Human Development</option> -->
+            <!-- <option value="chapter-10">Intelligence, Problem Solving, -->
+            <!-- and Creativity -->
+            <!-- </option> -->
+            <!-- <option value="chapter-12">Stress and Health</option> -->
+            <!-- <option value="chapter-13">Personality: The Uniqueness -->
+            <!-- of the Individual -->
+            <!-- </option> -->
+            <option value="chapter-14">Social Behavior</option>
+            <!-- <option value="chapter-15">Psychological Disorders</option>
+        <option value="chapter-16">Treatment of Psychological Disorders</option> -->
+        </select>
+        <p>Correct: <span id="correctnumbers"></span></p>
+    </div>
+
+
+    <div id="root"></div>
+
+    <button onclick="submit()">
+        Submit
+    </button>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+</main>
+
+<footer>
+    <p>This project was created by <a href="https://alexkourtis.me">Alexandros Kourtis</a>
+        <!--        and supported by-->
+        <!--        <a href="https://www.acg.edu/undergraduate/academic-enrichment-programs/student-academic-support-services/">SASS</a>-->
+        <!--        and <a href="https://dccyberclub.com">Cyber Club</a>.-->
+    </p>
+    <p>Credits also go to: <a href="https://codepen.io/andershoff">Anders Hoff</a> for the Confetti and to
+        <a
+                href="https://www.google.com/search?q=psychology+perspectives+and+connections+4th+edition&oq=psychology+perspectives+and+connections+4th+edition&aqs=edge..69i57.207j0j1&sourceid=chrome&ie=UTF-8">Psychology:
+            Perspectives and Connections 4th edition</a> for the Quiz questions
+        inspiration.
+    </p>
+</footer>
+<script type="text/babel">
+
+    let questionsnumber = 0;
+    let correctanswers = 0;
+
+    let datajson = []
+    let originaldatajson = [];
+
+    const root = ReactDOM.createRoot(
+        document.getElementById('root')
+    );
+
+    init();
+
+    async function showDataWithNoShuffle(datatoshow) {
+        let elements = [];
+        await datatoshow.forEach((datum, index) => {
+            const element = (
+                <section className="chapter" key={index}>
+                    <div className="box">
+                        <div className="title">
+                            <h3>{datum.question}</h3>
+                        </div>
+                        <div className="answers">
+                            <ol>
+                                {(() => {
+                                    if (datum.answer1.trim() !== '') {
+                                        return (
+                                            <li>
+                                                <button className="ansbtn" id={"button-" + index + "-0"}
+                                                        onClick={() => testAnswer(index, "answer1", 0, datatoshow)}>
+                                                    {datum.answer1}
+                                                </button>
+                                            </li>
+                                        )
+                                    }
+                                    return null;
+                                })()}
+                                {(() => {
+                                    if (datum.answer2.trim() !== '') {
+                                        return (
+                                            <li>
+                                                <button className="ansbtn" id={"button-" + index + "-1"}
+                                                        onClick={() => testAnswer(index, "answer2", 1, datatoshow)}>
+                                                    {datum.answer2}
+                                                </button>
+                                            </li>
+                                        )
+                                    }
+                                    return null;
+                                })()}
+                                {(() => {
+                                    if (datum.answer3.trim() !== '') {
+                                        return (
+                                            <li>
+                                                <button className="ansbtn" id={"button-" + index + "-2"}
+                                                        onClick={() => testAnswer(index, "answer3", 2, datatoshow)}>
+                                                    {datum.answer3}
+                                                </button>
+                                            </li>
+                                        )
+                                    }
+                                    return null;
+                                })()}
+                                {(() => {
+                                    if (datum.answer4.trim() !== '') {
+                                        return (
+                                            <li>
+                                                <button className="ansbtn" id={"button-" + index + "-3"}
+                                                        onClick={() => testAnswer(index, "answer4", 3, datatoshow)}>
+                                                    {datum.answer4}
+                                                </button>
+                                            </li>
+                                        )
+                                    }
+                                    return null;
+                                })()}
+                            </ol>
+                        </div>
+                        <div className="texts">
+                            <div id={"statushere-" + index}>
+                            </div>
                         </div>
                     </div>
-                </li>
-                <li><a href="html/bank.html">Questions Bank</a></li>
-                <li><a href="html/figures.html">Figures</a></li>
-                <li style="float: right"><a href="html/about.html">About</a></li>
-            </ul>
-        </nav>
-    </header>
+                </section>
+            );
 
-    <div class="js-container container" style="height: 0;"></div>
+            elements.push(element);
+        });
 
-    <main>
-        <div class="search">
-            <input class="searchTerm" id="search" onkeyup="handleChange(event)"
-                placeholder="Filter test question by keyword..." type="text">
-        </div>
-        <div class="selects">
-            <select class="searchTerm" id="chapterselect" onchange="showOnly(event)">
-                <option selected value="0">Select chapter:</option>
-                <option value="chapter-1">Introduction to Psychology</option>
-                <option value="chapter-2">Conducting Research in Psychology</option>
-                <!-- <option value="chapter-5">Human Development</option> -->
-                <!-- <option value="chapter-10">Intelligence, Problem Solving, -->
-                <!-- and Creativity -->
-                <!-- </option> -->
-                <!-- <option value="chapter-12">Stress and Health</option> -->
-                <!-- <option value="chapter-13">Personality: The Uniqueness -->
-                <!-- of the Individual -->
-                <!-- </option> -->
-                <option value="chapter-14">Social Behavior</option>
-                <!-- <option value="chapter-15">Psychological Disorders</option>
-            <option value="chapter-16">Treatment of Psychological Disorders</option> -->
-            </select>
-            <p>Correct: <span id="correctnumbers"></span></p>
-        </div>
+        questionsnumber = datatoshow.length;
+        correctanswers = 0;
+
+        await root.render(elements);
+        updateProgress(questionsnumber);
+    }
 
 
-        <div id="root"></div>
-
-        <button onclick="submit()">
-            Submit
-        </button>
-
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-
-    </main>
-
-    <footer>
-        <p>This project was created by <a href="https://alexkourtis.me">Alexandros Kourtis</a>
-            <!--        and supported by-->
-            <!--        <a href="https://www.acg.edu/undergraduate/academic-enrichment-programs/student-academic-support-services/">SASS</a>-->
-            <!--        and <a href="https://dccyberclub.com">Cyber Club</a>.-->
-        </p>
-        <p>Credits also go to: <a href="https://codepen.io/andershoff">Anders Hoff</a> for the Confetti and to
-            <a
-                href="https://www.google.com/search?q=psychology+perspectives+and+connections+4th+edition&oq=psychology+perspectives+and+connections+4th+edition&aqs=edge..69i57.207j0j1&sourceid=chrome&ie=UTF-8">Psychology:
-                Perspectives and Connections 4th edition</a> for the Quiz questions
-            inspiration.
-        </p>
-    </footer>
-    <script type="text/babel">
-
-        let questionsnumber = 0;
-        let correctanswers = 0;
-
-        let datajson = []
-        let originaldatajson = [];
-
-        const root = ReactDOM.createRoot(
-            document.getElementById('root')
-        );
-
-        init();
-
-        async function showDataWithNoShuffle(datatoshow) {
-            let elements = [];
-            await datatoshow.forEach((datum, index) => {
-                const element = (
-                    <section className="chapter" key={index}>
-                        <div className="box">
-                            <div className="title">
-                                <h3>{datum.question}</h3>
-                            </div>
-                            <div className="answers">
-                                <ol>
-                                    {(() => {
-                                        if (datum.answer1.trim() !== '') {
-                                            return (
-                                                <li>
-                                                    <button className="ansbtn" id={"button-" + index + "-0"}
+    async function showData(datatoshow) {
+        let elements = [];
+        await datatoshow.forEach((datum, index) => {
+            const element = (
+                <section className="chapter" key={index}>
+                    <div className="box">
+                        <div className="title">
+                            <h3>{datum.question}</h3>
+                        </div>
+                        <div className="answers">
+                            <ol>
+                                {(() => {
+                                    if (datum.answer1.trim() !== '') {
+                                        return (
+                                            <li>
+                                                <button className="ansbtn" id={"button-" + index + "-0"}
                                                         onClick={() => testAnswer(index, "answer1", 0, datatoshow)}>
-                                                        {datum.answer1}
-                                                    </button>
-                                                </li>
-                                            )
-                                        }
-                                        return null;
-                                    })()}
-                                    {(() => {
-                                        if (datum.answer2.trim() !== '') {
-                                            return (
-                                                <li>
-                                                    <button className="ansbtn" id={"button-" + index + "-1"}
+                                                    {datum.answer1}
+                                                </button>
+                                            </li>
+                                        )
+                                    }
+                                    return null;
+                                })()}
+                                {(() => {
+                                    if (datum.answer2.trim() !== '') {
+                                        return (
+                                            <li>
+                                                <button className="ansbtn" id={"button-" + index + "-1"}
                                                         onClick={() => testAnswer(index, "answer2", 1, datatoshow)}>
-                                                        {datum.answer2}
-                                                    </button>
-                                                </li>
-                                            )
-                                        }
-                                        return null;
-                                    })()}
-                                    {(() => {
-                                        if (datum.answer3.trim() !== '') {
-                                            return (
-                                                <li>
-                                                    <button className="ansbtn" id={"button-" + index + "-2"}
+                                                    {datum.answer2}
+                                                </button>
+                                            </li>
+                                        )
+                                    }
+                                    return null;
+                                })()}
+                                {(() => {
+                                    if (datum.answer3.trim() !== '') {
+                                        return (
+                                            <li>
+                                                <button className="ansbtn" id={"button-" + index + "-2"}
                                                         onClick={() => testAnswer(index, "answer3", 2, datatoshow)}>
-                                                        {datum.answer3}
-                                                    </button>
-                                                </li>
-                                            )
-                                        }
-                                        return null;
-                                    })()}
-                                    {(() => {
-                                        if (datum.answer4.trim() !== '') {
-                                            return (
-                                                <li>
-                                                    <button className="ansbtn" id={"button-" + index + "-3"}
+                                                    {datum.answer3}
+                                                </button>
+                                            </li>
+                                        )
+                                    }
+                                    return null;
+                                })()}
+                                {(() => {
+                                    if (datum.answer4.trim() !== '') {
+                                        return (
+                                            <li>
+                                                <button className="ansbtn" id={"button-" + index + "-3"}
                                                         onClick={() => testAnswer(index, "answer4", 3, datatoshow)}>
-                                                        {datum.answer4}
-                                                    </button>
-                                                </li>
-                                            )
-                                        }
-                                        return null;
-                                    })()}
-                                </ol>
-                            </div>
-                            <div className="texts">
-                                <div id={"statushere-" + index}>
-                                </div>
+                                                    {datum.answer4}
+                                                </button>
+                                            </li>
+                                        )
+                                    }
+                                    return null;
+                                })()}
+                            </ol>
+                        </div>
+                        <div className="texts">
+                            <div id={"statushere-" + index}>
                             </div>
                         </div>
-                    </section>
-                );
+                    </div>
+                </section>
+            );
 
-                elements.push(element);
-            });
+            elements.push(element);
+        });
 
-            questionsnumber = datatoshow.length;
-            correctanswers = 0;
+        questionsnumber = datatoshow.length;
+        correctanswers = 0;
 
-            await root.render(elements);
-            updateProgress(questionsnumber);
+        await root.render(elements);
+        updateProgress(questionsnumber);
+        await delay(100);
+        document.getElementById('root').querySelectorAll("ol").forEach(el => el.shuffleChildren());
+        document.getElementById('root').shuffleChildren();
+        document.getElementById('root').style.visibility = "visible";
+    }
+
+    function updateProgress(questionsnumber) {
+        document.getElementById("correctnumbers").innerText = correctanswers + " out of " + questionsnumber + " questions.";
+    }
+
+    function handleChange(event) {
+        const keyword = event.target.value;
+
+        const trimmedKeyword = keyword.toString().trim().toLowerCase();
+
+        cleanUpErrorsCorrects();
+
+        if (trimmedKeyword === "") {
+            showDataWithNoShuffle(datajson);
+            return;
         }
 
+        let newlistjson = [];
+        Object.entries(datajson).forEach((value) => {
+            // bug? If you remove the line below... the search breaks because the value objects
+            // has a new field added to it with value === "0"
+            value = value[1];
+            if (value.tags.trim().toLowerCase().includes(trimmedKeyword))
+                newlistjson.push(value);
+            else if (value.question.trim().toLowerCase().includes(trimmedKeyword))
+                newlistjson.push(value);
+            else if (value.answer1.trim().toLowerCase().includes(trimmedKeyword))
+                newlistjson.push(value);
+            else if (value.answer2.trim().toLowerCase().includes(trimmedKeyword))
+                newlistjson.push(value);
+            else if (value.answer3.trim().toLowerCase().includes(trimmedKeyword))
+                newlistjson.push(value);
+            else if (value.answer4.trim().toLowerCase().includes(trimmedKeyword))
+                newlistjson.push(value);
+            else if (value.chapter.trim().toLowerCase().includes(trimmedKeyword))
+                newlistjson.push(value);
+        });
 
-        async function showData(datatoshow) {
-            let elements = [];
-            await datatoshow.forEach((datum, index) => {
-                const element = (
-                    <section className="chapter" key={index}>
-                        <div className="box">
-                            <div className="title">
-                                <h3>{datum.question}</h3>
-                            </div>
-                            <div className="answers">
-                                <ol>
-                                    {(() => {
-                                        if (datum.answer1.trim() !== '') {
-                                            return (
-                                                <li>
-                                                    <button className="ansbtn" id={"button-" + index + "-0"}
-                                                        onClick={() => testAnswer(index, "answer1", 0, datatoshow)}>
-                                                        {datum.answer1}
-                                                    </button>
-                                                </li>
-                                            )
-                                        }
-                                        return null;
-                                    })()}
-                                    {(() => {
-                                        if (datum.answer2.trim() !== '') {
-                                            return (
-                                                <li>
-                                                    <button className="ansbtn" id={"button-" + index + "-1"}
-                                                        onClick={() => testAnswer(index, "answer2", 1, datatoshow)}>
-                                                        {datum.answer2}
-                                                    </button>
-                                                </li>
-                                            )
-                                        }
-                                        return null;
-                                    })()}
-                                    {(() => {
-                                        if (datum.answer3.trim() !== '') {
-                                            return (
-                                                <li>
-                                                    <button className="ansbtn" id={"button-" + index + "-2"}
-                                                        onClick={() => testAnswer(index, "answer3", 2, datatoshow)}>
-                                                        {datum.answer3}
-                                                    </button>
-                                                </li>
-                                            )
-                                        }
-                                        return null;
-                                    })()}
-                                    {(() => {
-                                        if (datum.answer4.trim() !== '') {
-                                            return (
-                                                <li>
-                                                    <button className="ansbtn" id={"button-" + index + "-3"}
-                                                        onClick={() => testAnswer(index, "answer4", 3, datatoshow)}>
-                                                        {datum.answer4}
-                                                    </button>
-                                                </li>
-                                            )
-                                        }
-                                        return null;
-                                    })()}
-                                </ol>
-                            </div>
-                            <div className="texts">
-                                <div id={"statushere-" + index}>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                );
 
-                elements.push(element);
-            });
+        document.getElementById("chapterselect").value = "0";
 
-            questionsnumber = datatoshow.length;
-            correctanswers = 0;
+        showDataWithNoShuffle(newlistjson);
+    }
 
-            await root.render(elements);
-            updateProgress(questionsnumber);
-            await delay(100);
-            document.getElementById('root').querySelectorAll("ol").forEach(el => el.shuffleChildren());
-            document.getElementById('root').shuffleChildren();
-            document.getElementById('root').style.visibility = "visible";
+    function cleanUpErrorsCorrects() {
+        const nodestexts = document.getElementsByClassName("texts");
+
+        for (let i = 0; i < nodestexts.length; i++) {
+            nodestexts[i].childNodes.forEach(node => node.textContent = "");
         }
 
-        function updateProgress(questionsnumber) {
-            document.getElementById("correctnumbers").innerText = correctanswers + " out of " + questionsnumber + " questions.";
+        const nodes = document.getElementsByClassName("ansbtn");
+
+        for (let i = 0; i < nodes.length; i++) {
+            nodes[i].disabled = false;
+            nodes[i].style.backgroundColor === "#4BB543" ? "#4BB543" : "#004E64";
+        }
+    }
+
+    function showOnly(event) {
+        datajson = [...originaldatajson];
+
+        let val = event.target.value;
+        let datatoshow = [];
+        if (val === "0") {
+            showData(originaldatajson);
+            return;
         }
 
-        function handleChange(event) {
-            const keyword = event.target.value;
+        Object.entries(datajson).forEach(([key, value]) => {
+            if (value.chapter === val)
+                datatoshow.push(value);
+        });
 
-            const trimmedKeyword = keyword.toString().trim().toLowerCase();
+        cleanUpErrorsCorrects();
 
-            cleanUpErrorsCorrects();
+        datajson = [];
+        datajson = [...datatoshow];
+        showData(datatoshow);
+    }
 
-            if (trimmedKeyword === "") {
-                showDataWithNoShuffle(datajson);
-                return;
-            }
+    function grayOutButtons(index) {
+        const button1 = document.getElementById("button-" + index + "-" + 0);
+        if (button1) {
+            button1.disabled = true;
+        }
+        const button2 = document.getElementById("button-" + index + "-" + 1);
+        if (button2) {
+            button2.disabled = true;
+        }
+        const button3 = document.getElementById("button-" + index + "-" + 2);
+        if (button3) {
+            button3.disabled = true;
+        }
+        const button4 = document.getElementById("button-" + index + "-" + 3);
+        if (button4) {
+            button4.disabled = true;
+        }
+    }
 
-            let newlistjson = [];
-            Object.entries(datajson).forEach((value) => {
-                // bug? If you remove the line below... the search breaks because the value objects
-                // has a new field added to it with value === "0"
-                value = value[1];
-                if (value.tags.trim().toLowerCase().includes(trimmedKeyword))
-                    newlistjson.push(value);
-                else if (value.question.trim().toLowerCase().includes(trimmedKeyword))
-                    newlistjson.push(value);
-                else if (value.answer1.trim().toLowerCase().includes(trimmedKeyword))
-                    newlistjson.push(value);
-                else if (value.answer2.trim().toLowerCase().includes(trimmedKeyword))
-                    newlistjson.push(value);
-                else if (value.answer3.trim().toLowerCase().includes(trimmedKeyword))
-                    newlistjson.push(value);
-                else if (value.answer4.trim().toLowerCase().includes(trimmedKeyword))
-                    newlistjson.push(value);
-                else if (value.chapter.trim().toLowerCase().includes(trimmedKeyword))
-                    newlistjson.push(value);
-            });
-
-
-            document.getElementById("chapterselect").value = "0";
-
-            showDataWithNoShuffle(newlistjson);
+    function testAnswer(index, answerselected, indexBtn, data) {
+        const coorectanswer = data[index].correct;
+        if (coorectanswer === answerselected) {
+            document.getElementById("statushere-" + index).innerText = "✅ You got it right. Keep up the GREAT work buddy👍";
+            grayOutButtons(index);
+            document.getElementById("button-" + index + "-" + indexBtn).style.backgroundColor = "#4BB543";
+            correctanswers++;
+        } else {
+            document.getElementById("statushere-" + index).innerText = "This is not the right answer but you are making progress buddy";
+            document.getElementById("button-" + index + "-" + indexBtn).disabled = true;
         }
 
-        function cleanUpErrorsCorrects() {
-            const nodestexts = document.getElementsByClassName("texts");
+        updateProgress(datajson.length);
+    }
 
-            for (let i = 0; i < nodestexts.length; i++) {
-                nodestexts[i].childNodes.forEach(node => node.textContent = "");
-            }
+    async function init() {
+        datajson = await getData();
+        originaldatajson = datajson;
+        await showData(datajson);
+    }
 
-            const nodes = document.getElementsByClassName("ansbtn");
-
-            for (let i = 0; i < nodes.length; i++) {
-                nodes[i].disabled = false;
-            }
+    Element.prototype.shuffleChildren = function () {
+        for (let i = this.children.length; i >= 0; i--) {
+            this.appendChild(this.children[Math.random() * i | 0]);
         }
+    };
 
-        function showOnly(event) {
-            datajson = [...originaldatajson];
+    const delay = ms => new Promise(res => setTimeout(res, ms));
 
-            let val = event.target.value;
-            let datatoshow = [];
-            if (val === "0") {
-                showData(originaldatajson);
-                return;
-            }
+    async function getData() {
+        return await fetch('./json/data.json')
+            .then(response => response.json())
+            .then(data => data)
+            .catch(error => console.log(error));
+    }
 
-            Object.entries(datajson).forEach(([key, value]) => {
-                if (value.chapter === val)
-                    datatoshow.push(value);
-            });
-
-            cleanUpErrorsCorrects();
-
-            datajson = [];
-            datajson = [...datatoshow];
-            showData(datatoshow);
+    function submit() {
+        if (correctanswers === questionsnumber) {
+            alert("Mission accomplished 🎉🎉🍾🍾🍾🍾🎊🎊🎊");
+            window.confettiful = new Confettiful(document.querySelector('.js-container'));
+        } else {
+            alert("Mission failed");
         }
+    }
 
-        function grayOutButtons(index) {
-            const button1 = document.getElementById("button-" + index + "-" + 0);
-            if (button1) {
-                button1.disabled = true;
-            }
-            const button2 = document.getElementById("button-" + index + "-" + 1);
-            if (button2) {
-                button2.disabled = true;
-            }
-            const button3 = document.getElementById("button-" + index + "-" + 2);
-            if (button3) {
-                button3.disabled = true;
-            }
-            const button4 = document.getElementById("button-" + index + "-" + 3);
-            if (button4) {
-                button4.disabled = true;
-            }
-        }
+    const Confettiful = function (el) {
+        this.el = el;
+        this.containerEl = null;
+        this.confettiColors = ['#EF2964', '#00C09D', '#2D87B0', '#48485E', '#EFFF1D'];
+        this.confettiAnimations = ['slow', 'medium', 'fast'];
 
-        function testAnswer(index, answerselected, indexBtn, data) {
-            const coorectanswer = data[index].correct;
-            if (coorectanswer === answerselected) {
-                document.getElementById("statushere-" + index).innerText = "✅ You got it right. Keep up the GREAT work buddy👍";
-                grayOutButtons(index);
-                document.getElementById("button-" + index + "-" + indexBtn).style.backgroundColor = "#4BB543";
-                correctanswers++;
-            } else {
-                document.getElementById("statushere-" + index).innerText = "This is not the right answer but you are making progress buddy";
-                document.getElementById("button-" + index + "-" + indexBtn).disabled = true;
-            }
+        this._setupElements();
+        this._renderConfetti();
+    };
 
-            updateProgress(datajson.length);
-        }
+    Confettiful.prototype._setupElements = function () {
+        const containerEl = document.createElement('div');
+        const elPosition = this.el.style.position;
 
-        async function init() {
-            datajson = await getData();
-            originaldatajson = datajson;
-            await showData(datajson);
-        }
+        this.el.style.position = 'fixed';
 
-        Element.prototype.shuffleChildren = function () {
-            for (let i = this.children.length; i >= 0; i--) {
-                this.appendChild(this.children[Math.random() * i | 0]);
-            }
-        };
+        containerEl.classList.add('confetti-container');
+        const height = document.documentElement.scrollHeight;
+        containerEl.style.height = height + "px";
 
-        const delay = ms => new Promise(res => setTimeout(res, ms));
+        this.el.appendChild(containerEl);
 
-        async function getData() {
-            return await fetch('./json/data.json')
-                .then(response => response.json())
-                .then(data => data)
-                .catch(error => console.log(error));
-        }
+        this.containerEl = containerEl;
+    };
 
-        function submit() {
-            if (correctanswers === questionsnumber) {
-                alert("Mission accomplished 🎉🎉🍾🍾🍾🍾🎊🎊🎊");
-                window.confettiful = new Confettiful(document.querySelector('.js-container'));
-            } else {
-                alert("Mission failed");
-            }
-        }
+    Confettiful.prototype._renderConfetti = function () {
+        this.confettiInterval = setInterval(() => {
+            const confettiEl = document.createElement('div');
+            const confettiSize = (Math.floor(Math.random() * 3) + 7) + 'px';
+            const confettiBackground = this.confettiColors[Math.floor(Math.random() * this.confettiColors.length)];
+            const confettiLeft = (Math.floor(Math.random() * this.el.offsetWidth)) + 'px';
+            const confettiAnimation = this.confettiAnimations[Math.floor(Math.random() * this.confettiAnimations.length)];
 
-        const Confettiful = function (el) {
-            this.el = el;
-            this.containerEl = null;
-            this.confettiColors = ['#EF2964', '#00C09D', '#2D87B0', '#48485E', '#EFFF1D'];
-            this.confettiAnimations = ['slow', 'medium', 'fast'];
+            confettiEl.classList.add('confetti', 'confetti--animation-' + confettiAnimation);
+            confettiEl.style.left = confettiLeft;
+            confettiEl.style.width = confettiSize;
+            confettiEl.style.height = confettiSize;
+            confettiEl.style.backgroundColor = confettiBackground;
 
-            this._setupElements();
-            this._renderConfetti();
-        };
+            confettiEl.removeTimeout = setTimeout(function () {
+                confettiEl.parentNode.removeChild(confettiEl);
+            }, 3000);
 
-        Confettiful.prototype._setupElements = function () {
-            const containerEl = document.createElement('div');
-            const elPosition = this.el.style.position;
-
-            this.el.style.position = 'fixed';
-
-            containerEl.classList.add('confetti-container');
-            const height = document.documentElement.scrollHeight;
-            containerEl.style.height = height + "px";
-
-            this.el.appendChild(containerEl);
-
-            this.containerEl = containerEl;
-        };
-
-        Confettiful.prototype._renderConfetti = function () {
-            this.confettiInterval = setInterval(() => {
-                const confettiEl = document.createElement('div');
-                const confettiSize = (Math.floor(Math.random() * 3) + 7) + 'px';
-                const confettiBackground = this.confettiColors[Math.floor(Math.random() * this.confettiColors.length)];
-                const confettiLeft = (Math.floor(Math.random() * this.el.offsetWidth)) + 'px';
-                const confettiAnimation = this.confettiAnimations[Math.floor(Math.random() * this.confettiAnimations.length)];
-
-                confettiEl.classList.add('confetti', 'confetti--animation-' + confettiAnimation);
-                confettiEl.style.left = confettiLeft;
-                confettiEl.style.width = confettiSize;
-                confettiEl.style.height = confettiSize;
-                confettiEl.style.backgroundColor = confettiBackground;
-
-                confettiEl.removeTimeout = setTimeout(function () {
-                    confettiEl.parentNode.removeChild(confettiEl);
-                }, 3000);
-
-                this.containerEl.appendChild(confettiEl);
-            }, 25);
-        };
-    </script>
+            this.containerEl.appendChild(confettiEl);
+        }, 25);
+    };
+</script>
 </body>
 
 </html>
