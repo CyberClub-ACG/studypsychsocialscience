@@ -9,15 +9,13 @@
       "answer3": "thought",
       "answer4": "life"
     },
-    "tags": "test, test 1, test ",
     "amountofspaces": 4,
     "correct": [
       "Developmental Psychology",
       "thought",
       "behavior",
       "life"
-    ],
-    "hidden": false
+    ]
   },
   {
     "id": 1,
@@ -28,12 +26,10 @@
       "answer2": "Adaptive",
       "answer3": "Functional"
     },
-    "tags": "test, test 1, test ",
     "amountofspaces": 1,
     "correct": [
       "Evolutionary"
-    ],
-    "hidden": false
+    ]
   },
   {
     "id": 2,
@@ -44,12 +40,10 @@
       "answer2": "Empiricism",
       "answer3": "Functionalism"
     },
-    "tags": "test, test 1, test ",
     "amountofspaces": 1,
     "correct": [
       "Functionalism"
-    ],
-    "hidden": false
+    ]
   },
   {
     "id": 3,
@@ -60,12 +54,10 @@
       "answer2": "William James",
       "answer3": "Sigmund Freud"
     },
-    "tags": "test, test 1, test ",
     "amountofspaces": 1,
     "correct": [
       "Wilhelm Wundt"
-    ],
-    "hidden": false
+    ]
   },
   {
     "id": 4,
@@ -76,12 +68,10 @@
       "answer2": "Cognitivism",
       "answer3": "Psychophysics"
     },
-    "tags": "test, test 1, test ",
     "amountofspaces": 1,
     "correct": [
       "Psychophysics"
-    ],
-    "hidden": false
+    ]
   },
   {
     "id": 5,
@@ -92,11 +82,9 @@
       "answer2": "Scientifism",
       "answer3": "Reasonism"
     },
-    "tags": "test, test 1, test ",
     "amountofspaces": 1,
     "correct": [
       "Empiricism"
-    ],
-    "hidden": false
+    ]
   }
 ]

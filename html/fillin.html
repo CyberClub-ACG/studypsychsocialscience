@@ -70,34 +70,10 @@
 <body>
 <header>
     <nav>
-        <ul>
+        <ul class="menu">
             <li><a href="../index.html">Quiz</a></li>
             <li><a href="./fillin.html">Fill in</a></li>
-            <li>
-                <div class="dropdown" style="margin: 0; text-decoration: underline">Summaries
-                    <div class="dropdown-content">
-                        <a href="../chapters/introduction-to-psychology.html">Introduction to Psychology</a>
-                        <a href="../chapters/conducting-research-in-psychology.html">Conducting Research in
-                            Psychology</a>
-                        <!-- <a href="../chapters/human-development.html">Human Development</a>
-                        <a href="../chapters/intelligence-problem-solving-creativity.html">Intelligence, Problem
-                            Solving, and
-                            Creativity</a>
-                        <a href="../chapters/stress-and-health.html">Stress and Health</a>
-                        <a href="../chapters/personality-the-uniqueness-of-the-individual.html">Personality: The
-                            Uniqueness of the
-                            Individual</a> -->
-                        <a href="../chapters/social-behavior.html">Social Behavior</a>
-                        <!-- <a href="../chapters/psychological-disorders.html">Psychological Disorders</a> -->
-                        <!-- <a href="../chapters/treatment-of-psychological-disorders.html">Treatment of Psychological -->
-                        <!-- Disorders</a> -->
-                    </div>
-                </div>
-            </li>
-            <li><a href="./bank.html">Questions Bank</a></li>
-            <li><a href="./figures.html">Figures</a></li>
-            <li style="float: right"><a href="./about.html">About</a></li>
-
+            <li style="float: right"><a href="./about.html">About Study Aid - SocialPsycho</a></li>
         </ul>
     </nav>
 </header>
@@ -105,30 +81,7 @@
 <div class="js-container container" style="height: 0;"></div>
 
 <main>
-    <div class="search">
-        <input class="searchTerm" id="search" onkeyup="handleChange(event)"
-               placeholder="Filter test question by keyword..." type="text">
-    </div>
-    <div class="selects">
-        <select class="searchTerm" id="chapterselect" onchange="showOnly(event)">
-            <option selected value="0">Select chapter:</option>
-            <option value="chapter-1">Introduction to Psychology</option>
-            <option value="chapter-2">Conducting Research in Psychology</option>
-            <!-- <option value="chapter-5">Human Development</option>
-            <option value="chapter-10">Intelligence, Problem Solving,
-                and Creativity
-            </option>
-            <option value="chapter-12">Stress and Health</option>
-            <option value="chapter-13">Personality: The Uniqueness
-                of the Individual
-            </option> -->
-            <option value="chapter-14">Social Behavior</option>
-            <!-- <option value="chapter-15">Psychological Disorders</option>
-            <option value="chapter-16">Treatment of Psychological Disorders</option> -->
-        </select>
-        <p>Correct: <span id="correctnumbers"></span></p>
-    </div>
-
+    <p>Correct: <span id="correctnumbers"></span></p>
     <div id="root"></div>
 
     <button onclick="submit()">
@@ -281,35 +234,6 @@
     }
 
 
-    function handleChange(event) {
-        const keyword = event.target.value;
-
-        const trimmedKeyword = keyword.toString().trim().toLowerCase();
-
-        cleanUpErrorsCorrects();
-
-        if (trimmedKeyword === "") {
-            showDataWithNoShuffle(datajson);
-            return;
-        }
-
-        let newlistjson = [];
-        Object.entries(datajson).forEach((value) => {
-            // bug? If you remove the line below... the search breaks because the value objects
-            // has a new field added to it with value === "0"
-            value = value[1];
-            if (value.tags.trim().toLowerCase().includes(trimmedKeyword))
-                newlistjson.push(value);
-            else if (value.question.trim().toLowerCase().includes(trimmedKeyword))
-                newlistjson.push(value);
-        });
-
-
-        document.getElementById("chapterselect").value = "0";
-
-        showDataWithNoShuffle(newlistjson);
-    }
-
     function cleanUpErrorsCorrects() {
         const nodestexts = document.getElementsByClassName("texts");
 
@@ -322,28 +246,6 @@
         for (let i = 0; i < nodes.length; i++) {
             nodes[i].disabled = false;
         }
-    }
-
-    function showOnly(event) {
-        datajson = [...originaldatajson];
-
-        let val = event.target.value;
-        let datatoshow = [];
-        if (val === "0") {
-            showData(originaldatajson);
-            return;
-        }
-
-        Object.entries(datajson).forEach(([key, value]) => {
-            if (value.chapter === val)
-                datatoshow.push(value);
-        });
-
-        cleanUpErrorsCorrects();
-
-        datajson = [];
-        datajson = [...datatoshow];
-        showData(datatoshow);
     }
 
     async function showDataWithNoShuffle(datatoshow) {
