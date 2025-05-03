@@ -64,6 +64,16 @@
         #root {
             visibility: hidden;
         }
+        
+        .course-select {
+            margin: 15px;
+            text-align: center;
+        }
+        
+        .course-select select {
+            width: 200px;
+            padding: 5px;
+        }
     </style>
 </head>
 
@@ -81,6 +91,12 @@
 <div class="js-container container" style="height: 0;"></div>
 
 <main>
+    <div class="course-select">
+        <select id="courseselect" onchange="changeCourse(event)">
+            <option selected value="psychology">Psychology</option>
+            <option value="biology">Biology</option>
+        </select>
+    </div>
     <p>Correct: <span id="correctnumbers"></span></p>
     <div id="root"></div>
 
@@ -186,11 +202,25 @@
 
     const delay = ms => new Promise(res => setTimeout(res, ms));
 
+    let currentCourse = "psychology";
+
+    function changeCourse(event) {
+        currentCourse = event.target.value;
+        init();
+    }
+
     async function getData() {
-        return await fetch('../json/fillindata.json')
+        const dataFile = currentCourse === "psychology" ? '../json/fillindata.json' : '../json/biology-fillindata.json';
+        return await fetch(dataFile)
             .then(response => response.json())
             .then(data => data)
-            .catch(error => console.log(error));
+            .catch(error => {
+                console.log(error);
+                // If biology data file doesn't exist yet, return empty array
+                if (currentCourse === "biology") {
+                    return [];
+                }
+            });
     }
 
     function disableCorrectAnswerBox(id) {

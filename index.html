@@ -16,6 +16,9 @@
         #root {
             visibility: hidden;
         }
+        .course-select {
+            margin-bottom: 15px;
+        }
     </style>
 </head>
 
@@ -28,6 +31,12 @@
         <div class="search">
             <div class="selects">
                 <p>This was created by Alexandros Kourtis please contact him at alexandros.kourtis@acg.edu</p>
+                <div class="course-select">
+                    <select id="courseselect" onchange="changeCourse(event)" style="width: 100%;">
+                        <option selected value="psychology">Psychology</option>
+                        <option value="biology">Biology</option>
+                    </select>
+                </div>
                 <select id="chapterselect" onchange="showOnly(event)" style="width: 100%;">
                     <option selected value="0">Select chapter:</option>
                     <option value="chapter-1">Introduction to Psychology</option>
@@ -273,6 +282,55 @@
         }
     }
 
+    let currentCourse = "psychology";
+
+    function changeCourse(event) {
+        currentCourse = event.target.value;
+        updateChapterOptions();
+        init();
+    }
+
+    function updateChapterOptions() {
+        const chapterSelect = document.getElementById("chapterselect");
+        chapterSelect.innerHTML = "";
+        
+        // Add default option
+        const defaultOption = document.createElement("option");
+        defaultOption.value = "0";
+        defaultOption.text = "Select chapter:";
+        defaultOption.selected = true;
+        chapterSelect.appendChild(defaultOption);
+        
+        if (currentCourse === "psychology") {
+            // Psychology chapters
+            addChapterOption(chapterSelect, "chapter-1", "Introduction to Psychology");
+            addChapterOption(chapterSelect, "chapter-2", "Conducting Research in Psychology");
+            addChapterOption(chapterSelect, "chapter-5", "Human Development");
+            addChapterOption(chapterSelect, "chapter-10", "Intelligence, Problem Solving, and Creativity");
+            addChapterOption(chapterSelect, "chapter-12", "Stress and Health");
+            addChapterOption(chapterSelect, "chapter-13", "Personality: The Uniqueness of the Individual");
+            addChapterOption(chapterSelect, "chapter-14", "Social Behavior");
+            addChapterOption(chapterSelect, "chapter-15", "Psychological Disorders");
+            addChapterOption(chapterSelect, "chapter-16", "Treatment of Psychological Disorders");
+        } else if (currentCourse === "biology") {
+            // Biology chapters
+            addChapterOption(chapterSelect, "bio-chapter-1", "Introduction to Biology");
+            addChapterOption(chapterSelect, "bio-chapter-2", "Cell Structure and Function");
+            addChapterOption(chapterSelect, "bio-chapter-3", "Genetics and Inheritance");
+            addChapterOption(chapterSelect, "bio-chapter-4", "Evolution and Diversity");
+            addChapterOption(chapterSelect, "bio-chapter-5", "Plant Structure and Function");
+            addChapterOption(chapterSelect, "bio-chapter-6", "Animal Structure and Function");
+            addChapterOption(chapterSelect, "bio-chapter-7", "Ecology and Ecosystems");
+        }
+    }
+    
+    function addChapterOption(selectElement, value, text) {
+        const option = document.createElement("option");
+        option.value = value;
+        option.text = text;
+        selectElement.appendChild(option);
+    }
+
     function showOnly(event) {
         datajson = [...originaldatajson];
 
@@ -344,11 +402,17 @@
     const delay = ms => new Promise(res => setTimeout(res, ms));
 
     async function getData() {
-        // return await fetch('./json/data.json')
-        return await fetch('./json/data.json')
+        const dataFile = currentCourse === "psychology" ? './json/data.json' : './json/biology-data.json';
+        return await fetch(dataFile)
             .then(response => response.json())
             .then(data => data)
-            .catch(error => console.log(error));
+            .catch(error => {
+                console.log(error);
+                // If biology data file doesn't exist yet, return empty array
+                if (currentCourse === "biology") {
+                    return [];
+                }
+            });
     }
 
     function submit() {
