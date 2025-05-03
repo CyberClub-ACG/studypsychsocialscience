@@ -1,6 +1,6 @@
-# studypsychsocialscience
+# My Goal Learning
 
-- The purpose of the app is to provide a study aid to those studying Psychology.
+- The purpose of the app is to provide a study aid to those studying Psychology and Biology.
 
 ### List of sources/contributions/help from others used is the following (as of last update)
 
