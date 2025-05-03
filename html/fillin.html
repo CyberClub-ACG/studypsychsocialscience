@@ -78,12 +78,21 @@
 </head>
 
 <body>
+    <script>
+        // Check if user is logged in
+        window.onload = function() {
+            if (localStorage.getItem('isLoggedIn') !== 'true') {
+                window.location.href = '../login.html';
+            }
+        };
+    </script>
 <header>
     <nav>
         <ul class="menu">
             <li><a href="../index.html">Quiz</a></li>
             <li><a href="./fillin.html">Fill in</a></li>
             <li style="float: right"><a href="./about.html">About My Goal Learning</a></li>
+            <li style="float: right"><a href="#" onclick="logout()">Logout</a></li>
         </ul>
     </nav>
 </header>
@@ -91,10 +100,15 @@
 <div class="js-container container" style="height: 0;"></div>
 
 <main>
+    <div class="points-display" style="background-color: #f5f5f5; padding: 10px; border-radius: 5px; margin: 15px; text-align: center; font-weight: bold;">
+        Points: <span id="points">0</span>
+        <span style="display: inline-block; background-color: #004E64; color: white; padding: 5px 10px; border-radius: 15px; margin-left: 10px;">Level: <span id="level">1</span></span>
+    </div>
+    
     <div class="course-select">
         <select id="courseselect" onchange="changeCourse(event)">
-            <option selected value="psychology">Psychology</option>
-            <option value="biology">Biology</option>
+            <option value="psychology">Psychology</option>
+            <option selected value="biology">Biology</option>
         </select>
     </div>
     <p>Correct: <span id="correctnumbers"></span></p>
@@ -350,11 +364,61 @@
 
     function submit() {
         if (correctanswers === questionsnumber) {
+            // Award points based on difficulty and number of questions
+            const pointsEarned = calculatePoints();
+            updatePoints(pointsEarned);
+            
             window.confettiful = new Confettiful(document.querySelector('.js-container'));
-            alert("Mission accomplished 🎉🎉🍾🍾🍾🍾🎊🎊🎊");
+            alert(`Mission accomplished! 🎉 You earned ${pointsEarned} points!`);
         } else {
-            alert("Mission failed");
+            alert("Mission failed. Try again!");
         }
+    }
+    
+    function calculatePoints() {
+        // Base points per correct answer
+        const basePoints = 10;
+        
+        // Bonus based on difficulty
+        let difficultyMultiplier = 1;
+        
+        // Higher chapters have higher difficulty
+        if (currentCourse === "biology") {
+            difficultyMultiplier = 1.5; // Biology is slightly more difficult
+        }
+        
+        return Math.round(basePoints * questionsnumber * difficultyMultiplier);
+    }
+    
+    function updatePoints(pointsEarned) {
+        // Get current points from localStorage or default to 0
+        let currentPoints = parseInt(localStorage.getItem('points') || 0);
+        currentPoints += pointsEarned;
+        
+        // Update localStorage
+        localStorage.setItem('points', currentPoints);
+        
+        // Update display
+        document.getElementById('points').textContent = currentPoints;
+        
+        // Update level based on points
+        updateLevel(currentPoints);
+    }
+    
+    function updateLevel(points) {
+        // Calculate level based on points (every 100 points = 1 level)
+        const level = Math.floor(points / 100) + 1;
+        
+        // Update localStorage
+        localStorage.setItem('level', level);
+        
+        // Update display
+        document.getElementById('level').textContent = level;
+    }
+    
+    function logout() {
+        localStorage.removeItem('isLoggedIn');
+        window.location.href = '../login.html';
     }
 
     const Confettiful = function (el) {
