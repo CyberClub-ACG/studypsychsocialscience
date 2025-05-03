@@ -19,39 +19,132 @@
         .course-select {
             margin-bottom: 15px;
         }
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .tab {
+            padding: 10px 15px;
+            cursor: pointer;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            margin-right: 5px;
+            border-radius: 5px 5px 0 0;
+        }
+        .tab.active {
+            background-color: #004E64;
+            color: white;
+            border-color: #004E64;
+        }
+        .points-display {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .level-badge {
+            display: inline-block;
+            background-color: #004E64;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            margin-left: 10px;
+        }
+        .exercise-type-select {
+            margin-bottom: 15px;
+        }
+        .matching-exercise {
+            margin: 20px 0;
+        }
+        .matching-columns {
+            display: flex;
+            flex-direction: column;
+        }
+        .terms-column {
+            width: 100%;
+        }
+        .matching-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+        }
+        .matching-item span {
+            font-weight: bold;
+            margin-right: 15px;
+        }
+        .matching-select {
+            width: 70%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
     </style>
 </head>
 
 <body>
+    <script>
+        // Check if user is logged in
+        window.onload = function() {
+            if (localStorage.getItem('isLoggedIn') !== 'true') {
+                window.location.href = 'login.html';
+            }
+        };
+    </script>
+<header>
+    <nav>
+        <ul class="menu">
+            <li><a href="index.html">Quiz</a></li>
+            <li><a href="html/fillin.html">Fill in</a></li>
+            <li style="float: right"><a href="html/about.html">About My Goal Learning</a></li>
+            <li style="float: right"><a href="#" onclick="logout()">Logout</a></li>
+        </ul>
+    </nav>
+</header>
 
 <div class="js-container container" style="height: 0;"></div>
 
 <main>
     <div class="inside">
+        <div class="points-display">
+            Points: <span id="points">0</span>
+            <span class="level-badge">Level: <span id="level">1</span></span>
+        </div>
+        
         <div class="search">
             <div class="selects">
                 <p>This was created by Alexandros Kourtis please contact him at alexandros.kourtis@acg.edu</p>
                 <div class="course-select">
                     <select id="courseselect" onchange="changeCourse(event)" style="width: 100%;">
-                        <option selected value="psychology">Psychology</option>
-                        <option value="biology">Biology</option>
+                        <option value="psychology">Psychology</option>
+                        <option selected value="biology">Biology</option>
                     </select>
                 </div>
+                
+                <div class="exercise-type-select">
+                    <select id="exerciseType" onchange="changeExerciseType(event)" style="width: 100%;">
+                        <option selected value="multiple-choice">Multiple Choice</option>
+                        <option value="fill-in">Fill in the Blank</option>
+                        <option value="matching">Matching</option>
+                        <option value="mixed">Mixed Exercises</option>
+                    </select>
+                </div>
+                
+                <div class="tabs" id="chapter-tabs">
+                    <!-- Tabs will be dynamically generated based on course selection -->
+                </div>
+                
                 <select id="chapterselect" onchange="showOnly(event)" style="width: 100%;">
                     <option selected value="0">Select chapter:</option>
-                    <option value="chapter-1">Introduction to Psychology</option>
-                    <option value="chapter-2">Conducting Research in Psychology</option>
-                    <option value="chapter-5">Human Development</option>
-                    <option value="chapter-10">Intelligence, Problem Solving,
-                        and Creativity
-                    </option>
-                    <option value="chapter-12">Stress and Health</option>
-                    <option value="chapter-13">Personality: The Uniqueness
-                        of the Individual
-                    </option>
-                    <option value="chapter-14">Social Behavior</option>
-                    <option value="chapter-15">Psychological Disorders</option>
-                    <option value="chapter-16">Treatment of Psychological Disorders</option>
+                    <!-- Chapter options will be dynamically loaded -->
                 </select>
             </div>
         </div>
@@ -282,12 +375,298 @@
         }
     }
 
-    let currentCourse = "psychology";
+    let currentCourse = "biology"; // Default to biology
+    let currentExerciseType = "multiple-choice";
+
+    // Initialize points and level from localStorage
+    window.onload = function() {
+        // Check login first
+        if (localStorage.getItem('isLoggedIn') !== 'true') {
+            window.location.href = 'login.html';
+            return;
+        }
+        
+        // Initialize points display
+        const points = localStorage.getItem('points') || 0;
+        document.getElementById('points').textContent = points;
+        
+        // Initialize level display
+        const level = localStorage.getItem('level') || 1;
+        document.getElementById('level').textContent = level;
+        
+        // Initialize tabs
+        updateChapterTabs();
+    };
 
     function changeCourse(event) {
         currentCourse = event.target.value;
         updateChapterOptions();
+        updateChapterTabs();
         init();
+    }
+    
+    function changeExerciseType(event) {
+        currentExerciseType = event.target.value;
+        
+        if (currentExerciseType === "fill-in") {
+            window.location.href = "html/fillin.html";
+        } else if (currentExerciseType === "matching") {
+            loadMatchingExercises();
+        } else if (currentExerciseType === "mixed") {
+            loadMixedExercises();
+        } else {
+            // Default to multiple choice
+            init();
+        }
+    }
+    
+    // Matching exercise data
+    const matchingData = {
+        "biology": [
+            {
+                id: 1,
+                chapter: "bio-chapter-1",
+                items: [
+                    { term: "Cell", definition: "The basic unit of structure and function in living organisms" },
+                    { term: "Tissue", definition: "A group of similar cells that work together to perform a specific function" },
+                    { term: "Organ", definition: "A structure composed of different tissues that work together" },
+                    { term: "Organism", definition: "An individual living thing" },
+                    { term: "Homeostasis", definition: "The maintenance of a stable internal environment" }
+                ]
+            },
+            {
+                id: 2,
+                chapter: "bio-chapter-2",
+                items: [
+                    { term: "Nucleus", definition: "Control center of the cell containing genetic material" },
+                    { term: "Mitochondria", definition: "Powerhouse of the cell where cellular respiration occurs" },
+                    { term: "Chloroplast", definition: "Organelle where photosynthesis takes place" },
+                    { term: "Cell membrane", definition: "Selectively permeable barrier that surrounds the cell" },
+                    { term: "Ribosome", definition: "Site of protein synthesis" }
+                ]
+            },
+            {
+                id: 3,
+                chapter: "bio-chapter-3",
+                items: [
+                    { term: "DNA", definition: "Molecule that carries genetic information" },
+                    { term: "Gene", definition: "Unit of heredity that determines a trait" },
+                    { term: "Chromosome", definition: "Structure containing DNA and proteins" },
+                    { term: "Mutation", definition: "Change in DNA sequence" },
+                    { term: "Allele", definition: "Alternative form of a gene" }
+                ]
+            }
+        ],
+        "psychology": [
+            {
+                id: 1,
+                chapter: "chapter-1",
+                items: [
+                    { term: "Psychology", definition: "Scientific study of behavior and mental processes" },
+                    { term: "Neuron", definition: "Basic unit of the nervous system" },
+                    { term: "Consciousness", definition: "Awareness of internal and external stimuli" },
+                    { term: "Perception", definition: "Process of organizing and interpreting sensory information" },
+                    { term: "Cognition", definition: "Mental processes involved in acquiring knowledge" }
+                ]
+            },
+            {
+                id: 2,
+                chapter: "chapter-5",
+                items: [
+                    { term: "Development", definition: "Pattern of change that begins at conception and continues throughout life" },
+                    { term: "Nature", definition: "Inherited characteristics and tendencies" },
+                    { term: "Nurture", definition: "Environmental influences on development" },
+                    { term: "Attachment", definition: "Emotional bond between infant and caregiver" },
+                    { term: "Identity", definition: "Sense of self that develops during adolescence" }
+                ]
+            }
+        ]
+    };
+    
+    function loadMatchingExercises() {
+        // Get matching data for current course
+        const courseData = matchingData[currentCourse] || [];
+        
+        // Filter by chapter if selected
+        let dataToShow = courseData;
+        const chapterValue = document.getElementById("chapterselect").value;
+        if (chapterValue !== "0") {
+            dataToShow = courseData.filter(item => item.chapter === chapterValue);
+        }
+        
+        if (dataToShow.length === 0) {
+            root.render(<div>No matching exercises available for this selection.</div>);
+            document.getElementById('root').style.visibility = "visible";
+            return;
+        }
+        
+        // Render matching exercises
+        renderMatchingExercises(dataToShow);
+    }
+    
+    function renderMatchingExercises(data) {
+        // Reset counters
+        questionsnumber = data.length;
+        correctanswers = 0;
+        
+        const elements = data.map((exercise, index) => {
+            // Create shuffled copies of terms and definitions
+            const terms = [...exercise.items.map(item => item.term)];
+            const definitions = [...exercise.items.map(item => item.definition)];
+            shuffleArray(terms);
+            shuffleArray(definitions);
+            
+            return (
+                <section className="chapter" key={index}>
+                    <div className="box">
+                        <div className="title">
+                            <h3>Match the terms with their correct definitions</h3>
+                        </div>
+                        <div className="matching-exercise" id={`matching-${exercise.id}`}>
+                            <div className="matching-columns">
+                                <div className="terms-column">
+                                    {terms.map((term, i) => (
+                                        <div className="matching-item" key={`term-${i}`}>
+                                            <span>{term}</span>
+                                            <select 
+                                                id={`select-${exercise.id}-${i}`} 
+                                                className="matching-select"
+                                                onChange={(e) => checkMatchingAnswer(exercise, i, e.target.value)}
+                                            >
+                                                <option value="">-- Select definition --</option>
+                                                {definitions.map((def, j) => (
+                                                    <option key={`def-${j}`} value={def}>{def}</option>
+                                                ))}
+                                            </select>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                        <div className="texts">
+                            <div id={`statushere-matching-${exercise.id}`}></div>
+                        </div>
+                    </div>
+                </section>
+            );
+        });
+        
+        root.render(<div>{elements}</div>);
+        document.getElementById('root').style.visibility = "visible";
+        updateProgress(questionsnumber);
+    }
+    
+    function checkMatchingAnswer(exercise, termIndex, selectedDefinition) {
+        const termText = exercise.items[termIndex].term;
+        const correctDefinition = exercise.items.find(item => item.term === termText).definition;
+        
+        const selectElement = document.getElementById(`select-${exercise.id}-${termIndex}`);
+        
+        if (selectedDefinition === correctDefinition) {
+            selectElement.style.backgroundColor = "#4BB543";
+            selectElement.disabled = true;
+            
+            // Check if all items in this exercise are correctly matched
+            const allSelects = document.querySelectorAll(`[id^="select-${exercise.id}-"]`);
+            const allCorrect = Array.from(allSelects).every(select => 
+                select.disabled || select.value === ""
+            );
+            
+            if (allCorrect) {
+                document.getElementById(`statushere-matching-${exercise.id}`).innerText = 
+                    "✅ Great job! You've correctly matched all items!";
+                correctanswers++;
+                updateProgress(questionsnumber);
+            }
+        } else if (selectedDefinition !== "") {
+            selectElement.style.backgroundColor = "#FF3333";
+            setTimeout(() => {
+                selectElement.style.backgroundColor = "";
+                selectElement.value = "";
+            }, 1000);
+        }
+    }
+    
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+    
+    function loadMixedExercises() {
+        // Get a mix of different exercise types
+        const elements = [];
+        
+        // Add some multiple choice questions
+        datajson = [...originaldatajson];
+        const mcQuestions = datajson.slice(0, 3);
+        
+        // Add matching exercise
+        const matchingData = matchingData[currentCourse] || [];
+        const matchingExercise = matchingData.length > 0 ? [matchingData[0]] : [];
+        
+        // Render mixed content
+        if (mcQuestions.length > 0) {
+            questionsnumber = mcQuestions.length + (matchingExercise.length > 0 ? 1 : 0);
+            correctanswers = 0;
+            
+            // First render multiple choice
+            showDataWithNoShuffle(mcQuestions);
+            
+            // Then add matching if available
+            if (matchingExercise.length > 0) {
+                setTimeout(() => {
+                    const matchingElement = renderMatchingExercises(matchingExercise);
+                    document.getElementById('root').appendChild(matchingElement);
+                }, 500);
+            }
+        } else {
+            root.render(<div>No mixed exercises available for this selection.</div>);
+            document.getElementById('root').style.visibility = "visible";
+        }
+    }
+    
+    function updateChapterTabs() {
+        const tabsContainer = document.getElementById("chapter-tabs");
+        tabsContainer.innerHTML = "";
+        
+        // Create tabs based on current course
+        if (currentCourse === "psychology") {
+            createTab(tabsContainer, "chapter-1", "Intro to Psychology");
+            createTab(tabsContainer, "chapter-5", "Human Development");
+            createTab(tabsContainer, "chapter-10", "Intelligence");
+            createTab(tabsContainer, "chapter-14", "Social Behavior");
+        } else if (currentCourse === "biology") {
+            createTab(tabsContainer, "bio-chapter-1", "Intro to Biology");
+            createTab(tabsContainer, "bio-chapter-2", "Cell Structure");
+            createTab(tabsContainer, "bio-chapter-3", "Genetics");
+            createTab(tabsContainer, "bio-chapter-4", "Evolution");
+            createTab(tabsContainer, "bio-chapter-7", "Ecology");
+        }
+    }
+    
+    function createTab(container, value, text) {
+        const tab = document.createElement("div");
+        tab.className = "tab";
+        tab.textContent = text;
+        tab.dataset.value = value;
+        tab.onclick = function() {
+            // Remove active class from all tabs
+            document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+            
+            // Add active class to clicked tab
+            this.classList.add("active");
+            
+            // Update chapter select to match tab
+            document.getElementById("chapterselect").value = this.dataset.value;
+            
+            // Trigger chapter change
+            const event = new Event("change");
+            document.getElementById("chapterselect").dispatchEvent(event);
+        };
+        container.appendChild(tab);
     }
 
     function updateChapterOptions() {
@@ -417,11 +796,66 @@
 
     function submit() {
         if (correctanswers === questionsnumber) {
-            alert("Mission accomplished 🎉🎉🍾🍾🍾🍾🎊🎊🎊");
+            // Award points based on difficulty and number of questions
+            const pointsEarned = calculatePoints();
+            updatePoints(pointsEarned);
+            
+            alert(`Mission accomplished! 🎉 You earned ${pointsEarned} points!`);
             window.confettiful = new Confettiful(document.querySelector('.js-container'));
         } else {
-            alert("Mission failed");
+            alert("Mission failed. Try again!");
         }
+    }
+    
+    function calculatePoints() {
+        // Base points per correct answer
+        const basePoints = 10;
+        
+        // Bonus based on chapter difficulty
+        let difficultyMultiplier = 1;
+        const chapterValue = document.getElementById("chapterselect").value;
+        
+        // Higher chapters have higher difficulty
+        if (chapterValue.includes("chapter")) {
+            const chapterNum = parseInt(chapterValue.split("-")[1]);
+            difficultyMultiplier = Math.max(1, chapterNum / 5);
+        } else if (chapterValue.includes("bio-chapter")) {
+            const chapterNum = parseInt(chapterValue.split("-")[2]);
+            difficultyMultiplier = Math.max(1, chapterNum / 3);
+        }
+        
+        return Math.round(basePoints * questionsnumber * difficultyMultiplier);
+    }
+    
+    function updatePoints(pointsEarned) {
+        // Get current points from localStorage or default to 0
+        let currentPoints = parseInt(localStorage.getItem('points') || 0);
+        currentPoints += pointsEarned;
+        
+        // Update localStorage
+        localStorage.setItem('points', currentPoints);
+        
+        // Update display
+        document.getElementById('points').textContent = currentPoints;
+        
+        // Update level based on points
+        updateLevel(currentPoints);
+    }
+    
+    function updateLevel(points) {
+        // Calculate level based on points (every 100 points = 1 level)
+        const level = Math.floor(points / 100) + 1;
+        
+        // Update localStorage
+        localStorage.setItem('level', level);
+        
+        // Update display
+        document.getElementById('level').textContent = level;
+    }
+    
+    function logout() {
+        localStorage.removeItem('isLoggedIn');
+        window.location.href = 'login.html';
     }
 
     const Confettiful = function (el) {

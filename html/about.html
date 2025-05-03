@@ -15,6 +15,19 @@
 </head>
 
 <body>
+    <script>
+        // Check if user is logged in
+        window.onload = function() {
+            if (localStorage.getItem('isLoggedIn') !== 'true') {
+                window.location.href = '../login.html';
+            }
+        };
+        
+        function logout() {
+            localStorage.removeItem('isLoggedIn');
+            window.location.href = '../login.html';
+        }
+    </script>
 <header>
     <nav>
         <!--        <div class="logo">-->
@@ -23,8 +36,9 @@
         <!--        </div>-->
         <ul class="menu">
             <li><a href="../index.html">Quiz</a></li>
+            <li><a href="./fillin.html">Fill in</a></li>
             <li style="float: right; color: white"><a href="./about.html">About My Goal Learning</a></li>
-
+            <li style="float: right"><a href="#" onclick="logout()">Logout</a></li>
         </ul>
     </nav>
 </header>
