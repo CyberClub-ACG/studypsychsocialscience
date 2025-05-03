@@ -1,6 +1,6 @@
-# Study Psychology & Social Science
+# My Goal Learning
 
-A web-based interactive study aid for psychology students. This application provides multiple-choice quizzes and fill-in-the-blank exercises organized by chapters, helping students test their knowledge of psychology concepts.
+- The purpose of the app is to provide a study aid to those studying Psychology and Biology.
 
 ## Features
 
