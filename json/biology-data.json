@@ -1,0 +1,128 @@
+[
+  {
+    "question": "Which of the following is NOT a characteristic of living organisms?",
+    "chapter": "bio-chapter-1",
+    "answer1": "Growth and development",
+    "answer2": "Response to stimuli",
+    "answer3": "Crystalline structure",
+    "answer4": "Reproduction",
+    "correct": "answer3"
+  },
+  {
+    "question": "The basic unit of structure and function in all living organisms is the:",
+    "chapter": "bio-chapter-1",
+    "answer1": "organ",
+    "answer2": "tissue",
+    "answer3": "cell",
+    "answer4": "molecule",
+    "correct": "answer3"
+  },
+  {
+    "question": "Which of the following is the correct hierarchy of biological organization from smallest to largest?",
+    "chapter": "bio-chapter-1",
+    "answer1": "Cell → Tissue → Organ → Organism",
+    "answer2": "Molecule → Cell → Tissue → Organ",
+    "answer3": "Atom → Molecule → Cell → Tissue",
+    "answer4": "Organelle → Cell → Organ → Tissue",
+    "correct": "answer3"
+  },
+  {
+    "question": "Which of the following is a primary function of the cell membrane?",
+    "chapter": "bio-chapter-2",
+    "answer1": "Energy production",
+    "answer2": "Protein synthesis",
+    "answer3": "Selective permeability",
+    "answer4": "DNA replication",
+    "correct": "answer3"
+  },
+  {
+    "question": "The powerhouse of the cell is the:",
+    "chapter": "bio-chapter-2",
+    "answer1": "nucleus",
+    "answer2": "mitochondrion",
+    "answer3": "ribosome",
+    "answer4": "Golgi apparatus",
+    "correct": "answer2"
+  },
+  {
+    "question": "Which organelle is responsible for protein synthesis?",
+    "chapter": "bio-chapter-2",
+    "answer1": "ribosome",
+    "answer2": "lysosome",
+    "answer3": "mitochondrion",
+    "answer4": "chloroplast",
+    "correct": "answer1"
+  },
+  {
+    "question": "The process by which one species evolves into two or more species is called:",
+    "chapter": "bio-chapter-4",
+    "answer1": "natural selection",
+    "answer2": "speciation",
+    "answer3": "adaptation",
+    "answer4": "mutation",
+    "correct": "answer2"
+  },
+  {
+    "question": "Which of the following is NOT a mechanism of evolution?",
+    "chapter": "bio-chapter-4",
+    "answer1": "Natural selection",
+    "answer2": "Genetic drift",
+    "answer3": "Gene flow",
+    "answer4": "Genetic engineering",
+    "correct": "answer4"
+  },
+  {
+    "question": "The process by which plants convert light energy into chemical energy is called:",
+    "chapter": "bio-chapter-5",
+    "answer1": "respiration",
+    "answer2": "photosynthesis",
+    "answer3": "fermentation",
+    "answer4": "transpiration",
+    "correct": "answer2"
+  },
+  {
+    "question": "Which of the following is NOT a component of an ecosystem?",
+    "chapter": "bio-chapter-7",
+    "answer1": "Producers",
+    "answer2": "Consumers",
+    "answer3": "Decomposers",
+    "answer4": "Electrons",
+    "correct": "answer4"
+  },
+  {
+    "question": "The process by which genetic information is passed from one generation to the next is called:",
+    "chapter": "bio-chapter-3",
+    "answer1": "evolution",
+    "answer2": "inheritance",
+    "answer3": "mutation",
+    "answer4": "variation",
+    "correct": "answer2"
+  },
+  {
+    "question": "The basic unit of heredity is the:",
+    "chapter": "bio-chapter-3",
+    "answer1": "chromosome",
+    "answer2": "gene",
+    "answer3": "nucleus",
+    "answer4": "DNA molecule",
+    "correct": "answer2"
+  },
+  {
+    "question": "Which of the following is a function of the circulatory system in animals?",
+    "chapter": "bio-chapter-6",
+    "answer1": "Gas exchange",
+    "answer2": "Nutrient transport",
+    "answer3": "Waste removal",
+    "answer4": "All of the above",
+    "correct": "answer4"
+  },
+  {
+    "question": "The process by which organisms maintain a stable internal environment is called:",
+    "chapter": "bio-chapter-6",
+    "answer1": "homeostasis",
+    "answer2": "metabolism",
+    "answer3": "adaptation",
+    "answer4": "evolution",
+    "correct": "answer1"
+  }
+]
