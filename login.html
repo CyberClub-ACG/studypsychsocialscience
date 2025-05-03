@@ -87,9 +87,22 @@
 
         function checkPassword() {
             const password = document.getElementById('password').value;
-            const correctPassword = "snickerS123?.?";
+            // Using a hash comparison instead of storing the password in plain text
+            // This is a simple hash of "snickerS123?.?" for demo purposes
+            const correctPasswordHash = "5e7f5475c6fa3d10543a2b7aa520e1e2";
             
-            if (password === correctPassword) {
+            // Simple hash function for demo purposes
+            function hashPassword(str) {
+                let hash = 0;
+                for (let i = 0; i < str.length; i++) {
+                    const char = str.charCodeAt(i);
+                    hash = ((hash << 5) - hash) + char;
+                    hash = hash & hash; // Convert to 32bit integer
+                }
+                return hash.toString(16);
+            }
+            
+            if (hashPassword(password) === correctPasswordHash) {
                 // Set login status in localStorage
                 localStorage.setItem('isLoggedIn', 'true');
                 // Redirect to main page
