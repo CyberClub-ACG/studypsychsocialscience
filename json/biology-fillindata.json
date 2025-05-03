@@ -1,0 +1,94 @@
+[
+  {
+    "id": 0,
+    "question": "The basic unit of structure and function in all living organisms is the _______.",
+    "chapter": "bio-chapter-1",
+    "answers": {
+      "answer1": "cell",
+      "answer2": "tissue",
+      "answer3": "organ",
+      "answer4": "molecule"
+    },
+    "amountofspaces": 1,
+    "correct": [
+      "cell"
+    ]
+  },
+  {
+    "id": 1,
+    "question": "The process by which plants convert light energy into chemical energy is called _______.",
+    "chapter": "bio-chapter-5",
+    "answers": {
+      "answer1": "photosynthesis",
+      "answer2": "respiration",
+      "answer3": "fermentation",
+      "answer4": "transpiration"
+    },
+    "amountofspaces": 1,
+    "correct": [
+      "photosynthesis"
+    ]
+  },
+  {
+    "id": 2,
+    "question": "DNA stands for _______ _______ _______.",
+    "chapter": "bio-chapter-3",
+    "answers": {
+      "answer1": "Deoxyribonucleic",
+      "answer2": "Acid",
+      "answer3": "Deoxyribose",
+      "answer4": "Nucleic"
+    },
+    "amountofspaces": 3,
+    "correct": [
+      "Deoxyribonucleic",
+      "Nucleic",
+      "Acid"
+    ]
+  },
+  {
+    "id": 3,
+    "question": "The _______ is the control center of the cell that contains genetic information.",
+    "chapter": "bio-chapter-2",
+    "answers": {
+      "answer1": "nucleus",
+      "answer2": "mitochondrion",
+      "answer3": "ribosome",
+      "answer4": "Golgi apparatus"
+    },
+    "amountofspaces": 1,
+    "correct": [
+      "nucleus"
+    ]
+  },
+  {
+    "id": 4,
+    "question": "The process by which organisms maintain a stable internal environment is called _______.",
+    "chapter": "bio-chapter-6",
+    "answers": {
+      "answer1": "homeostasis",
+      "answer2": "metabolism",
+      "answer3": "adaptation",
+      "answer4": "evolution"
+    },
+    "amountofspaces": 1,
+    "correct": [
+      "homeostasis"
+    ]
+  },
+  {
+    "id": 5,
+    "question": "The basic unit of heredity is the _______.",
+    "chapter": "bio-chapter-3",
+    "answers": {
+      "answer1": "gene",
+      "answer2": "chromosome",
+      "answer3": "nucleus",
+      "answer4": "DNA molecule"
+    },
+    "amountofspaces": 1,
+    "correct": [
+      "gene"
+    ]
+  }
+]
