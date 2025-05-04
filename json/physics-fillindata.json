@@ -1,0 +1,307 @@
+[
+  {
+    "id": 0,
+    "question": "Newton's First Law of Motion states that an object at rest stays at rest, and an object in motion stays in motion with the same speed and direction unless acted upon by an _______ force.",
+    "chapter": "physics-chapter-1",
+    "answers": {
+      "answer1": "unbalanced",
+      "answer2": "external",
+      "answer3": "applied",
+      "answer4": "equal"
+    },
+    "amountofspaces": 1,
+    "correct": [
+      "unbalanced"
+    ]
+  },
+  {
+    "id": 1,
+    "question": "The formula for Newton's Second Law is F = _______.",
+    "chapter": "physics-chapter-1",
+    "answers": {
+      "answer1": "ma",
+      "answer2": "mv",
+      "answer3": "mg",
+      "answer4": "mv²"
+    },
+    "amountofspaces": 1,
+    "correct": [
+      "ma"
+    ]
+  },
+  {
+    "id": 2,
+    "question": "The SI unit of force is the _______, which is equal to kg·m/s².",
+    "chapter": "physics-chapter-1",
+    "answers": {
+      "answer1": "Newton",
+      "answer2": "Joule",
+      "answer3": "Watt",
+      "answer4": "Pascal"
+    },
+    "amountofspaces": 1,
+    "correct": [
+      "Newton"
+    ]
+  },
+  {
+    "id": 3,
+    "question": "The formula for calculating kinetic energy is KE = _______.",
+    "chapter": "physics-chapter-1",
+    "answers": {
+      "answer1": "1/2",
+      "answer2": "mv²",
+      "answer3": "mgh",
+      "answer4": "Fd"
+    },
+    "amountofspaces": 2,
+    "correct": [
+      "1/2",
+      "mv²"
+    ]
+  },
+  {
+    "id": 4,
+    "question": "Ohm's Law states that V = _______.",
+    "chapter": "physics-chapter-2",
+    "answers": {
+      "answer1": "I",
+      "answer2": "R",
+      "answer3": "P",
+      "answer4": "E"
+    },
+    "amountofspaces": 2,
+    "correct": [
+      "I",
+      "R"
+    ]
+  },
+  {
+    "id": 5,
+    "question": "The SI unit of electric potential difference is the _______.",
+    "chapter": "physics-chapter-2",
+    "answers": {
+      "answer1": "Volt",
+      "answer2": "Ampere",
+      "answer3": "Ohm",
+      "answer4": "Watt"
+    },
+    "amountofspaces": 1,
+    "correct": [
+      "Volt"
+    ]
+  },
+  {
+    "id": 6,
+    "question": "The SI unit of electric current is the _______.",
+    "chapter": "physics-chapter-2",
+    "answers": {
+      "answer1": "Ampere",
+      "answer2": "Volt",
+      "answer3": "Ohm",
+      "answer4": "Coulomb"
+    },
+    "amountofspaces": 1,
+    "correct": [
+      "Ampere"
+    ]
+  },
+  {
+    "id": 7,
+    "question": "The relationship between wavelength (λ) and frequency (f) of a wave is λ = _______.",
+    "chapter": "physics-chapter-3",
+    "answers": {
+      "answer1": "v",
+      "answer2": "f",
+      "answer3": "T",
+      "answer4": "A"
+    },
+    "amountofspaces": 2,
+    "correct": [
+      "v",
+      "f"
+    ]
+  },
+  {
+    "id": 8,
+    "question": "The Doppler effect explains the change in _______ of a wave in relation to an observer moving relative to the wave source.",
+    "chapter": "physics-chapter-3",
+    "answers": {
+      "answer1": "frequency",
+      "answer2": "wavelength",
+      "answer3": "amplitude",
+      "answer4": "speed"
+    },
+    "amountofspaces": 1,
+    "correct": [
+      "frequency"
+    ]
+  },
+  {
+    "id": 9,
+    "question": "According to the principle of superposition, when two waves meet, the resultant displacement equals the _______ of the individual displacements.",
+    "chapter": "physics-chapter-3",
+    "answers": {
+      "answer1": "sum",
+      "answer2": "product",
+      "answer3": "difference",
+      "answer4": "average"
+    },
+    "amountofspaces": 1,
+    "correct": [
+      "sum"
+    ]
+  },
+  {
+    "id": 10,
+    "question": "Einstein's famous equation _______ relates energy and mass.",
+    "chapter": "physics-chapter-4",
+    "answers": {
+      "answer1": "E",
+      "answer2": "=",
+      "answer3": "mc²",
+      "answer4": "F=ma"
+    },
+    "amountofspaces": 3,
+    "correct": [
+      "E",
+      "=",
+      "mc²"
+    ]
+  },
+  {
+    "id": 11,
+    "question": "The uncertainty principle was formulated by Werner _______.",
+    "chapter": "physics-chapter-4",
+    "answers": {
+      "answer1": "Heisenberg",
+      "answer2": "Einstein",
+      "answer3": "Bohr",
+      "answer4": "Schrödinger"
+    },
+    "amountofspaces": 1,
+    "correct": [
+      "Heisenberg"
+    ]
+  },
+  {
+    "id": 12,
+    "question": "The photoelectric effect involves the emission of _______ when light shines on a material.",
+    "chapter": "physics-chapter-4",
+    "answers": {
+      "answer1": "electrons",
+      "answer2": "protons",
+      "answer3": "neutrons",
+      "answer4": "photons"
+    },
+    "amountofspaces": 1,
+    "correct": [
+      "electrons"
+    ]
+  },
+  {
+    "id": 13,
+    "question": "The First Law of Thermodynamics states that energy cannot be created or destroyed, only _______.",
+    "chapter": "physics-chapter-5",
+    "answers": {
+      "answer1": "transformed",
+      "answer2": "increased",
+      "answer3": "decreased",
+      "answer4": "measured"
+    },
+    "amountofspaces": 1,
+    "correct": [
+      "transformed"
+    ]
+  },
+  {
+    "id": 14,
+    "question": "The Second Law of Thermodynamics states that the _______ of an isolated system always increases.",
+    "chapter": "physics-chapter-5",
+    "answers": {
+      "answer1": "entropy",
+      "answer2": "energy",
+      "answer3": "temperature",
+      "answer4": "pressure"
+    },
+    "amountofspaces": 1,
+    "correct": [
+      "entropy"
+    ]
+  },
+  {
+    "id": 15,
+    "question": "The SI unit of power is the _______.",
+    "chapter": "physics-chapter-5",
+    "answers": {
+      "answer1": "Watt",
+      "answer2": "Joule",
+      "answer3": "Newton",
+      "answer4": "Pascal"
+    },
+    "amountofspaces": 1,
+    "correct": [
+      "Watt"
+    ]
+  },
+  {
+    "id": 16,
+    "question": "According to Newton's law of universal gravitation, the gravitational force between two objects is inversely proportional to the _______ of the distance between them.",
+    "chapter": "physics-chapter-6",
+    "answers": {
+      "answer1": "square",
+      "answer2": "cube",
+      "answer3": "fourth power",
+      "answer4": "logarithm"
+    },
+    "amountofspaces": 1,
+    "correct": [
+      "square"
+    ]
+  },
+  {
+    "id": 17,
+    "question": "The Higgs boson is a particle that gives _______ to other particles.",
+    "chapter": "physics-chapter-6",
+    "answers": {
+      "answer1": "mass",
+      "answer2": "charge",
+      "answer3": "spin",
+      "answer4": "energy"
+    },
+    "amountofspaces": 1,
+    "correct": [
+      "mass"
+    ]
+  },
+  {
+    "id": 18,
+    "question": "Bernoulli's principle states that as the speed of a fluid increases, the pressure _______.",
+    "chapter": "physics-chapter-7",
+    "answers": {
+      "answer1": "decreases",
+      "answer2": "increases",
+      "answer3": "remains constant",
+      "answer4": "fluctuates"
+    },
+    "amountofspaces": 1,
+    "correct": [
+      "decreases"
+    ]
+  },
+  {
+    "id": 19,
+    "question": "Archimedes' principle states that the buoyant force on an object equals the weight of the _______ displaced by the object.",
+    "chapter": "physics-chapter-7",
+    "answers": {
+      "answer1": "fluid",
+      "answer2": "air",
+      "answer3": "water",
+      "answer4": "gas"
+    },
+    "amountofspaces": 1,
+    "correct": [
+      "fluid"
+    ]
+  }
+]

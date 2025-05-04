@@ -1,0 +1,135 @@
+[
+  {
+    "id": 0,
+    "chapter": "bio-chapter-1",
+    "title": "Characteristics of Life",
+    "terms": [
+      "Cell",
+      "Homeostasis",
+      "Metabolism",
+      "Reproduction",
+      "Adaptation"
+    ],
+    "definitions": [
+      "The basic unit of structure and function in all living organisms",
+      "The maintenance of a stable internal environment despite changes in the external environment",
+      "All chemical reactions that occur within an organism to maintain life",
+      "The process by which organisms produce offspring",
+      "A characteristic that improves an organism's ability to survive and reproduce in a particular environment"
+    ]
+  },
+  {
+    "id": 1,
+    "chapter": "bio-chapter-2",
+    "title": "Cell Structure and Function",
+    "terms": [
+      "Nucleus",
+      "Mitochondrion",
+      "Ribosome",
+      "Cell Membrane",
+      "Golgi Apparatus"
+    ],
+    "definitions": [
+      "The control center of the cell that contains genetic information",
+      "The powerhouse of the cell where cellular respiration occurs",
+      "The site of protein synthesis",
+      "The selectively permeable barrier that surrounds the cell",
+      "An organelle involved in packaging and secreting proteins"
+    ]
+  },
+  {
+    "id": 2,
+    "chapter": "bio-chapter-3",
+    "title": "Genetics and Inheritance",
+    "terms": [
+      "DNA",
+      "Gene",
+      "Chromosome",
+      "Allele",
+      "Mutation"
+    ],
+    "definitions": [
+      "The molecule that carries genetic information",
+      "A segment of DNA that codes for a specific trait",
+      "A structure composed of DNA and protein that carries genetic information",
+      "An alternative form of a gene",
+      "A change in the DNA sequence"
+    ]
+  },
+  {
+    "id": 3,
+    "chapter": "bio-chapter-4",
+    "title": "Evolution",
+    "terms": [
+      "Natural Selection",
+      "Speciation",
+      "Adaptation",
+      "Genetic Drift",
+      "Gene Flow"
+    ],
+    "definitions": [
+      "The process by which organisms with favorable traits are more likely to survive and reproduce",
+      "The process by which one species evolves into two or more species",
+      "A characteristic that improves an organism's ability to survive and reproduce in a particular environment",
+      "Random changes in allele frequencies in a population",
+      "The transfer of genes from one population to another"
+    ]
+  },
+  {
+    "id": 4,
+    "chapter": "bio-chapter-5",
+    "title": "Photosynthesis and Cellular Respiration",
+    "terms": [
+      "Photosynthesis",
+      "Cellular Respiration",
+      "Chloroplast",
+      "ATP",
+      "Glucose"
+    ],
+    "definitions": [
+      "The process by which plants convert light energy into chemical energy",
+      "The process by which cells break down glucose to release energy",
+      "The organelle where photosynthesis occurs",
+      "The main energy currency of cells",
+      "A simple sugar that serves as a primary source of energy for cells"
+    ]
+  },
+  {
+    "id": 5,
+    "chapter": "bio-chapter-6",
+    "title": "Human Body Systems",
+    "terms": [
+      "Circulatory System",
+      "Respiratory System",
+      "Digestive System",
+      "Nervous System",
+      "Endocrine System"
+    ],
+    "definitions": [
+      "The system that transports blood, nutrients, gases, and waste products throughout the body",
+      "The system that exchanges gases between the body and the environment",
+      "The system that breaks down food into nutrients that can be absorbed by the body",
+      "The system that coordinates the body's actions and sensory information",
+      "The system that regulates body functions through hormones"
+    ]
+  },
+  {
+    "id": 6,
+    "chapter": "bio-chapter-7",
+    "title": "Ecology",
+    "terms": [
+      "Ecosystem",
+      "Food Chain",
+      "Biodiversity",
+      "Habitat",
+      "Niche"
+    ],
+    "definitions": [
+      "A community of living organisms and their physical environment",
+      "A sequence of organisms through which energy and nutrients pass",
+      "The variety of life in a particular habitat or ecosystem",
+      "The natural environment in which an organism lives",
+      "The role and position of an organism in its environment"
+    ]
+  }
+]

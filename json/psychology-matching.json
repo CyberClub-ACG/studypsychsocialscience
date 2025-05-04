@@ -1,0 +1,135 @@
+[
+  {
+    "id": 0,
+    "chapter": "chapter-1",
+    "title": "Introduction to Psychology",
+    "terms": [
+      "Psychology",
+      "Empiricism",
+      "Structuralism",
+      "Functionalism",
+      "Behaviorism"
+    ],
+    "definitions": [
+      "The scientific study of behavior and mental processes",
+      "The view that all knowledge and thoughts come from experience",
+      "The 19th-century school of psychology that argued that breaking down experience into its elemental parts offers the best way to understand thought and behavior",
+      "The 19th-century school of psychology that argued it was better to look at why the mind works the way it does than to describe its parts",
+      "A school of psychology that proposed that psychology can be a true science only if it examines observable behavior, not ideas, thoughts, feelings, or motives"
+    ]
+  },
+  {
+    "id": 1,
+    "chapter": "chapter-2",
+    "title": "Research Methods",
+    "terms": [
+      "Scientific Method",
+      "Hypothesis",
+      "Variable",
+      "Control Group",
+      "Correlation"
+    ],
+    "definitions": [
+      "A systematic approach to gathering information that relies on empirical observation and measurement",
+      "A specific, informed, and testable prediction of what kind of outcome should occur under a particular condition",
+      "Any factor that can change or vary",
+      "A group of participants in an experiment who do not receive the treatment or intervention being tested",
+      "A statistical relationship between two variables"
+    ]
+  },
+  {
+    "id": 2,
+    "chapter": "chapter-14",
+    "title": "Social Psychology",
+    "terms": [
+      "Social Facilitation",
+      "Social Loafing",
+      "Conformity",
+      "Obedience",
+      "Diffusion of Responsibility"
+    ],
+    "definitions": [
+      "The tendency for people to perform better on simple tasks when in the presence of others",
+      "The tendency for people to exert less effort when working in a group",
+      "Changing one's behavior to match the responses of others",
+      "Following direct commands from an authority figure",
+      "The phenomenon where individuals are less likely to take action or feel responsibility in the presence of others"
+    ]
+  },
+  {
+    "id": 3,
+    "chapter": "chapter-3",
+    "title": "Biological Psychology",
+    "terms": [
+      "Neuron",
+      "Synapse",
+      "Neurotransmitter",
+      "Central Nervous System",
+      "Peripheral Nervous System"
+    ],
+    "definitions": [
+      "A specialized cell that transmits nerve impulses",
+      "The junction between two neurons where information is transmitted",
+      "A chemical messenger that transmits signals across a synapse",
+      "The brain and spinal cord",
+      "The nerves and ganglia outside of the brain and spinal cord"
+    ]
+  },
+  {
+    "id": 4,
+    "chapter": "chapter-4",
+    "title": "Sensation and Perception",
+    "terms": [
+      "Sensation",
+      "Perception",
+      "Absolute Threshold",
+      "Difference Threshold",
+      "Gestalt Principles"
+    ],
+    "definitions": [
+      "The process of detecting physical energy from the environment and encoding it as neural signals",
+      "The process of organizing and interpreting sensory information to give it meaning",
+      "The minimum amount of stimulation needed to detect a stimulus 50% of the time",
+      "The minimum difference between two stimuli that can be detected 50% of the time",
+      "A set of principles that describe how we organize and group visual elements"
+    ]
+  },
+  {
+    "id": 5,
+    "chapter": "chapter-5",
+    "title": "Learning",
+    "terms": [
+      "Classical Conditioning",
+      "Operant Conditioning",
+      "Reinforcement",
+      "Punishment",
+      "Observational Learning"
+    ],
+    "definitions": [
+      "A type of learning in which a neutral stimulus comes to elicit a response after being paired with a stimulus that naturally elicits that response",
+      "A type of learning in which behavior is strengthened if followed by reinforcement or diminished if followed by punishment",
+      "A consequence that increases the likelihood that a behavior will occur",
+      "A consequence that decreases the likelihood that a behavior will occur",
+      "Learning by watching others"
+    ]
+  },
+  {
+    "id": 6,
+    "chapter": "chapter-6",
+    "title": "Memory",
+    "terms": [
+      "Encoding",
+      "Storage",
+      "Retrieval",
+      "Short-term Memory",
+      "Long-term Memory"
+    ],
+    "definitions": [
+      "The process of transforming information into a form that can be stored in memory",
+      "The process of maintaining information in memory over time",
+      "The process of accessing stored information",
+      "A limited-capacity store that can hold information for approximately 20 to 30 seconds",
+      "A relatively permanent store that can hold vast amounts of information for long periods of time"
+    ]
+  }
+]

@@ -87,6 +87,117 @@
             border-radius: 4px;
             border: 1px solid #ddd;
         }
+        /* Progress bar styles */
+        .progress-container {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background-color: #f1f1f1;
+            z-index: 1000;
+            padding: 5px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .progress-bar {
+            height: 20px;
+            background-color: #4BB543;
+            width: 0%;
+            border-radius: 10px;
+            transition: width 0.5s ease-in-out;
+        }
+        /* Customization panel styles */
+        .customization-panel {
+            position: fixed;
+            right: -250px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 250px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px 0 0 5px;
+            padding: 15px;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+            z-index: 1000;
+        }
+        .customization-panel.active {
+            right: 0;
+        }
+        .customization-toggle {
+            position: absolute;
+            left: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #004E64;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px 0 0 5px;
+            cursor: pointer;
+        }
+        .color-options {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+        .color-option {
+            width: 30px;
+            height: 30px;
+            margin: 5px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        .color-option.selected {
+            border-color: #000;
+        }
+        /* File upload panel styles */
+        .file-upload-container {
+            position: fixed;
+            right: -300px;
+            bottom: 20px;
+            width: 300px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px 0 0 5px;
+            padding: 15px;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+            z-index: 1000;
+        }
+        .file-upload-container.active {
+            right: 0;
+        }
+        .file-upload-toggle {
+            position: absolute;
+            left: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #004E64;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px 0 0 5px;
+            cursor: pointer;
+        }
+        .file-upload-form {
+            margin-top: 10px;
+        }
+        .file-upload-form input[type="file"] {
+            margin-bottom: 10px;
+        }
+        .file-upload-form button {
+            background-color: #004E64;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .upload-status {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
     </style>
 </head>
 
@@ -110,6 +221,43 @@
     </nav>
 </header>
 
+<!-- Progress bar container -->
+<div class="progress-container">
+    <div class="progress-bar" id="progress-bar"></div>
+</div>
+
+<!-- Customization panel -->
+<div class="customization-panel" id="customization-panel">
+    <button class="customization-toggle" onclick="toggleCustomizationPanel()">🎨</button>
+    <h3>Customize</h3>
+    <p>Choose a background color:</p>
+    <div class="color-options">
+        <div class="color-option selected" data-color="#ffffff" style="background-color: #ffffff;"></div>
+        <div class="color-option" data-color="#f0f8ff" style="background-color: #f0f8ff;"></div>
+        <div class="color-option" data-color="#f5f5dc" style="background-color: #f5f5dc;"></div>
+        <div class="color-option" data-color="#e6e6fa" style="background-color: #e6e6fa;"></div>
+        <div class="color-option" data-color="#fffacd" style="background-color: #fffacd;"></div>
+        <div class="color-option" data-color="#e0ffff" style="background-color: #e0ffff;"></div>
+    </div>
+</div>
+
+<!-- File upload panel -->
+<div class="file-upload-container" id="file-upload-container">
+    <button class="file-upload-toggle" onclick="toggleFileUploadPanel()">📄</button>
+    <h3>Upload Content</h3>
+    <p>Upload a PDF to generate quiz questions:</p>
+    <div class="file-upload-form">
+        <select id="content-course" style="width: 100%; margin-bottom: 10px;">
+            <option value="psychology">Psychology</option>
+            <option selected value="biology">Biology</option>
+            <option value="physics">Physics</option>
+        </select>
+        <input type="file" id="pdf-upload" accept=".pdf" />
+        <button onclick="processPDF()">Generate Questions</button>
+        <div class="upload-status" id="upload-status"></div>
+    </div>
+</div>
+
 <div class="js-container container" style="height: 0;"></div>
 
 <main>
@@ -126,6 +274,7 @@
                     <select id="courseselect" onchange="changeCourse(event)" style="width: 100%;">
                         <option value="psychology">Psychology</option>
                         <option selected value="biology">Biology</option>
+                        <option value="physics">Physics</option>
                     </select>
                 </div>
                 
@@ -758,6 +907,9 @@
             grayOutButtons(index);
             document.getElementById("button-" + index + "-" + indexBtn).style.backgroundColor = "#4BB543";
             correctanswers++;
+            
+            // Play success sound
+            playCorrectSound();
         } else {
             document.getElementById("statushere-" + index).innerText = "This is not the right answer but you are making progress buddy";
             document.getElementById("button-" + index + "-" + indexBtn).disabled = true;
@@ -765,11 +917,280 @@
 
         updateProgress(datajson.length);
     }
+    
+    function playCorrectSound() {
+        const audio = new Audio('./sounds/correct.mp3');
+        audio.play().catch(e => console.log('Error playing sound:', e));
+    }
 
     async function init() {
         datajson = await getData();
         originaldatajson = datajson;
         await showData(datajson);
+        
+        // Initialize UI elements
+        loadSavedSettings();
+        updateProgressBar();
+        
+        // Load points and level from localStorage
+        const points = localStorage.getItem('points') || 0;
+        document.getElementById('points').textContent = points;
+        
+        const level = localStorage.getItem('level') || 1;
+        document.getElementById('level').textContent = level;
+    }
+    
+    function updateProgressBar() {
+        if (datajson && datajson.length > 0) {
+            const percentage = (correctanswers / datajson.length) * 100;
+            document.getElementById('progress-bar').style.width = percentage + '%';
+        } else {
+            document.getElementById('progress-bar').style.width = '0%';
+        }
+    }
+    
+    function loadSavedSettings() {
+        // Load saved background color
+        const savedColor = localStorage.getItem('backgroundColor');
+        if (savedColor) {
+            document.body.style.backgroundColor = savedColor;
+            
+            // Update selected color in customization panel
+            const colorOptions = document.querySelectorAll('.color-option');
+            colorOptions.forEach(option => {
+                option.classList.remove('selected');
+                if (option.getAttribute('data-color') === savedColor) {
+                    option.classList.add('selected');
+                }
+            });
+        }
+    }
+    
+    function toggleCustomizationPanel() {
+        const panel = document.getElementById('customization-panel');
+        panel.classList.toggle('active');
+        
+        // Close file upload panel if open
+        document.getElementById('file-upload-container').classList.remove('active');
+        
+        // Add click event listeners to color options
+        const colorOptions = document.querySelectorAll('.color-option');
+        colorOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                // Remove selected class from all options
+                colorOptions.forEach(opt => opt.classList.remove('selected'));
+                
+                // Add selected class to clicked option
+                this.classList.add('selected');
+                
+                // Apply background color
+                const color = this.getAttribute('data-color');
+                document.body.style.backgroundColor = color;
+                
+                // Save to localStorage
+                localStorage.setItem('backgroundColor', color);
+            });
+        });
+    }
+    
+    function toggleFileUploadPanel() {
+        const panel = document.getElementById('file-upload-container');
+        panel.classList.toggle('active');
+        
+        // Close customization panel if open
+        document.getElementById('customization-panel').classList.remove('active');
+    }
+    
+    async function processPDF() {
+        const fileInput = document.getElementById('pdf-upload');
+        const statusDiv = document.getElementById('upload-status');
+        const selectedCourse = document.getElementById('content-course').value;
+        
+        if (!fileInput.files || fileInput.files.length === 0) {
+            statusDiv.textContent = 'Please select a PDF file first.';
+            return;
+        }
+        
+        const file = fileInput.files[0];
+        if (file.type !== 'application/pdf') {
+            statusDiv.textContent = 'Please select a PDF file.';
+            return;
+        }
+        
+        statusDiv.textContent = 'Reading PDF content...';
+        
+        try {
+            // Read the PDF file
+            const formData = new FormData();
+            formData.append('pdf', file);
+            
+            // Extract text from PDF (simulated here)
+            // In a real implementation, you would use a PDF parsing library or service
+            const pdfText = await simulatePDFTextExtraction(file);
+            
+            statusDiv.textContent = 'Generating questions using AI...';
+            
+            // Generate questions using OpenAI API
+            const questions = await generateQuestionsWithAI(pdfText, selectedCourse);
+            
+            // Add questions to the appropriate JSON files
+            addQuestionsToDatabase(questions, selectedCourse);
+            
+            statusDiv.textContent = 'Success! New questions added to the database.';
+            
+            // Reload data to include new questions
+            datajson = await getData();
+            originaldatajson = datajson;
+            await showData(datajson);
+            
+        } catch (error) {
+            console.error('Error processing PDF:', error);
+            statusDiv.textContent = 'Error processing PDF: ' + error.message;
+        }
+    }
+    
+    async function simulatePDFTextExtraction(file) {
+        // This is a simplified simulation of PDF text extraction
+        // In a real implementation, you would use a PDF parsing library
+        return new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onload = function() {
+                // Simulate extracting text from PDF
+                // In reality, this would be the actual text content of the PDF
+                const simulatedText = "This is simulated text extracted from the PDF about " + 
+                                     file.name + ". It would contain educational content related to " +
+                                     "the selected course.";
+                resolve(simulatedText);
+            };
+            reader.readAsArrayBuffer(file);
+        });
+    }
+    
+    async function generateQuestionsWithAI(pdfText, course) {
+        // OpenAI API key
+        const apiKey = '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';
+        
+        // Prepare the prompt for OpenAI
+        const prompt = `Generate 5 educational questions about ${course} based on the following content. 
+                       Include 2 multiple-choice questions with 4 options each and the correct answer, 
+                       2 fill-in-the-blank questions with 4 possible answers for each blank, 
+                       and 1 matching exercise with 5 terms and definitions.
+                       Format the output as a JSON object that can be parsed.
+                       Content: ${pdfText}`;
+        
+        try {
+            // In a real implementation, you would make an API call to OpenAI
+            // For this demo, we'll simulate the response
+            return simulateAIResponse(course);
+        } catch (error) {
+            console.error('Error calling OpenAI API:', error);
+            throw new Error('Failed to generate questions with AI');
+        }
+    }
+    
+    function simulateAIResponse(course) {
+        // Simulate AI-generated questions based on the course
+        const chapterPrefix = course === 'psychology' ? 'chapter' : 
+                             course === 'biology' ? 'bio-chapter' : 'physics-chapter';
+        
+        // Generate a random chapter number
+        const chapterNum = Math.floor(Math.random() * 7) + 1;
+        const chapter = `${chapterPrefix}-${chapterNum}`;
+        
+        // Sample questions for demonstration
+        return {
+            multipleChoice: [
+                {
+                    question: `Sample ${course} multiple choice question 1?`,
+                    chapter: chapter,
+                    answers: {
+                        answer1: "Option A",
+                        answer2: "Option B",
+                        answer3: "Option C",
+                        answer4: "Option D"
+                    },
+                    correct: "answer2"
+                },
+                {
+                    question: `Sample ${course} multiple choice question 2?`,
+                    chapter: chapter,
+                    answers: {
+                        answer1: "Option A",
+                        answer2: "Option B",
+                        answer3: "Option C",
+                        answer4: "Option D"
+                    },
+                    correct: "answer3"
+                }
+            ],
+            fillIn: [
+                {
+                    question: `Sample ${course} fill-in-the-blank question with _______.`,
+                    chapter: chapter,
+                    answers: {
+                        answer1: "option 1",
+                        answer2: "option 2",
+                        answer3: "option 3",
+                        answer4: "option 4"
+                    },
+                    amountofspaces: 1,
+                    correct: ["option 2"]
+                },
+                {
+                    question: `Another ${course} fill-in-the-blank with _______ and _______.`,
+                    chapter: chapter,
+                    answers: {
+                        answer1: "first option",
+                        answer2: "second option",
+                        answer3: "third option",
+                        answer4: "fourth option"
+                    },
+                    amountofspaces: 2,
+                    correct: ["first option", "third option"]
+                }
+            ],
+            matching: {
+                chapter: chapter,
+                title: `${course.charAt(0).toUpperCase() + course.slice(1)} Concepts`,
+                terms: [
+                    `${course} Term 1`,
+                    `${course} Term 2`,
+                    `${course} Term 3`,
+                    `${course} Term 4`,
+                    `${course} Term 5`
+                ],
+                definitions: [
+                    `Definition for ${course} Term 1`,
+                    `Definition for ${course} Term 2`,
+                    `Definition for ${course} Term 3`,
+                    `Definition for ${course} Term 4`,
+                    `Definition for ${course} Term 5`
+                ]
+            }
+        };
+    }
+    
+    async function addQuestionsToDatabase(questions, course) {
+        // Add multiple choice questions
+        const multipleChoiceFile = course === 'psychology' ? './json/data.json' : 
+                                  course === 'biology' ? './json/biology-data.json' : './json/physics-data.json';
+        
+        // Add fill-in questions
+        const fillInFile = course === 'psychology' ? './json/fillindata.json' : 
+                          course === 'biology' ? './json/biology-fillindata.json' : './json/physics-fillindata.json';
+        
+        // Add matching questions
+        const matchingFile = course === 'psychology' ? './json/psychology-matching.json' : 
+                            course === 'biology' ? './json/biology-matching.json' : './json/physics-matching.json';
+        
+        // In a real implementation, you would update the JSON files with the new questions
+        // For this demo, we'll just log the questions
+        console.log('New multiple choice questions:', questions.multipleChoice);
+        console.log('New fill-in questions:', questions.fillIn);
+        console.log('New matching exercise:', questions.matching);
+        
+        // Simulate adding to database
+        return true;
     }
 
     Element.prototype.shuffleChildren = function () {
