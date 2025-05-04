@@ -1,0 +1,272 @@
+[
+  {
+    "question": "Which of the following is Newton's First Law of Motion?",
+    "chapter": "physics-chapter-1",
+    "answer1": "Force equals mass times acceleration",
+    "answer2": "An object at rest stays at rest, and an object in motion stays in motion with the same speed and direction unless acted upon by an unbalanced force",
+    "answer3": "For every action, there is an equal and opposite reaction",
+    "answer4": "Energy cannot be created or destroyed, only transformed",
+    "correct": "answer2"
+  },
+  {
+    "question": "The SI unit of force is the:",
+    "chapter": "physics-chapter-1",
+    "answer1": "Joule",
+    "answer2": "Watt",
+    "answer3": "Newton",
+    "answer4": "Pascal",
+    "correct": "answer3"
+  },
+  {
+    "question": "Which of the following is the formula for calculating kinetic energy?",
+    "chapter": "physics-chapter-1",
+    "answer1": "KE = mgh",
+    "answer2": "KE = 1/2 mv²",
+    "answer3": "KE = Fd",
+    "answer4": "KE = P/t",
+    "correct": "answer2"
+  },
+  {
+    "question": "What is the acceleration due to gravity on Earth's surface (approximate value)?",
+    "chapter": "physics-chapter-1",
+    "answer1": "5.0 m/s²",
+    "answer2": "9.8 m/s²",
+    "answer3": "3.7 m/s²",
+    "answer4": "11.2 m/s²",
+    "correct": "answer2"
+  },
+  {
+    "question": "Which of the following is Newton's Second Law of Motion?",
+    "chapter": "physics-chapter-1",
+    "answer1": "Force equals mass times acceleration",
+    "answer2": "An object at rest stays at rest, and an object in motion stays in motion with the same speed and direction unless acted upon by an unbalanced force",
+    "answer3": "For every action, there is an equal and opposite reaction",
+    "answer4": "Energy cannot be created or destroyed, only transformed",
+    "correct": "answer1"
+  },
+  {
+    "question": "Which of the following is Newton's Third Law of Motion?",
+    "chapter": "physics-chapter-1",
+    "answer1": "Force equals mass times acceleration",
+    "answer2": "An object at rest stays at rest, and an object in motion stays in motion with the same speed and direction unless acted upon by an unbalanced force",
+    "answer3": "For every action, there is an equal and opposite reaction",
+    "answer4": "Energy cannot be created or destroyed, only transformed",
+    "correct": "answer3"
+  },
+  {
+    "question": "The SI unit of electric current is the:",
+    "chapter": "physics-chapter-2",
+    "answer1": "Volt",
+    "answer2": "Ampere",
+    "answer3": "Ohm",
+    "answer4": "Watt",
+    "correct": "answer2"
+  },
+  {
+    "question": "Ohm's Law states that:",
+    "chapter": "physics-chapter-2",
+    "answer1": "Current equals voltage divided by resistance",
+    "answer2": "Voltage equals current times resistance",
+    "answer3": "Resistance equals voltage times current",
+    "answer4": "Both A and B are correct",
+    "correct": "answer4"
+  },
+  {
+    "question": "Which of the following is NOT a type of electromagnetic radiation?",
+    "chapter": "physics-chapter-2",
+    "answer1": "X-rays",
+    "answer2": "Gamma rays",
+    "answer3": "Sound waves",
+    "answer4": "Ultraviolet light",
+    "correct": "answer3"
+  },
+  {
+    "question": "The SI unit of electric potential difference is the:",
+    "chapter": "physics-chapter-2",
+    "answer1": "Volt",
+    "answer2": "Ampere",
+    "answer3": "Ohm",
+    "answer4": "Coulomb",
+    "correct": "answer1"
+  },
+  {
+    "question": "Which of the following correctly describes the relationship between wavelength and frequency of a wave?",
+    "chapter": "physics-chapter-3",
+    "answer1": "Wavelength and frequency are directly proportional",
+    "answer2": "Wavelength and frequency are inversely proportional",
+    "answer3": "Wavelength and frequency are independent of each other",
+    "answer4": "Wavelength equals frequency times amplitude",
+    "correct": "answer2"
+  },
+  {
+    "question": "The Doppler effect explains:",
+    "chapter": "physics-chapter-3",
+    "answer1": "Why light bends when passing through different media",
+    "answer2": "The change in frequency of a wave in relation to an observer moving relative to the wave source",
+    "answer3": "Why objects appear to be different colors",
+    "answer4": "The relationship between mass and energy",
+    "correct": "answer2"
+  },
+  {
+    "question": "Which of the following is the formula for calculating the speed of a wave?",
+    "chapter": "physics-chapter-3",
+    "answer1": "v = λf",
+    "answer2": "v = d/t",
+    "answer3": "v = at",
+    "answer4": "v = √(2gh)",
+    "correct": "answer1"
+  },
+  {
+    "question": "What is the principle of superposition of waves?",
+    "chapter": "physics-chapter-3",
+    "answer1": "Waves can only travel in one direction",
+    "answer2": "When two waves meet, the resultant displacement equals the sum of the individual displacements",
+    "answer3": "Waves cannot pass through each other",
+    "answer4": "The speed of a wave depends on its amplitude",
+    "correct": "answer2"
+  },
+  {
+    "question": "Einstein's famous equation E=mc² relates:",
+    "chapter": "physics-chapter-4",
+    "answer1": "Energy and momentum",
+    "answer2": "Energy and mass",
+    "answer3": "Mass and velocity",
+    "answer4": "Force and acceleration",
+    "correct": "answer2"
+  },
+  {
+    "question": "The uncertainty principle was formulated by:",
+    "chapter": "physics-chapter-4",
+    "answer1": "Albert Einstein",
+    "answer2": "Niels Bohr",
+    "answer3": "Werner Heisenberg",
+    "answer4": "Erwin Schrödinger",
+    "correct": "answer3"
+  },
+  {
+    "question": "Which of the following is a postulate of the special theory of relativity?",
+    "chapter": "physics-chapter-4",
+    "answer1": "The laws of physics are the same in all inertial reference frames",
+    "answer2": "The speed of light in vacuum is constant regardless of the motion of the light source or observer",
+    "answer3": "Time dilation occurs for objects moving at high speeds",
+    "answer4": "Both A and B",
+    "correct": "answer4"
+  },
+  {
+    "question": "What is the photoelectric effect?",
+    "chapter": "physics-chapter-4",
+    "answer1": "The emission of electrons when light shines on a material",
+    "answer2": "The bending of light as it passes through a prism",
+    "answer3": "The creation of a magnetic field by an electric current",
+    "answer4": "The reflection of light from a smooth surface",
+    "correct": "answer1"
+  },
+  {
+    "question": "Which of the following is the First Law of Thermodynamics?",
+    "chapter": "physics-chapter-5",
+    "answer1": "Heat flows from hot to cold objects",
+    "answer2": "Energy cannot be created or destroyed, only transformed",
+    "answer3": "The entropy of an isolated system always increases",
+    "answer4": "Work equals force times distance",
+    "correct": "answer2"
+  },
+  {
+    "question": "The Second Law of Thermodynamics states that:",
+    "chapter": "physics-chapter-5",
+    "answer1": "Energy cannot be created or destroyed",
+    "answer2": "Heat flows from hot to cold objects",
+    "answer3": "The entropy of an isolated system always increases",
+    "answer4": "Temperature is directly proportional to pressure",
+    "correct": "answer3"
+  },
+  {
+    "question": "Which of the following is the correct formula for calculating work?",
+    "chapter": "physics-chapter-5",
+    "answer1": "W = F × d × cos(θ)",
+    "answer2": "W = m × g × h",
+    "answer3": "W = 1/2 × m × v²",
+    "answer4": "W = P × t",
+    "correct": "answer1"
+  },
+  {
+    "question": "What is the SI unit of power?",
+    "chapter": "physics-chapter-5",
+    "answer1": "Joule",
+    "answer2": "Newton",
+    "answer3": "Watt",
+    "answer4": "Pascal",
+    "correct": "answer3"
+  },
+  {
+    "question": "Which of the following is NOT a fundamental force in nature?",
+    "chapter": "physics-chapter-6",
+    "answer1": "Gravitational force",
+    "answer2": "Electromagnetic force",
+    "answer3": "Strong nuclear force",
+    "answer4": "Centrifugal force",
+    "correct": "answer4"
+  },
+  {
+    "question": "What is the law of universal gravitation?",
+    "chapter": "physics-chapter-6",
+    "answer1": "Every object in the universe attracts every other object with a force directly proportional to the product of their masses and inversely proportional to the square of the distance between them",
+    "answer2": "Objects fall at the same rate regardless of their mass",
+    "answer3": "The force of gravity is constant throughout the universe",
+    "answer4": "Gravity is a property of mass but not energy",
+    "correct": "answer1"
+  },
+  {
+    "question": "Which of the following particles is NOT a fundamental particle in the Standard Model?",
+    "chapter": "physics-chapter-6",
+    "answer1": "Quark",
+    "answer2": "Electron",
+    "answer3": "Neutron",
+    "answer4": "Neutrino",
+    "correct": "answer3"
+  },
+  {
+    "question": "What is the Higgs boson?",
+    "chapter": "physics-chapter-6",
+    "answer1": "A particle that gives mass to other particles",
+    "answer2": "A particle that carries the electromagnetic force",
+    "answer3": "A particle that makes up protons and neutrons",
+    "answer4": "A particle that travels faster than light",
+    "correct": "answer1"
+  },
+  {
+    "question": "Which of the following is a correct statement about fluid dynamics?",
+    "chapter": "physics-chapter-7",
+    "answer1": "Pressure in a fluid decreases with depth",
+    "answer2": "Bernoulli's principle states that as the speed of a fluid increases, the pressure decreases",
+    "answer3": "Archimedes' principle states that the buoyant force equals the weight of the fluid displaced times the density of the object",
+    "answer4": "Pascal's law states that pressure applied to a fluid is transmitted equally in all directions only if the fluid is moving",
+    "correct": "answer2"
+  },
+  {
+    "question": "What is the formula for calculating pressure?",
+    "chapter": "physics-chapter-7",
+    "answer1": "P = F/A",
+    "answer2": "P = F × A",
+    "answer3": "P = m × g",
+    "answer4": "P = ρ × g × h",
+    "correct": "answer1"
+  },
+  {
+    "question": "Archimedes' principle states that:",
+    "chapter": "physics-chapter-7",
+    "answer1": "The buoyant force on an object equals the weight of the fluid displaced by the object",
+    "answer2": "Pressure in a fluid increases with depth",
+    "answer3": "As the speed of a fluid increases, the pressure decreases",
+    "answer4": "Pressure applied to a fluid is transmitted equally in all directions",
+    "correct": "answer1"
+  },
+  {
+    "question": "Pascal's law states that:",
+    "chapter": "physics-chapter-7",
+    "answer1": "The buoyant force on an object equals the weight of the fluid displaced by the object",
+    "answer2": "Pressure in a fluid increases with depth",
+    "answer3": "As the speed of a fluid increases, the pressure decreases",
+    "answer4": "Pressure applied to a fluid is transmitted equally in all directions",
+    "correct": "answer4"
+  }
+]

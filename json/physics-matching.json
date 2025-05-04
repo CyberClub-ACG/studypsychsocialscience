@@ -1,0 +1,135 @@
+[
+  {
+    "id": 0,
+    "chapter": "physics-chapter-1",
+    "title": "Newton's Laws of Motion",
+    "terms": [
+      "Newton's First Law",
+      "Newton's Second Law",
+      "Newton's Third Law",
+      "Inertia",
+      "Net Force"
+    ],
+    "definitions": [
+      "An object at rest stays at rest, and an object in motion stays in motion with the same speed and direction unless acted upon by an unbalanced force",
+      "Force equals mass times acceleration (F = ma)",
+      "For every action, there is an equal and opposite reaction",
+      "The resistance of an object to a change in its state of motion",
+      "The sum of all forces acting on an object"
+    ]
+  },
+  {
+    "id": 1,
+    "chapter": "physics-chapter-2",
+    "title": "Electricity and Magnetism",
+    "terms": [
+      "Ohm's Law",
+      "Voltage",
+      "Current",
+      "Resistance",
+      "Electric Field"
+    ],
+    "definitions": [
+      "The current through a conductor is directly proportional to the voltage and inversely proportional to the resistance (V = IR)",
+      "The difference in electric potential between two points",
+      "The flow of electric charge",
+      "The opposition to the flow of electric current",
+      "A region where an electric charge experiences a force"
+    ]
+  },
+  {
+    "id": 2,
+    "chapter": "physics-chapter-3",
+    "title": "Waves and Optics",
+    "terms": [
+      "Wavelength",
+      "Frequency",
+      "Amplitude",
+      "Doppler Effect",
+      "Interference"
+    ],
+    "definitions": [
+      "The distance between consecutive corresponding points of a wave",
+      "The number of wave cycles passing a point per unit time",
+      "The maximum displacement of a wave from its equilibrium position",
+      "The change in frequency of a wave in relation to an observer moving relative to the wave source",
+      "The superposition of two or more waves resulting in a new wave pattern"
+    ]
+  },
+  {
+    "id": 3,
+    "chapter": "physics-chapter-4",
+    "title": "Modern Physics",
+    "terms": [
+      "Theory of Relativity",
+      "Quantum Mechanics",
+      "Photoelectric Effect",
+      "Uncertainty Principle",
+      "Wave-Particle Duality"
+    ],
+    "definitions": [
+      "Einstein's theory that describes the relationship between space, time, and gravity",
+      "The branch of physics that deals with the behavior of matter and energy at the atomic and subatomic levels",
+      "The emission of electrons when light shines on a material",
+      "The principle that states that the position and momentum of a particle cannot be simultaneously measured with arbitrary precision",
+      "The concept that all particles exhibit both wave-like and particle-like properties"
+    ]
+  },
+  {
+    "id": 4,
+    "chapter": "physics-chapter-5",
+    "title": "Thermodynamics",
+    "terms": [
+      "First Law of Thermodynamics",
+      "Second Law of Thermodynamics",
+      "Entropy",
+      "Heat",
+      "Work"
+    ],
+    "definitions": [
+      "Energy cannot be created or destroyed, only transformed",
+      "The entropy of an isolated system always increases",
+      "A measure of the disorder or randomness of a system",
+      "The transfer of energy due to a temperature difference",
+      "The transfer of energy due to a force acting through a distance"
+    ]
+  },
+  {
+    "id": 5,
+    "chapter": "physics-chapter-6",
+    "title": "Fundamental Forces and Particles",
+    "terms": [
+      "Gravitational Force",
+      "Electromagnetic Force",
+      "Strong Nuclear Force",
+      "Weak Nuclear Force",
+      "Higgs Boson"
+    ],
+    "definitions": [
+      "The force of attraction between all objects with mass",
+      "The force between electrically charged particles",
+      "The force that holds protons and neutrons together in the nucleus",
+      "The force responsible for radioactive decay",
+      "A particle that gives mass to other particles"
+    ]
+  },
+  {
+    "id": 6,
+    "chapter": "physics-chapter-7",
+    "title": "Fluid Mechanics",
+    "terms": [
+      "Pressure",
+      "Bernoulli's Principle",
+      "Archimedes' Principle",
+      "Pascal's Law",
+      "Viscosity"
+    ],
+    "definitions": [
+      "Force per unit area",
+      "As the speed of a fluid increases, the pressure decreases",
+      "The buoyant force on an object equals the weight of the fluid displaced by the object",
+      "Pressure applied to a fluid is transmitted equally in all directions",
+      "A measure of a fluid's resistance to flow"
+    ]
+  }
+]

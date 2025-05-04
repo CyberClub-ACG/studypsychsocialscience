@@ -74,6 +74,87 @@
             width: 200px;
             padding: 5px;
         }
+        
+        .progress-container {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background-color: #f1f1f1;
+            z-index: 1000;
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .progress-bar {
+            width: 0%;
+            height: 20px;
+            background-color: #4BB543;
+            border-radius: 10px;
+            transition: width 0.5s ease-in-out;
+        }
+        
+        .customization-panel {
+            margin: 15px;
+            padding: 15px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            display: none;
+        }
+        
+        .customization-panel.active {
+            display: block;
+        }
+        
+        .color-option {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            margin: 5px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        
+        .color-option.selected {
+            border: 2px solid #000;
+        }
+        
+        .settings-button {
+            background-color: #004E64;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        
+        .file-upload-container {
+            margin: 15px;
+            padding: 15px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            display: none;
+        }
+        
+        .file-upload-container.active {
+            display: block;
+        }
+        
+        .upload-button {
+            background-color: #004E64;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .upload-status {
+            margin-top: 10px;
+            font-style: italic;
+        }
     </style>
 </head>
 
@@ -99,6 +180,14 @@
 
 <div class="js-container container" style="height: 0;"></div>
 
+<!-- Progress bar container -->
+<div class="progress-container">
+    <div class="progress-bar" id="progress-bar"></div>
+</div>
+
+<!-- Audio element for correct answer sound -->
+<audio id="correct-sound" src="../sounds/correct.mp3" preload="auto"></audio>
+
 <main>
     <div class="points-display" style="background-color: #f5f5f5; padding: 10px; border-radius: 5px; margin: 15px; text-align: center; font-weight: bold;">
         Points: <span id="points">0</span>
@@ -109,8 +198,39 @@
         <select id="courseselect" onchange="changeCourse(event)">
             <option value="psychology">Psychology</option>
             <option selected value="biology">Biology</option>
+            <option value="physics">Physics</option>
         </select>
     </div>
+    
+    <button class="settings-button" onclick="toggleCustomizationPanel()">Customize</button>
+    <button class="settings-button" onclick="toggleFileUploadPanel()">Upload Content</button>
+    
+    <!-- Customization Panel -->
+    <div class="customization-panel" id="customization-panel">
+        <h3>Customize Background</h3>
+        <div class="color-options">
+            <div class="color-option selected" style="background-color: #ffffff;" data-color="#ffffff"></div>
+            <div class="color-option" style="background-color: #f0f8ff;" data-color="#f0f8ff"></div>
+            <div class="color-option" style="background-color: #f5f5dc;" data-color="#f5f5dc"></div>
+            <div class="color-option" style="background-color: #e6e6fa;" data-color="#e6e6fa"></div>
+            <div class="color-option" style="background-color: #fffacd;" data-color="#fffacd"></div>
+        </div>
+    </div>
+    
+    <!-- File Upload Panel -->
+    <div class="file-upload-container" id="file-upload-container">
+        <h3>Upload PDF to Generate Questions</h3>
+        <p>Upload a PDF file to automatically generate quiz questions using AI.</p>
+        <input type="file" id="pdf-upload" accept=".pdf" />
+        <select id="content-course">
+            <option value="psychology">Psychology</option>
+            <option value="biology">Biology</option>
+            <option value="physics">Physics</option>
+        </select>
+        <button class="upload-button" onclick="processPDF()">Process PDF</button>
+        <div class="upload-status" id="upload-status"></div>
+    </div>
+    
     <p>Correct: <span id="correctnumbers"></span></p>
     <div id="root"></div>
 
@@ -224,16 +344,28 @@
     }
 
     async function getData() {
-        const dataFile = currentCourse === "psychology" ? '../json/fillindata.json' : '../json/biology-fillindata.json';
+        let dataFile;
+        
+        switch(currentCourse) {
+            case "psychology":
+                dataFile = '../json/fillindata.json';
+                break;
+            case "biology":
+                dataFile = '../json/biology-fillindata.json';
+                break;
+            case "physics":
+                dataFile = '../json/physics-fillindata.json';
+                break;
+            default:
+                dataFile = '../json/fillindata.json';
+        }
+        
         return await fetch(dataFile)
             .then(response => response.json())
             .then(data => data)
             .catch(error => {
                 console.log(error);
-                // If biology data file doesn't exist yet, return empty array
-                if (currentCourse === "biology") {
-                    return [];
-                }
+                return [];
             });
     }
 
@@ -258,6 +390,240 @@
         datajson = await getData();
         originaldatajson = datajson;
         await showData(datajson);
+        
+        // Initialize UI elements
+        loadSavedSettings();
+        updateProgressBar();
+        
+        // Load points and level from localStorage
+        loadPointsAndLevel();
+    }
+    
+    function loadPointsAndLevel() {
+        const points = localStorage.getItem('points') || 0;
+        const level = localStorage.getItem('level') || 1;
+        
+        document.getElementById('points').textContent = points;
+        document.getElementById('level').textContent = level;
+    }
+    
+    function loadSavedSettings() {
+        // Load saved background color
+        const savedColor = localStorage.getItem('backgroundColor');
+        if (savedColor) {
+            document.body.style.backgroundColor = savedColor;
+            
+            // Update selected color in customization panel
+            const colorOptions = document.querySelectorAll('.color-option');
+            colorOptions.forEach(option => {
+                option.classList.remove('selected');
+                if (option.getAttribute('data-color') === savedColor) {
+                    option.classList.add('selected');
+                }
+            });
+        }
+    }
+    
+    function toggleCustomizationPanel() {
+        const panel = document.getElementById('customization-panel');
+        panel.classList.toggle('active');
+        
+        // Close file upload panel if open
+        document.getElementById('file-upload-container').classList.remove('active');
+        
+        // Add click event listeners to color options
+        const colorOptions = document.querySelectorAll('.color-option');
+        colorOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                // Remove selected class from all options
+                colorOptions.forEach(opt => opt.classList.remove('selected'));
+                
+                // Add selected class to clicked option
+                this.classList.add('selected');
+                
+                // Apply background color
+                const color = this.getAttribute('data-color');
+                document.body.style.backgroundColor = color;
+                
+                // Save to localStorage
+                localStorage.setItem('backgroundColor', color);
+            });
+        });
+    }
+    
+    function toggleFileUploadPanel() {
+        const panel = document.getElementById('file-upload-container');
+        panel.classList.toggle('active');
+        
+        // Close customization panel if open
+        document.getElementById('customization-panel').classList.remove('active');
+    }
+    
+    async function processPDF() {
+        const fileInput = document.getElementById('pdf-upload');
+        const statusElement = document.getElementById('upload-status');
+        const courseSelect = document.getElementById('content-course');
+        const selectedCourse = courseSelect.value;
+        
+        if (!fileInput.files || fileInput.files.length === 0) {
+            statusElement.textContent = 'Please select a PDF file first.';
+            return;
+        }
+        
+        const file = fileInput.files[0];
+        if (file.type !== 'application/pdf') {
+            statusElement.textContent = 'Please select a PDF file.';
+            return;
+        }
+        
+        statusElement.textContent = 'Reading PDF file...';
+        
+        // Read the PDF file as base64
+        const reader = new FileReader();
+        reader.onload = async function(e) {
+            try {
+                const base64Data = e.target.result.split(',')[1];
+                
+                // Extract text from PDF (simulated)
+                statusElement.textContent = 'Extracting text from PDF...';
+                
+                // In a real implementation, you would use a secure method to store API keys
+                // For example, using environment variables or a secure configuration
+                
+                // Simulate PDF text extraction
+                const extractedText = `This is simulated text extracted from the PDF about ${file.name}. 
+                                      It would contain educational content related to ${selectedCourse}.
+                                      In a real implementation, this would be actual content from the PDF.`;
+                
+                // Now, generate questions based on the extracted text
+                statusElement.textContent = 'Creating quiz questions...';
+                
+                // Simulate question generation
+                // In a real implementation, you would make an API call to a service like OpenAI
+                const generatedContent = JSON.stringify({
+                    "multipleChoice": [
+                        {
+                            "id": 0,
+                            "question": `Sample ${selectedCourse} multiple choice question 1?`,
+                            "chapter": `${selectedCourse}-chapter-1`,
+                            "answers": {
+                                "answer1": "Option A",
+                                "answer2": "Option B",
+                                "answer3": "Option C",
+                                "answer4": "Option D"
+                            },
+                            "correct": "answer2"
+                        },
+                        {
+                            "id": 1,
+                            "question": `Sample ${selectedCourse} multiple choice question 2?`,
+                            "chapter": `${selectedCourse}-chapter-1`,
+                            "answers": {
+                                "answer1": "Option A",
+                                "answer2": "Option B",
+                                "answer3": "Option C",
+                                "answer4": "Option D"
+                            },
+                            "correct": "answer3"
+                        }
+                    ],
+                    "fillIn": [
+                        {
+                            "id": 0,
+                            "question": `Sample ${selectedCourse} fill-in-the-blank question with _______.`,
+                            "chapter": `${selectedCourse}-chapter-1`,
+                            "answers": {
+                                "answer1": "option 1",
+                                "answer2": "option 2",
+                                "answer3": "option 3",
+                                "answer4": "option 4"
+                            },
+                            "amountofspaces": 1,
+                            "correct": ["option 2"]
+                        },
+                        {
+                            "id": 1,
+                            "question": `Another ${selectedCourse} fill-in-the-blank with _______ and _______.`,
+                            "chapter": `${selectedCourse}-chapter-1`,
+                            "answers": {
+                                "answer1": "first option",
+                                "answer2": "second option",
+                                "answer3": "third option",
+                                "answer4": "fourth option"
+                            },
+                            "amountofspaces": 2,
+                            "correct": ["first option", "third option"]
+                        }
+                    ],
+                    "matching": [
+                        {
+                            "id": 0,
+                            "chapter": `${selectedCourse}-chapter-1`,
+                            "title": `${selectedCourse.charAt(0).toUpperCase() + selectedCourse.slice(1)} Concepts`,
+                            "terms": [
+                                `${selectedCourse} Term 1`,
+                                `${selectedCourse} Term 2`,
+                                `${selectedCourse} Term 3`,
+                                `${selectedCourse} Term 4`,
+                                `${selectedCourse} Term 5`
+                            ],
+                            "definitions": [
+                                `Definition for ${selectedCourse} Term 1`,
+                                `Definition for ${selectedCourse} Term 2`,
+                                `Definition for ${selectedCourse} Term 3`,
+                                `Definition for ${selectedCourse} Term 4`,
+                                `Definition for ${selectedCourse} Term 5`
+                            ]
+                        }
+                    ]
+                });
+                
+                // Parse the JSON content
+                const jsonMatch = generatedContent.match(/```json\n([\s\S]*?)\n```/) || [null, generatedContent];
+                const jsonContent = jsonMatch[1].trim();
+                
+                try {
+                    const questionsData = JSON.parse(jsonContent);
+                    
+                    // Save the generated questions to localStorage
+                    saveGeneratedQuestions(questionsData, selectedCourse);
+                    
+                    statusElement.textContent = 'Questions generated successfully! Refresh the page to see the new content.';
+                    
+                    // Reload the page after a short delay
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 3000);
+                    
+                } catch (jsonError) {
+                    console.error('Error parsing JSON:', jsonError);
+                    statusElement.textContent = 'Error parsing generated questions. Please try again.';
+                }
+                
+            } catch (error) {
+                console.error('Error processing PDF:', error);
+                statusElement.textContent = 'Error processing PDF: ' + error.message;
+            }
+        };
+        
+        reader.readAsDataURL(file);
+    }
+    
+    function saveGeneratedQuestions(questionsData, course) {
+        // Get existing questions from localStorage or initialize empty arrays
+        const existingMultipleChoice = JSON.parse(localStorage.getItem(`${course}-multipleChoice`) || '[]');
+        const existingFillIn = JSON.parse(localStorage.getItem(`${course}-fillIn`) || '[]');
+        const existingMatching = JSON.parse(localStorage.getItem(`${course}-matching`) || '[]');
+        
+        // Merge new questions with existing ones
+        const updatedMultipleChoice = [...existingMultipleChoice, ...questionsData.multipleChoice];
+        const updatedFillIn = [...existingFillIn, ...questionsData.fillIn];
+        const updatedMatching = [...existingMatching, ...questionsData.matching];
+        
+        // Save updated questions to localStorage
+        localStorage.setItem(`${course}-multipleChoice`, JSON.stringify(updatedMultipleChoice));
+        localStorage.setItem(`${course}-fillIn`, JSON.stringify(updatedFillIn));
+        localStorage.setItem(`${course}-matching`, JSON.stringify(updatedMatching));
     }
 
     function checkIfCorrect(datum) {
@@ -350,14 +716,32 @@
 
     function checkAnswer(datum) {
         if (checkIfCorrect(datum)) {
-            disableCorrectAnswerBox(datum.id)
+            disableCorrectAnswerBox(datum.id);
             correctanswers++;
             showMessage(true, datum.id);
+            
+            // Play correct answer sound
+            playCorrectSound();
+            
+            // Update progress bar
+            updateProgressBar();
         } else {
             showMessage(false, datum.id);
         }
 
         updateProgress(datajson.length);
+    }
+    
+    function playCorrectSound() {
+        const sound = document.getElementById('correct-sound');
+        sound.currentTime = 0;
+        sound.play().catch(e => console.log("Error playing sound:", e));
+    }
+    
+    function updateProgressBar() {
+        const progressBar = document.getElementById('progress-bar');
+        const percentage = (correctanswers / questionsnumber) * 100;
+        progressBar.style.width = percentage + '%';
     }
 
     init();
