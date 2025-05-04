@@ -11,6 +11,9 @@
     <title>Quiz - My Goal Learning</title>
     <link href='./img/socialpsycho.png' rel='icon' type='image/png'>
     <link href="./css/style.css" rel="stylesheet">
+    <link href="./css/dark-mode.css" rel="stylesheet">
+    <link href="./css/responsive.css" rel="stylesheet">
+    <link href="./css/accessibility.css" rel="stylesheet">
 
     <style>
         #root {
@@ -198,25 +201,156 @@
             font-size: 14px;
             color: #666;
         }
+        /* Timer display */
+        .timer-display {
+            position: fixed;
+            top: 30px;
+            right: 20px;
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            font-weight: bold;
+            font-size: 18px;
+            display: none;
+            z-index: 1000;
+        }
+        /* Difficulty badge */
+        .difficulty-badge {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 15px;
+            margin-left: 10px;
+            font-weight: bold;
+            color: white;
+        }
+        .difficulty-badge.easy {
+            background-color: #4BB543;
+        }
+        .difficulty-badge.normal {
+            background-color: #007bff;
+        }
+        .difficulty-badge.hard {
+            background-color: #dc3545;
+        }
+        /* Profile panel */
+        .profile-panel {
+            position: fixed;
+            right: -300px;
+            top: 20px;
+            width: 300px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px 0 0 5px;
+            padding: 15px;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+            z-index: 1000;
+            display: none;
+        }
+        .profile-panel.active {
+            right: 0;
+        }
+        .profile-toggle {
+            position: absolute;
+            left: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #004E64;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px 0 0 5px;
+            cursor: pointer;
+        }
+        /* Settings section */
+        .settings-section {
+            margin-top: 20px;
+            border-top: 1px solid #ddd;
+            padding-top: 15px;
+        }
+        .setting-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        /* Toggle switch */
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+        }
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 20px;
+        }
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 2px;
+            bottom: 2px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .toggle-slider {
+            background-color: #004E64;
+        }
+        input:checked + .toggle-slider:before {
+            transform: translateX(20px);
+        }
+        /* Menu toggle for responsive design */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
     </style>
 </head>
 
 <body>
-    <script>
-        // Check if user is logged in
-        window.onload = function() {
-            if (localStorage.getItem('isLoggedIn') !== 'true') {
-                window.location.href = 'login.html';
-            }
-        };
-    </script>
+<!-- Skip to content link for accessibility -->
+<a href="#root" class="skip-to-content">Skip to content</a>
+
+<!-- Screen reader announcer -->
+<div id="screen-reader-announcer" class="sr-only" aria-live="polite"></div>
+
 <header>
     <nav>
         <ul class="menu">
             <li><a href="index.html">Quiz</a></li>
             <li><a href="html/fillin.html">Fill in</a></li>
             <li style="float: right"><a href="html/about.html">About My Goal Learning</a></li>
-            <li style="float: right"><a href="#" onclick="logout()">Logout</a></li>
+            <li style="float: right"><a href="#" id="logout-btn">Logout</a></li>
+            <li style="float: right">
+                <div class="dark-mode-toggle">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <label for="dark-mode-toggle">
+                        <span class="toggle-icon sun-icon">☀️</span>
+                        <span class="toggle-icon moon-icon">🌙</span>
+                    </label>
+                </div>
+            </li>
+            <li class="menu-toggle" id="menu-toggle">☰</li>
         </ul>
     </nav>
 </header>
@@ -226,34 +360,86 @@
     <div class="progress-bar" id="progress-bar"></div>
 </div>
 
+<!-- Timer display -->
+<div class="timer-display" id="timer-display">2:00</div>
+
 <!-- Customization panel -->
 <div class="customization-panel" id="customization-panel">
-    <button class="customization-toggle" onclick="toggleCustomizationPanel()">🎨</button>
+    <button class="customization-toggle" id="customize-btn">🎨</button>
     <h3>Customize</h3>
     <p>Choose a background color:</p>
     <div class="color-options">
-        <div class="color-option selected" data-color="#ffffff" style="background-color: #ffffff;"></div>
-        <div class="color-option" data-color="#f0f8ff" style="background-color: #f0f8ff;"></div>
-        <div class="color-option" data-color="#f5f5dc" style="background-color: #f5f5dc;"></div>
-        <div class="color-option" data-color="#e6e6fa" style="background-color: #e6e6fa;"></div>
-        <div class="color-option" data-color="#fffacd" style="background-color: #fffacd;"></div>
-        <div class="color-option" data-color="#e0ffff" style="background-color: #e0ffff;"></div>
+        <div class="color-option selected theme-btn" data-color="#ffffff" style="background-color: #ffffff;"></div>
+        <div class="color-option theme-btn" data-color="#f0f8ff" style="background-color: #f0f8ff;"></div>
+        <div class="color-option theme-btn" data-color="#f5f5dc" style="background-color: #f5f5dc;"></div>
+        <div class="color-option theme-btn" data-color="#e6e6fa" style="background-color: #e6e6fa;"></div>
+        <div class="color-option theme-btn" data-color="#fffacd" style="background-color: #fffacd;"></div>
+        <div class="color-option theme-btn" data-color="#e0ffff" style="background-color: #e0ffff;"></div>
+    </div>
+    <div class="settings-section">
+        <h4>Settings</h4>
+        <div class="setting-item">
+            <span>Sound Effects</span>
+            <label class="toggle-switch">
+                <input type="checkbox" id="sound-toggle" checked>
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
+        <div class="setting-item">
+            <span>Timed Mode</span>
+            <label class="toggle-switch">
+                <input type="checkbox" id="timed-mode-toggle">
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
+        <div class="setting-item">
+            <span>Timer Duration (seconds)</span>
+            <input type="number" id="timer-duration" min="30" max="300" step="30" value="120" style="width: 70px;">
+        </div>
+        <div class="setting-item">
+            <span>Difficulty</span>
+            <div>
+                <button class="difficulty-btn" data-difficulty="easy">Easy</button>
+                <button class="difficulty-btn" data-difficulty="normal">Normal</button>
+                <button class="difficulty-btn" data-difficulty="hard">Hard</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Profile panel -->
+<div class="profile-panel" id="profile-panel">
+    <button class="profile-toggle" id="profile-btn">👤</button>
+    <h3>User Profile</h3>
+    <div class="points-display">
+        Points: <span id="profile-points">0</span>
+        <span class="level-badge">Level: <span id="profile-level">1</span></span>
+    </div>
+    <div class="difficulty-badge normal" id="difficulty-badge">Normal</div>
+    <div class="settings-section">
+        <h4>Progress</h4>
+        <div class="progress-container" style="position: relative;">
+            <div class="progress-bar" id="profile-progress-bar"></div>
+        </div>
+        <p>Next level: <span id="next-level-points">100</span> points</p>
     </div>
 </div>
 
 <!-- File upload panel -->
 <div class="file-upload-container" id="file-upload-container">
-    <button class="file-upload-toggle" onclick="toggleFileUploadPanel()">📄</button>
+    <button class="file-upload-toggle" id="upload-btn">📄</button>
     <h3>Upload Content</h3>
     <p>Upload a PDF to generate quiz questions:</p>
     <div class="file-upload-form">
-        <select id="content-course" style="width: 100%; margin-bottom: 10px;">
-            <option value="psychology">Psychology</option>
-            <option selected value="biology">Biology</option>
-            <option value="physics">Physics</option>
-        </select>
-        <input type="file" id="pdf-upload" accept=".pdf" />
-        <button onclick="processPDF()">Generate Questions</button>
+        <form id="pdf-upload-form">
+            <select id="pdf-course" style="width: 100%; margin-bottom: 10px;">
+                <option value="psychology">Psychology</option>
+                <option selected value="biology">Biology</option>
+                <option value="physics">Physics</option>
+            </select>
+            <input type="file" id="pdf-file" accept=".pdf" required />
+            <button type="submit">Generate Questions</button>
+        </form>
         <div class="upload-status" id="upload-status"></div>
     </div>
 </div>
@@ -271,7 +457,7 @@
             <div class="selects">
                 <p>This was created by Alexandros Kourtis please contact him at alexandros.kourtis@acg.edu</p>
                 <div class="course-select">
-                    <select id="courseselect" onchange="changeCourse(event)" style="width: 100%;">
+                    <select id="courseselect" style="width: 100%;">
                         <option value="psychology">Psychology</option>
                         <option selected value="biology">Biology</option>
                         <option value="physics">Physics</option>
@@ -279,7 +465,7 @@
                 </div>
                 
                 <div class="exercise-type-select">
-                    <select id="exerciseType" onchange="changeExerciseType(event)" style="width: 100%;">
+                    <select id="exerciseType" style="width: 100%;">
                         <option selected value="multiple-choice">Multiple Choice</option>
                         <option value="fill-in">Fill in the Blank</option>
                         <option value="matching">Matching</option>
@@ -291,7 +477,7 @@
                     <!-- Tabs will be dynamically generated based on course selection -->
                 </div>
                 
-                <select id="chapterselect" onchange="showOnly(event)" style="width: 100%;">
+                <select id="chapterselect" style="width: 100%;">
                     <option selected value="0">Select chapter:</option>
                     <!-- Chapter options will be dynamically loaded -->
                 </select>
@@ -301,7 +487,7 @@
         <div>
             <div id="root"></div>
 
-            <button onclick="submit()">
+            <button id="submit">
                 Submit
             </button>
         </div>
@@ -326,1005 +512,22 @@
         </p>
     </div>
 </footer>
-<script type="text/babel">
 
-    let questionsnumber = 0;
-    let correctanswers = 0;
-
-    let datajson = []
-    let originaldatajson = [];
-
-    const root = ReactDOM.createRoot(
-        document.getElementById('root')
-    );
-
-    init();
-
-    async function showDataWithNoShuffle(datatoshow) {
-        let elements = [];
-        await datatoshow.forEach((datum, index) => {
-            const element = (
-                <section className="chapter" key={index}>
-                    <div className="box">
-                        <div className="title">
-                            <h3>{datum.question}</h3>
-                        </div>
-                        <div className="answers">
-                            <ol>
-                                {(() => {
-                                    if (datum.answer1.trim() !== '') {
-                                        return (
-                                            <li>
-                                                <button className="ansbtn" id={"button-" + index + "-0"}
-                                                        onClick={() => testAnswer(index, "answer1", 0, datatoshow)}>
-                                                    {datum.answer1}
-                                                </button>
-                                            </li>
-                                        )
-                                    }
-                                    return null;
-                                })()}
-                                {(() => {
-                                    if (datum.answer2.trim() !== '') {
-                                        return (
-                                            <li>
-                                                <button className="ansbtn" id={"button-" + index + "-1"}
-                                                        onClick={() => testAnswer(index, "answer2", 1, datatoshow)}>
-                                                    {datum.answer2}
-                                                </button>
-                                            </li>
-                                        )
-                                    }
-                                    return null;
-                                })()}
-                                {(() => {
-                                    if (datum.answer3.trim() !== '') {
-                                        return (
-                                            <li>
-                                                <button className="ansbtn" id={"button-" + index + "-2"}
-                                                        onClick={() => testAnswer(index, "answer3", 2, datatoshow)}>
-                                                    {datum.answer3}
-                                                </button>
-                                            </li>
-                                        )
-                                    }
-                                    return null;
-                                })()}
-                                {(() => {
-                                    if (datum.answer4.trim() !== '') {
-                                        return (
-                                            <li>
-                                                <button className="ansbtn" id={"button-" + index + "-3"}
-                                                        onClick={() => testAnswer(index, "answer4", 3, datatoshow)}>
-                                                    {datum.answer4}
-                                                </button>
-                                            </li>
-                                        )
-                                    }
-                                    return null;
-                                })()}
-                            </ol>
-                        </div>
-                        <div className="texts">
-                            <div id={"statushere-" + index}>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            );
-
-            elements.push(element);
-        });
-
-        questionsnumber = datatoshow.length;
-        correctanswers = 0;
-
-        await root.render(elements);
-        updateProgress(questionsnumber);
-    }
+<!-- Load MVC architecture files -->
+<script src="./js/config.js"></script>
+<script src="./js/utils.js"></script>
+<script src="./js/api.js"></script>
+<script src="./js/models/UserModel.js"></script>
+<script src="./js/models/QuizModel.js"></script>
+<script src="./js/views/QuizView.js"></script>
+<script src="./js/controllers/UserController.js"></script>
+<script src="./js/controllers/QuizController.js"></script>
+<script src="./js/app.js"></script>
 
 
-    async function showData(datatoshow) {
-        let elements = [];
-        await datatoshow.forEach((datum, index) => {
-            const element = (
-                <section className="chapter" key={index}>
-                    <div className="box">
-                        <div className="title">
-                            <h3>{datum.question}</h3>
-                        </div>
-                        <div className="answers">
-                            <ol>
-                                {(() => {
-                                    if (datum.answer1.trim() !== '') {
-                                        return (
-                                            <li>
-                                                <button className="ansbtn" id={"button-" + index + "-0"}
-                                                        onClick={() => testAnswer(index, "answer1", 0, datatoshow)}>
-                                                    {datum.answer1}
-                                                </button>
-                                            </li>
-                                        )
-                                    }
-                                    return null;
-                                })()}
-                                {(() => {
-                                    if (datum.answer2.trim() !== '') {
-                                        return (
-                                            <li>
-                                                <button className="ansbtn" id={"button-" + index + "-1"}
-                                                        onClick={() => testAnswer(index, "answer2", 1, datatoshow)}>
-                                                    {datum.answer2}
-                                                </button>
-                                            </li>
-                                        )
-                                    }
-                                    return null;
-                                })()}
-                                {(() => {
-                                    if (datum.answer3.trim() !== '') {
-                                        return (
-                                            <li>
-                                                <button className="ansbtn" id={"button-" + index + "-2"}
-                                                        onClick={() => testAnswer(index, "answer3", 2, datatoshow)}>
-                                                    {datum.answer3}
-                                                </button>
-                                            </li>
-                                        )
-                                    }
-                                    return null;
-                                })()}
-                                {(() => {
-                                    if (datum.answer4.trim() !== '') {
-                                        return (
-                                            <li>
-                                                <button className="ansbtn" id={"button-" + index + "-3"}
-                                                        onClick={() => testAnswer(index, "answer4", 3, datatoshow)}>
-                                                    {datum.answer4}
-                                                </button>
-                                            </li>
-                                        )
-                                    }
-                                    return null;
-                                })()}
-                            </ol>
-                        </div>
-                        <div className="texts">
-                            <div id={"statushere-" + index}>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            );
 
-            elements.push(element);
-        });
 
-        questionsnumber = datatoshow.length;
 
-        await root.render(elements);
-        await delay(100);
-        document.getElementById('root').querySelectorAll("ol").forEach(el => el.shuffleChildren());
-        document.getElementById('root').shuffleChildren();
-        document.getElementById('root').style.visibility = "visible";
-    }
-
-    function cleanUpErrorsCorrects() {
-        const nodestexts = document.getElementsByClassName("texts");
-
-        for (let i = 0; i < nodestexts.length; i++) {
-            nodestexts[i].childNodes.forEach(node => node.textContent = "");
-        }
-
-        const nodes = document.getElementsByClassName("ansbtn");
-
-        for (let i = 0; i < nodes.length; i++) {
-            nodes[i].disabled = false;
-            nodes[i].style.backgroundColor === "#4BB543" ? "#4BB543" : "#004E64";
-        }
-    }
-
-    let currentCourse = "biology"; // Default to biology
-    let currentExerciseType = "multiple-choice";
-
-    // Initialize points and level from localStorage
-    window.onload = function() {
-        // Check login first
-        if (localStorage.getItem('isLoggedIn') !== 'true') {
-            window.location.href = 'login.html';
-            return;
-        }
-        
-        // Initialize points display
-        const points = localStorage.getItem('points') || 0;
-        document.getElementById('points').textContent = points;
-        
-        // Initialize level display
-        const level = localStorage.getItem('level') || 1;
-        document.getElementById('level').textContent = level;
-        
-        // Initialize tabs
-        updateChapterTabs();
-    };
-
-    function changeCourse(event) {
-        currentCourse = event.target.value;
-        updateChapterOptions();
-        updateChapterTabs();
-        init();
-    }
-    
-    function changeExerciseType(event) {
-        currentExerciseType = event.target.value;
-        
-        if (currentExerciseType === "fill-in") {
-            window.location.href = "html/fillin.html";
-        } else if (currentExerciseType === "matching") {
-            loadMatchingExercises();
-        } else if (currentExerciseType === "mixed") {
-            loadMixedExercises();
-        } else {
-            // Default to multiple choice
-            init();
-        }
-    }
-    
-    // Matching exercise data
-    const matchingData = {
-        "biology": [
-            {
-                id: 1,
-                chapter: "bio-chapter-1",
-                items: [
-                    { term: "Cell", definition: "The basic unit of structure and function in living organisms" },
-                    { term: "Tissue", definition: "A group of similar cells that work together to perform a specific function" },
-                    { term: "Organ", definition: "A structure composed of different tissues that work together" },
-                    { term: "Organism", definition: "An individual living thing" },
-                    { term: "Homeostasis", definition: "The maintenance of a stable internal environment" }
-                ]
-            },
-            {
-                id: 2,
-                chapter: "bio-chapter-2",
-                items: [
-                    { term: "Nucleus", definition: "Control center of the cell containing genetic material" },
-                    { term: "Mitochondria", definition: "Powerhouse of the cell where cellular respiration occurs" },
-                    { term: "Chloroplast", definition: "Organelle where photosynthesis takes place" },
-                    { term: "Cell membrane", definition: "Selectively permeable barrier that surrounds the cell" },
-                    { term: "Ribosome", definition: "Site of protein synthesis" }
-                ]
-            },
-            {
-                id: 3,
-                chapter: "bio-chapter-3",
-                items: [
-                    { term: "DNA", definition: "Molecule that carries genetic information" },
-                    { term: "Gene", definition: "Unit of heredity that determines a trait" },
-                    { term: "Chromosome", definition: "Structure containing DNA and proteins" },
-                    { term: "Mutation", definition: "Change in DNA sequence" },
-                    { term: "Allele", definition: "Alternative form of a gene" }
-                ]
-            }
-        ],
-        "psychology": [
-            {
-                id: 1,
-                chapter: "chapter-1",
-                items: [
-                    { term: "Psychology", definition: "Scientific study of behavior and mental processes" },
-                    { term: "Neuron", definition: "Basic unit of the nervous system" },
-                    { term: "Consciousness", definition: "Awareness of internal and external stimuli" },
-                    { term: "Perception", definition: "Process of organizing and interpreting sensory information" },
-                    { term: "Cognition", definition: "Mental processes involved in acquiring knowledge" }
-                ]
-            },
-            {
-                id: 2,
-                chapter: "chapter-5",
-                items: [
-                    { term: "Development", definition: "Pattern of change that begins at conception and continues throughout life" },
-                    { term: "Nature", definition: "Inherited characteristics and tendencies" },
-                    { term: "Nurture", definition: "Environmental influences on development" },
-                    { term: "Attachment", definition: "Emotional bond between infant and caregiver" },
-                    { term: "Identity", definition: "Sense of self that develops during adolescence" }
-                ]
-            }
-        ]
-    };
-    
-    function loadMatchingExercises() {
-        // Get matching data for current course
-        const courseData = matchingData[currentCourse] || [];
-        
-        // Filter by chapter if selected
-        let dataToShow = courseData;
-        const chapterValue = document.getElementById("chapterselect").value;
-        if (chapterValue !== "0") {
-            dataToShow = courseData.filter(item => item.chapter === chapterValue);
-        }
-        
-        if (dataToShow.length === 0) {
-            root.render(<div>No matching exercises available for this selection.</div>);
-            document.getElementById('root').style.visibility = "visible";
-            return;
-        }
-        
-        // Render matching exercises
-        renderMatchingExercises(dataToShow);
-    }
-    
-    function renderMatchingExercises(data) {
-        // Reset counters
-        questionsnumber = data.length;
-        correctanswers = 0;
-        
-        const elements = data.map((exercise, index) => {
-            // Create shuffled copies of terms and definitions
-            const terms = [...exercise.items.map(item => item.term)];
-            const definitions = [...exercise.items.map(item => item.definition)];
-            shuffleArray(terms);
-            shuffleArray(definitions);
-            
-            return (
-                <section className="chapter" key={index}>
-                    <div className="box">
-                        <div className="title">
-                            <h3>Match the terms with their correct definitions</h3>
-                        </div>
-                        <div className="matching-exercise" id={`matching-${exercise.id}`}>
-                            <div className="matching-columns">
-                                <div className="terms-column">
-                                    {terms.map((term, i) => (
-                                        <div className="matching-item" key={`term-${i}`}>
-                                            <span>{term}</span>
-                                            <select 
-                                                id={`select-${exercise.id}-${i}`} 
-                                                className="matching-select"
-                                                onChange={(e) => checkMatchingAnswer(exercise, i, e.target.value)}
-                                            >
-                                                <option value="">-- Select definition --</option>
-                                                {definitions.map((def, j) => (
-                                                    <option key={`def-${j}`} value={def}>{def}</option>
-                                                ))}
-                                            </select>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                        <div className="texts">
-                            <div id={`statushere-matching-${exercise.id}`}></div>
-                        </div>
-                    </div>
-                </section>
-            );
-        });
-        
-        root.render(<div>{elements}</div>);
-        document.getElementById('root').style.visibility = "visible";
-        updateProgress(questionsnumber);
-    }
-    
-    function checkMatchingAnswer(exercise, termIndex, selectedDefinition) {
-        const termText = exercise.items[termIndex].term;
-        const correctDefinition = exercise.items.find(item => item.term === termText).definition;
-        
-        const selectElement = document.getElementById(`select-${exercise.id}-${termIndex}`);
-        
-        if (selectedDefinition === correctDefinition) {
-            selectElement.style.backgroundColor = "#4BB543";
-            selectElement.disabled = true;
-            
-            // Check if all items in this exercise are correctly matched
-            const allSelects = document.querySelectorAll(`[id^="select-${exercise.id}-"]`);
-            const allCorrect = Array.from(allSelects).every(select => 
-                select.disabled || select.value === ""
-            );
-            
-            if (allCorrect) {
-                document.getElementById(`statushere-matching-${exercise.id}`).innerText = 
-                    "✅ Great job! You've correctly matched all items!";
-                correctanswers++;
-                updateProgress(questionsnumber);
-            }
-        } else if (selectedDefinition !== "") {
-            selectElement.style.backgroundColor = "#FF3333";
-            setTimeout(() => {
-                selectElement.style.backgroundColor = "";
-                selectElement.value = "";
-            }, 1000);
-        }
-    }
-    
-    function shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-        return array;
-    }
-    
-    function loadMixedExercises() {
-        // Get a mix of different exercise types
-        const elements = [];
-        
-        // Add some multiple choice questions
-        datajson = [...originaldatajson];
-        const mcQuestions = datajson.slice(0, 3);
-        
-        // Add matching exercise
-        const matchingData = matchingData[currentCourse] || [];
-        const matchingExercise = matchingData.length > 0 ? [matchingData[0]] : [];
-        
-        // Render mixed content
-        if (mcQuestions.length > 0) {
-            questionsnumber = mcQuestions.length + (matchingExercise.length > 0 ? 1 : 0);
-            correctanswers = 0;
-            
-            // First render multiple choice
-            showDataWithNoShuffle(mcQuestions);
-            
-            // Then add matching if available
-            if (matchingExercise.length > 0) {
-                setTimeout(() => {
-                    const matchingElement = renderMatchingExercises(matchingExercise);
-                    document.getElementById('root').appendChild(matchingElement);
-                }, 500);
-            }
-        } else {
-            root.render(<div>No mixed exercises available for this selection.</div>);
-            document.getElementById('root').style.visibility = "visible";
-        }
-    }
-    
-    function updateChapterTabs() {
-        const tabsContainer = document.getElementById("chapter-tabs");
-        tabsContainer.innerHTML = "";
-        
-        // Create tabs based on current course
-        if (currentCourse === "psychology") {
-            createTab(tabsContainer, "chapter-1", "Intro to Psychology");
-            createTab(tabsContainer, "chapter-5", "Human Development");
-            createTab(tabsContainer, "chapter-10", "Intelligence");
-            createTab(tabsContainer, "chapter-14", "Social Behavior");
-        } else if (currentCourse === "biology") {
-            createTab(tabsContainer, "bio-chapter-1", "Intro to Biology");
-            createTab(tabsContainer, "bio-chapter-2", "Cell Structure");
-            createTab(tabsContainer, "bio-chapter-3", "Genetics");
-            createTab(tabsContainer, "bio-chapter-4", "Evolution");
-            createTab(tabsContainer, "bio-chapter-7", "Ecology");
-        }
-    }
-    
-    function createTab(container, value, text) {
-        const tab = document.createElement("div");
-        tab.className = "tab";
-        tab.textContent = text;
-        tab.dataset.value = value;
-        tab.onclick = function() {
-            // Remove active class from all tabs
-            document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
-            
-            // Add active class to clicked tab
-            this.classList.add("active");
-            
-            // Update chapter select to match tab
-            document.getElementById("chapterselect").value = this.dataset.value;
-            
-            // Trigger chapter change
-            const event = new Event("change");
-            document.getElementById("chapterselect").dispatchEvent(event);
-        };
-        container.appendChild(tab);
-    }
-
-    function updateChapterOptions() {
-        const chapterSelect = document.getElementById("chapterselect");
-        chapterSelect.innerHTML = "";
-        
-        // Add default option
-        const defaultOption = document.createElement("option");
-        defaultOption.value = "0";
-        defaultOption.text = "Select chapter:";
-        defaultOption.selected = true;
-        chapterSelect.appendChild(defaultOption);
-        
-        if (currentCourse === "psychology") {
-            // Psychology chapters
-            addChapterOption(chapterSelect, "chapter-1", "Introduction to Psychology");
-            addChapterOption(chapterSelect, "chapter-2", "Conducting Research in Psychology");
-            addChapterOption(chapterSelect, "chapter-5", "Human Development");
-            addChapterOption(chapterSelect, "chapter-10", "Intelligence, Problem Solving, and Creativity");
-            addChapterOption(chapterSelect, "chapter-12", "Stress and Health");
-            addChapterOption(chapterSelect, "chapter-13", "Personality: The Uniqueness of the Individual");
-            addChapterOption(chapterSelect, "chapter-14", "Social Behavior");
-            addChapterOption(chapterSelect, "chapter-15", "Psychological Disorders");
-            addChapterOption(chapterSelect, "chapter-16", "Treatment of Psychological Disorders");
-        } else if (currentCourse === "biology") {
-            // Biology chapters
-            addChapterOption(chapterSelect, "bio-chapter-1", "Introduction to Biology");
-            addChapterOption(chapterSelect, "bio-chapter-2", "Cell Structure and Function");
-            addChapterOption(chapterSelect, "bio-chapter-3", "Genetics and Inheritance");
-            addChapterOption(chapterSelect, "bio-chapter-4", "Evolution and Diversity");
-            addChapterOption(chapterSelect, "bio-chapter-5", "Plant Structure and Function");
-            addChapterOption(chapterSelect, "bio-chapter-6", "Animal Structure and Function");
-            addChapterOption(chapterSelect, "bio-chapter-7", "Ecology and Ecosystems");
-        }
-    }
-    
-    function addChapterOption(selectElement, value, text) {
-        const option = document.createElement("option");
-        option.value = value;
-        option.text = text;
-        selectElement.appendChild(option);
-    }
-
-    function showOnly(event) {
-        datajson = [...originaldatajson];
-
-        let val = event.target.value;
-        let datatoshow = [];
-        if (val === "0") {
-            showData(originaldatajson);
-            return;
-        }
-
-        Object.entries(datajson).forEach(([key, value]) => {
-            if (value.chapter === val)
-                datatoshow.push(value);
-        });
-
-        cleanUpErrorsCorrects();
-
-        datajson = [];
-        datajson = [...datatoshow];
-        showData(datatoshow);
-    }
-
-    function grayOutButtons(index) {
-        const button1 = document.getElementById("button-" + index + "-" + 0);
-        if (button1) {
-            button1.disabled = true;
-        }
-        const button2 = document.getElementById("button-" + index + "-" + 1);
-        if (button2) {
-            button2.disabled = true;
-        }
-        const button3 = document.getElementById("button-" + index + "-" + 2);
-        if (button3) {
-            button3.disabled = true;
-        }
-        const button4 = document.getElementById("button-" + index + "-" + 3);
-        if (button4) {
-            button4.disabled = true;
-        }
-    }
-
-    function testAnswer(index, answerselected, indexBtn, data) {
-        const coorectanswer = data[index].correct;
-        if (coorectanswer === answerselected) {
-            document.getElementById("statushere-" + index).innerText = "✅ You got it right. Keep up the GREAT work buddy👍";
-            grayOutButtons(index);
-            document.getElementById("button-" + index + "-" + indexBtn).style.backgroundColor = "#4BB543";
-            correctanswers++;
-            
-            // Play success sound
-            playCorrectSound();
-        } else {
-            document.getElementById("statushere-" + index).innerText = "This is not the right answer but you are making progress buddy";
-            document.getElementById("button-" + index + "-" + indexBtn).disabled = true;
-        }
-
-        updateProgress(datajson.length);
-    }
-    
-    function playCorrectSound() {
-        const audio = new Audio('./sounds/correct.mp3');
-        audio.play().catch(e => console.log('Error playing sound:', e));
-    }
-
-    async function init() {
-        datajson = await getData();
-        originaldatajson = datajson;
-        await showData(datajson);
-        
-        // Initialize UI elements
-        loadSavedSettings();
-        updateProgressBar();
-        
-        // Load points and level from localStorage
-        const points = localStorage.getItem('points') || 0;
-        document.getElementById('points').textContent = points;
-        
-        const level = localStorage.getItem('level') || 1;
-        document.getElementById('level').textContent = level;
-    }
-    
-    function updateProgressBar() {
-        if (datajson && datajson.length > 0) {
-            const percentage = (correctanswers / datajson.length) * 100;
-            document.getElementById('progress-bar').style.width = percentage + '%';
-        } else {
-            document.getElementById('progress-bar').style.width = '0%';
-        }
-    }
-    
-    function loadSavedSettings() {
-        // Load saved background color
-        const savedColor = localStorage.getItem('backgroundColor');
-        if (savedColor) {
-            document.body.style.backgroundColor = savedColor;
-            
-            // Update selected color in customization panel
-            const colorOptions = document.querySelectorAll('.color-option');
-            colorOptions.forEach(option => {
-                option.classList.remove('selected');
-                if (option.getAttribute('data-color') === savedColor) {
-                    option.classList.add('selected');
-                }
-            });
-        }
-    }
-    
-    function toggleCustomizationPanel() {
-        const panel = document.getElementById('customization-panel');
-        panel.classList.toggle('active');
-        
-        // Close file upload panel if open
-        document.getElementById('file-upload-container').classList.remove('active');
-        
-        // Add click event listeners to color options
-        const colorOptions = document.querySelectorAll('.color-option');
-        colorOptions.forEach(option => {
-            option.addEventListener('click', function() {
-                // Remove selected class from all options
-                colorOptions.forEach(opt => opt.classList.remove('selected'));
-                
-                // Add selected class to clicked option
-                this.classList.add('selected');
-                
-                // Apply background color
-                const color = this.getAttribute('data-color');
-                document.body.style.backgroundColor = color;
-                
-                // Save to localStorage
-                localStorage.setItem('backgroundColor', color);
-            });
-        });
-    }
-    
-    function toggleFileUploadPanel() {
-        const panel = document.getElementById('file-upload-container');
-        panel.classList.toggle('active');
-        
-        // Close customization panel if open
-        document.getElementById('customization-panel').classList.remove('active');
-    }
-    
-    async function processPDF() {
-        const fileInput = document.getElementById('pdf-upload');
-        const statusDiv = document.getElementById('upload-status');
-        const selectedCourse = document.getElementById('content-course').value;
-        
-        if (!fileInput.files || fileInput.files.length === 0) {
-            statusDiv.textContent = 'Please select a PDF file first.';
-            return;
-        }
-        
-        const file = fileInput.files[0];
-        if (file.type !== 'application/pdf') {
-            statusDiv.textContent = 'Please select a PDF file.';
-            return;
-        }
-        
-        statusDiv.textContent = 'Reading PDF content...';
-        
-        try {
-            // Read the PDF file
-            const formData = new FormData();
-            formData.append('pdf', file);
-            
-            // Extract text from PDF (simulated here)
-            // In a real implementation, you would use a PDF parsing library or service
-            const pdfText = await simulatePDFTextExtraction(file);
-            
-            statusDiv.textContent = 'Generating questions using AI...';
-            
-            // Generate questions using OpenAI API
-            const questions = await generateQuestionsWithAI(pdfText, selectedCourse);
-            
-            // Add questions to the appropriate JSON files
-            addQuestionsToDatabase(questions, selectedCourse);
-            
-            statusDiv.textContent = 'Success! New questions added to the database.';
-            
-            // Reload data to include new questions
-            datajson = await getData();
-            originaldatajson = datajson;
-            await showData(datajson);
-            
-        } catch (error) {
-            console.error('Error processing PDF:', error);
-            statusDiv.textContent = 'Error processing PDF: ' + error.message;
-        }
-    }
-    
-    async function simulatePDFTextExtraction(file) {
-        // This is a simplified simulation of PDF text extraction
-        // In a real implementation, you would use a PDF parsing library
-        return new Promise((resolve) => {
-            const reader = new FileReader();
-            reader.onload = function() {
-                // Simulate extracting text from PDF
-                // In reality, this would be the actual text content of the PDF
-                const simulatedText = "This is simulated text extracted from the PDF about " + 
-                                     file.name + ". It would contain educational content related to " +
-                                     "the selected course.";
-                resolve(simulatedText);
-            };
-            reader.readAsArrayBuffer(file);
-        });
-    }
-    
-    async function generateQuestionsWithAI(pdfText, course) {
-        // In a real implementation, you would use an API key stored securely
-        // For example, using environment variables or a secure configuration
-        
-        // Prepare the prompt for OpenAI (shown for reference)
-        const prompt = `Generate 5 educational questions about ${course} based on the following content. 
-                       Include 2 multiple-choice questions with 4 options each and the correct answer, 
-                       2 fill-in-the-blank questions with 4 possible answers for each blank, 
-                       and 1 matching exercise with 5 terms and definitions.
-                       Format the output as a JSON object that can be parsed.
-                       Content: ${pdfText}`;
-        
-        try {
-            // For this demo, we'll simulate the response
-            // In a production environment, you would make an actual API call
-            return simulateAIResponse(course);
-        } catch (error) {
-            console.error('Error generating questions:', error);
-            throw new Error('Failed to generate questions');
-        }
-    }
-    
-    function simulateAIResponse(course) {
-        // Simulate AI-generated questions based on the course
-        const chapterPrefix = course === 'psychology' ? 'chapter' : 
-                             course === 'biology' ? 'bio-chapter' : 'physics-chapter';
-        
-        // Generate a random chapter number
-        const chapterNum = Math.floor(Math.random() * 7) + 1;
-        const chapter = `${chapterPrefix}-${chapterNum}`;
-        
-        // Sample questions for demonstration
-        return {
-            multipleChoice: [
-                {
-                    question: `Sample ${course} multiple choice question 1?`,
-                    chapter: chapter,
-                    answers: {
-                        answer1: "Option A",
-                        answer2: "Option B",
-                        answer3: "Option C",
-                        answer4: "Option D"
-                    },
-                    correct: "answer2"
-                },
-                {
-                    question: `Sample ${course} multiple choice question 2?`,
-                    chapter: chapter,
-                    answers: {
-                        answer1: "Option A",
-                        answer2: "Option B",
-                        answer3: "Option C",
-                        answer4: "Option D"
-                    },
-                    correct: "answer3"
-                }
-            ],
-            fillIn: [
-                {
-                    question: `Sample ${course} fill-in-the-blank question with _______.`,
-                    chapter: chapter,
-                    answers: {
-                        answer1: "option 1",
-                        answer2: "option 2",
-                        answer3: "option 3",
-                        answer4: "option 4"
-                    },
-                    amountofspaces: 1,
-                    correct: ["option 2"]
-                },
-                {
-                    question: `Another ${course} fill-in-the-blank with _______ and _______.`,
-                    chapter: chapter,
-                    answers: {
-                        answer1: "first option",
-                        answer2: "second option",
-                        answer3: "third option",
-                        answer4: "fourth option"
-                    },
-                    amountofspaces: 2,
-                    correct: ["first option", "third option"]
-                }
-            ],
-            matching: {
-                chapter: chapter,
-                title: `${course.charAt(0).toUpperCase() + course.slice(1)} Concepts`,
-                terms: [
-                    `${course} Term 1`,
-                    `${course} Term 2`,
-                    `${course} Term 3`,
-                    `${course} Term 4`,
-                    `${course} Term 5`
-                ],
-                definitions: [
-                    `Definition for ${course} Term 1`,
-                    `Definition for ${course} Term 2`,
-                    `Definition for ${course} Term 3`,
-                    `Definition for ${course} Term 4`,
-                    `Definition for ${course} Term 5`
-                ]
-            }
-        };
-    }
-    
-    async function addQuestionsToDatabase(questions, course) {
-        // Add multiple choice questions
-        const multipleChoiceFile = course === 'psychology' ? './json/data.json' : 
-                                  course === 'biology' ? './json/biology-data.json' : './json/physics-data.json';
-        
-        // Add fill-in questions
-        const fillInFile = course === 'psychology' ? './json/fillindata.json' : 
-                          course === 'biology' ? './json/biology-fillindata.json' : './json/physics-fillindata.json';
-        
-        // Add matching questions
-        const matchingFile = course === 'psychology' ? './json/psychology-matching.json' : 
-                            course === 'biology' ? './json/biology-matching.json' : './json/physics-matching.json';
-        
-        // In a real implementation, you would update the JSON files with the new questions
-        // For this demo, we'll just log the questions
-        console.log('New multiple choice questions:', questions.multipleChoice);
-        console.log('New fill-in questions:', questions.fillIn);
-        console.log('New matching exercise:', questions.matching);
-        
-        // Simulate adding to database
-        return true;
-    }
-
-    Element.prototype.shuffleChildren = function () {
-        for (let i = this.children.length; i >= 0; i--) {
-            this.appendChild(this.children[Math.random() * i | 0]);
-        }
-    };
-
-    const delay = ms => new Promise(res => setTimeout(res, ms));
-
-    async function getData() {
-        const dataFile = currentCourse === "psychology" ? './json/data.json' : './json/biology-data.json';
-        return await fetch(dataFile)
-            .then(response => response.json())
-            .then(data => data)
-            .catch(error => {
-                console.log(error);
-                // If biology data file doesn't exist yet, return empty array
-                if (currentCourse === "biology") {
-                    return [];
-                }
-            });
-    }
-
-    function submit() {
-        if (correctanswers === questionsnumber) {
-            // Award points based on difficulty and number of questions
-            const pointsEarned = calculatePoints();
-            updatePoints(pointsEarned);
-            
-            alert(`Mission accomplished! 🎉 You earned ${pointsEarned} points!`);
-            window.confettiful = new Confettiful(document.querySelector('.js-container'));
-        } else {
-            alert("Mission failed. Try again!");
-        }
-    }
-    
-    function calculatePoints() {
-        // Base points per correct answer
-        const basePoints = 10;
-        
-        // Bonus based on chapter difficulty
-        let difficultyMultiplier = 1;
-        const chapterValue = document.getElementById("chapterselect").value;
-        
-        // Higher chapters have higher difficulty
-        if (chapterValue.includes("chapter")) {
-            const chapterNum = parseInt(chapterValue.split("-")[1]);
-            difficultyMultiplier = Math.max(1, chapterNum / 5);
-        } else if (chapterValue.includes("bio-chapter")) {
-            const chapterNum = parseInt(chapterValue.split("-")[2]);
-            difficultyMultiplier = Math.max(1, chapterNum / 3);
-        }
-        
-        return Math.round(basePoints * questionsnumber * difficultyMultiplier);
-    }
-    
-    function updatePoints(pointsEarned) {
-        // Get current points from localStorage or default to 0
-        let currentPoints = parseInt(localStorage.getItem('points') || 0);
-        currentPoints += pointsEarned;
-        
-        // Update localStorage
-        localStorage.setItem('points', currentPoints);
-        
-        // Update display
-        document.getElementById('points').textContent = currentPoints;
-        
-        // Update level based on points
-        updateLevel(currentPoints);
-    }
-    
-    function updateLevel(points) {
-        // Calculate level based on points (every 100 points = 1 level)
-        const level = Math.floor(points / 100) + 1;
-        
-        // Update localStorage
-        localStorage.setItem('level', level);
-        
-        // Update display
-        document.getElementById('level').textContent = level;
-    }
-    
-    function logout() {
-        localStorage.removeItem('isLoggedIn');
-        window.location.href = 'login.html';
-    }
-
-    const Confettiful = function (el) {
-        this.el = el;
-        this.containerEl = null;
-        this.confettiColors = ['#EF2964', '#00C09D', '#2D87B0', '#48485E', '#EFFF1D'];
-        this.confettiAnimations = ['slow', 'medium', 'fast'];
-
-        this._setupElements();
-        this._renderConfetti();
-    };
-
-    Confettiful.prototype._setupElements = function () {
-        const containerEl = document.createElement('div');
-        const elPosition = this.el.style.position;
-
-        this.el.style.position = 'fixed';
-
-        containerEl.classList.add('confetti-container');
-        const height = document.documentElement.scrollHeight;
-        containerEl.style.height = height + "px";
-
-        this.el.appendChild(containerEl);
-
-        this.containerEl = containerEl;
-    };
-
-    Confettiful.prototype._renderConfetti = function () {
-        this.confettiInterval = setInterval(() => {
-            const confettiEl = document.createElement('div');
-            const confettiSize = (Math.floor(Math.random() * 3) + 7) + 'px';
-            const confettiBackground = this.confettiColors[Math.floor(Math.random() * this.confettiColors.length)];
-            const confettiLeft = (Math.floor(Math.random() * this.el.offsetWidth)) + 'px';
-            const confettiAnimation = this.confettiAnimations[Math.floor(Math.random() * this.confettiAnimations.length)];
-
-            confettiEl.classList.add('confetti', 'confetti--animation-' + confettiAnimation);
-            confettiEl.style.left = confettiLeft;
-            confettiEl.style.width = confettiSize;
-            confettiEl.style.height = confettiSize;
-            confettiEl.style.backgroundColor = confettiBackground;
-
-            confettiEl.removeTimeout = setTimeout(function () {
-                confettiEl.parentNode.removeChild(confettiEl);
-            }, 3000);
-
-            this.containerEl.appendChild(confettiEl);
-        }, 25);
-    };
 </script>
 </body>
 

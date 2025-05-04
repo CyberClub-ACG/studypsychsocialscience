@@ -1,0 +1,226 @@
+/**
+ * dark-mode.css - Styles for dark mode
+ */
+
+/* Dark mode base styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+/* Dark mode header */
+body.dark-mode header {
+    background-color: #1f1f1f;
+}
+
+body.dark-mode nav ul.menu {
+    background-color: #1f1f1f;
+}
+
+body.dark-mode nav ul.menu li a {
+    color: #e0e0e0;
+}
+
+body.dark-mode nav ul.menu li a:hover {
+    background-color: #2d2d2d;
+}
+
+/* Dark mode boxes */
+body.dark-mode .box {
+    background-color: #1f1f1f;
+    border: 1px solid #333;
+}
+
+body.dark-mode .title {
+    background-color: #2d2d2d;
+}
+
+body.dark-mode .title h3 {
+    color: #e0e0e0;
+}
+
+/* Dark mode buttons */
+body.dark-mode .ansbtn {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+    border: 1px solid #444;
+}
+
+body.dark-mode .ansbtn:hover {
+    background-color: #3d3d3d;
+}
+
+body.dark-mode .ansbtn:disabled {
+    background-color: #1a1a1a;
+    color: #666;
+}
+
+body.dark-mode button {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+    border: 1px solid #444;
+}
+
+body.dark-mode button:hover {
+    background-color: #3d3d3d;
+}
+
+/* Dark mode selects and inputs */
+body.dark-mode select,
+body.dark-mode input[type="text"],
+body.dark-mode input[type="password"],
+body.dark-mode input[type="number"] {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+    border: 1px solid #444;
+}
+
+body.dark-mode select option {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+}
+
+/* Dark mode panels */
+body.dark-mode .panel {
+    background-color: #1f1f1f;
+    border: 1px solid #333;
+}
+
+body.dark-mode .panel-header {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+}
+
+/* Dark mode tabs */
+body.dark-mode .tab {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+    border: 1px solid #444;
+}
+
+body.dark-mode .tab.active {
+    background-color: #3d3d3d;
+    border-bottom: 2px solid #007bff;
+}
+
+/* Dark mode progress bar */
+body.dark-mode .progress-container {
+    background-color: #2d2d2d;
+}
+
+body.dark-mode .progress-bar {
+    background-color: #007bff;
+}
+
+/* Dark mode difficulty badges */
+body.dark-mode .difficulty-badge {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+}
+
+body.dark-mode .difficulty-badge.easy {
+    background-color: #2d882d;
+}
+
+body.dark-mode .difficulty-badge.normal {
+    background-color: #2d6d88;
+}
+
+body.dark-mode .difficulty-badge.hard {
+    background-color: #882d2d;
+}
+
+/* Dark mode login container */
+body.dark-mode .login-container {
+    background-color: #1f1f1f;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .login-container h2 {
+    color: #e0e0e0;
+}
+
+body.dark-mode .login-form input {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+    border: 1px solid #444;
+}
+
+body.dark-mode .login-form button {
+    background-color: #004E64;
+}
+
+body.dark-mode .login-form button:hover {
+    background-color: #00384a;
+}
+
+/* Dark mode toggle switch */
+.dark-mode-toggle {
+    display: inline-block;
+    position: relative;
+    margin-left: 10px;
+}
+
+.dark-mode-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.dark-mode-toggle label {
+    display: block;
+    width: 40px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 20px;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s;
+}
+
+.dark-mode-toggle label:after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.dark-mode-toggle input:checked + label {
+    background-color: #007bff;
+}
+
+.dark-mode-toggle input:checked + label:after {
+    transform: translateX(20px);
+}
+
+.dark-mode-toggle .toggle-icon {
+    position: absolute;
+    top: 4px;
+    font-size: 12px;
+    transition: opacity 0.3s;
+}
+
+.dark-mode-toggle .sun-icon {
+    left: 6px;
+    opacity: 1;
+    color: #ff9900;
+}
+
+.dark-mode-toggle .moon-icon {
+    right: 6px;
+    opacity: 0;
+    color: #ffffff;
+}
+
+.dark-mode-toggle input:checked + label .sun-icon {
+    opacity: 0;
+}
+
+.dark-mode-toggle input:checked + label .moon-icon {
+    opacity: 1;
+}
