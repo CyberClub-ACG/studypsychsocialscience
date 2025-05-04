@@ -484,129 +484,99 @@
             try {
                 const base64Data = e.target.result.split(',')[1];
                 
-                // Extract text from PDF using OpenAI API
+                // Extract text from PDF (simulated)
                 statusElement.textContent = 'Extracting text from PDF...';
                 
-                // Generate questions using OpenAI API
-                statusElement.textContent = 'Generating questions...';
+                // In a real implementation, you would use a secure method to store API keys
+                // For example, using environment variables or a secure configuration
                 
-                const apiKey = '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';
-                
-                // Create a FormData object to send the PDF content
-                const formData = new FormData();
-                formData.append('file', file);
-                formData.append('model', 'gpt-4-turbo');
-                
-                // First, extract text from the PDF
-                const extractResponse = await fetch('https://api.openai.com/v1/chat/completions', {
-                    method: 'POST',
-                    headers: {
-                        'Authorization': `Bearer ${apiKey}`,
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        model: 'gpt-4-turbo',
-                        messages: [
-                            {
-                                role: 'system',
-                                content: 'You are a helpful assistant that extracts key concepts and information from educational PDFs.'
-                            },
-                            {
-                                role: 'user',
-                                content: `I've uploaded a PDF about ${selectedCourse}. Please extract the key concepts, definitions, and important information from it. Focus on information that would be useful for creating quiz questions.`
-                            }
-                        ],
-                        max_tokens: 2000
-                    })
-                });
-                
-                if (!extractResponse.ok) {
-                    throw new Error('Failed to extract text from PDF');
-                }
-                
-                const extractData = await extractResponse.json();
-                const extractedText = extractData.choices[0].message.content;
+                // Simulate PDF text extraction
+                const extractedText = `This is simulated text extracted from the PDF about ${file.name}. 
+                                      It would contain educational content related to ${selectedCourse}.
+                                      In a real implementation, this would be actual content from the PDF.`;
                 
                 // Now, generate questions based on the extracted text
                 statusElement.textContent = 'Creating quiz questions...';
                 
-                const generateResponse = await fetch('https://api.openai.com/v1/chat/completions', {
-                    method: 'POST',
-                    headers: {
-                        'Authorization': `Bearer ${apiKey}`,
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        model: 'gpt-4-turbo',
-                        messages: [
-                            {
-                                role: 'system',
-                                content: `You are an expert in creating educational content for ${selectedCourse} courses. Your task is to create quiz questions in JSON format.`
+                // Simulate question generation
+                // In a real implementation, you would make an API call to a service like OpenAI
+                const generatedContent = JSON.stringify({
+                    "multipleChoice": [
+                        {
+                            "id": 0,
+                            "question": `Sample ${selectedCourse} multiple choice question 1?`,
+                            "chapter": `${selectedCourse}-chapter-1`,
+                            "answers": {
+                                "answer1": "Option A",
+                                "answer2": "Option B",
+                                "answer3": "Option C",
+                                "answer4": "Option D"
                             },
-                            {
-                                role: 'user',
-                                content: `Based on this extracted content: "${extractedText}", create:
-                                
-                                1. 5 multiple-choice questions with 4 options each
-                                2. 5 fill-in-the-blank questions with 4 possible answers for each blank
-                                3. 3 matching exercises with 5 terms and definitions each
-                                
-                                Format the output as valid JSON with the following structure:
-                                
-                                {
-                                  "multipleChoice": [
-                                    {
-                                      "id": 0,
-                                      "question": "Question text",
-                                      "chapter": "${selectedCourse}-chapter-1",
-                                      "answers": {
-                                        "answer1": "Option 1",
-                                        "answer2": "Option 2",
-                                        "answer3": "Option 3",
-                                        "answer4": "Option 4"
-                                      },
-                                      "correct": "answer1"
-                                    }
-                                  ],
-                                  "fillIn": [
-                                    {
-                                      "id": 0,
-                                      "question": "Question with _______ blank",
-                                      "chapter": "${selectedCourse}-chapter-1",
-                                      "answers": {
-                                        "answer1": "Option 1",
-                                        "answer2": "Option 2",
-                                        "answer3": "Option 3",
-                                        "answer4": "Option 4"
-                                      },
-                                      "amountofspaces": 1,
-                                      "correct": ["Option 1"]
-                                    }
-                                  ],
-                                  "matching": [
-                                    {
-                                      "id": 0,
-                                      "chapter": "${selectedCourse}-chapter-1",
-                                      "title": "Topic Title",
-                                      "terms": ["Term 1", "Term 2", "Term 3", "Term 4", "Term 5"],
-                                      "definitions": ["Definition 1", "Definition 2", "Definition 3", "Definition 4", "Definition 5"]
-                                    }
-                                  ]
-                                }
-                                
-                                Ensure the JSON is valid and properly formatted. Make sure the questions are educational, accurate, and appropriate for students.`
-                            }
-                        ],
-                        max_tokens: 3000
-                    })
+                            "correct": "answer2"
+                        },
+                        {
+                            "id": 1,
+                            "question": `Sample ${selectedCourse} multiple choice question 2?`,
+                            "chapter": `${selectedCourse}-chapter-1`,
+                            "answers": {
+                                "answer1": "Option A",
+                                "answer2": "Option B",
+                                "answer3": "Option C",
+                                "answer4": "Option D"
+                            },
+                            "correct": "answer3"
+                        }
+                    ],
+                    "fillIn": [
+                        {
+                            "id": 0,
+                            "question": `Sample ${selectedCourse} fill-in-the-blank question with _______.`,
+                            "chapter": `${selectedCourse}-chapter-1`,
+                            "answers": {
+                                "answer1": "option 1",
+                                "answer2": "option 2",
+                                "answer3": "option 3",
+                                "answer4": "option 4"
+                            },
+                            "amountofspaces": 1,
+                            "correct": ["option 2"]
+                        },
+                        {
+                            "id": 1,
+                            "question": `Another ${selectedCourse} fill-in-the-blank with _______ and _______.`,
+                            "chapter": `${selectedCourse}-chapter-1`,
+                            "answers": {
+                                "answer1": "first option",
+                                "answer2": "second option",
+                                "answer3": "third option",
+                                "answer4": "fourth option"
+                            },
+                            "amountofspaces": 2,
+                            "correct": ["first option", "third option"]
+                        }
+                    ],
+                    "matching": [
+                        {
+                            "id": 0,
+                            "chapter": `${selectedCourse}-chapter-1`,
+                            "title": `${selectedCourse.charAt(0).toUpperCase() + selectedCourse.slice(1)} Concepts`,
+                            "terms": [
+                                `${selectedCourse} Term 1`,
+                                `${selectedCourse} Term 2`,
+                                `${selectedCourse} Term 3`,
+                                `${selectedCourse} Term 4`,
+                                `${selectedCourse} Term 5`
+                            ],
+                            "definitions": [
+                                `Definition for ${selectedCourse} Term 1`,
+                                `Definition for ${selectedCourse} Term 2`,
+                                `Definition for ${selectedCourse} Term 3`,
+                                `Definition for ${selectedCourse} Term 4`,
+                                `Definition for ${selectedCourse} Term 5`
+                            ]
+                        }
+                    ]
                 });
-                
-                if (!generateResponse.ok) {
-                    throw new Error('Failed to generate questions');
-                }
-                
-                const generateData = await generateResponse.json();
-                const generatedContent = generateData.choices[0].message.content;
                 
                 // Parse the JSON content
                 const jsonMatch = generatedContent.match(/```json\n([\s\S]*?)\n```/) || [null, generatedContent];

@@ -1067,10 +1067,10 @@
     }
     
     async function generateQuestionsWithAI(pdfText, course) {
-        // OpenAI API key
-        const apiKey = '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';
+        // In a real implementation, you would use an API key stored securely
+        // For example, using environment variables or a secure configuration
         
-        // Prepare the prompt for OpenAI
+        // Prepare the prompt for OpenAI (shown for reference)
         const prompt = `Generate 5 educational questions about ${course} based on the following content. 
                        Include 2 multiple-choice questions with 4 options each and the correct answer, 
                        2 fill-in-the-blank questions with 4 possible answers for each blank, 
@@ -1079,12 +1079,12 @@
                        Content: ${pdfText}`;
         
         try {
-            // In a real implementation, you would make an API call to OpenAI
             // For this demo, we'll simulate the response
+            // In a production environment, you would make an actual API call
             return simulateAIResponse(course);
         } catch (error) {
-            console.error('Error calling OpenAI API:', error);
-            throw new Error('Failed to generate questions with AI');
+            console.error('Error generating questions:', error);
+            throw new Error('Failed to generate questions');
         }
     }
     
