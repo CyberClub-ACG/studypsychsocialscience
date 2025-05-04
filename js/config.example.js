@@ -1,19 +1,38 @@
+/**
+ * config.example.js - Example configuration file
+ * 
+ * This is a template for the configuration settings.
+ * Copy this file to config.js and add your actual API keys.
+ * The config.js file is excluded from git via .gitignore for security.
+ */
+
 const CONFIG = {
-    OPENAI_API_KEY: "your-api-key-here",
+    openai: {
+        apiKey: 'YOUR_OPENAI_API_KEY_HERE', // Replace with your actual API key
+        model: 'gpt-3.5-turbo',
+        temperature: 0.7,
+        maxTokens: 2000
+    },
     
-    OPENAI_API_ENDPOINT: "https://api.openai.com/v1/chat/completions",
+    app: {
+        defaultCourse: 'biology',
+        defaultExerciseType: 'multiple-choice',
+        pointsPerQuestion: 10,
+        levelThreshold: 100, // Points needed to level up
+        confettiDuration: 3000
+    },
     
-    OPENAI_MODEL: "gpt-4-turbo",
-    
-    APP_SETTINGS: {
-        DEFAULT_COURSE: "biology",
-        
-        POINTS_PER_CORRECT: 10,
-        
-        POINTS_PER_LEVEL: 100,
-        
-        ENABLE_SOUND_EFFECTS: true,
-        
-        DEFAULT_THEME: "#f5f5f5"
+    features: {
+        enableDarkMode: true,
+        enableCustomization: true,
+        enablePdfUpload: true,
+        enableSoundEffects: true,
+        enableProgressBar: true
     }
 };
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = CONFIG;
+} else {
+    window.CONFIG = CONFIG;
+}

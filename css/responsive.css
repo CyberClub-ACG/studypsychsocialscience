@@ -1,0 +1,180 @@
+/**
+ * responsive.css - Styles for responsive design
+ */
+
+/* Base responsive styles */
+@media screen and (max-width: 768px) {
+    /* Header and navigation */
+    header {
+        padding: 10px 0;
+    }
+    
+    nav ul.menu {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav ul.menu li {
+        width: 100%;
+        text-align: center;
+        margin: 5px 0;
+    }
+    
+    /* Hide menu items by default on mobile */
+    nav ul.menu li:not(:first-child):not(.menu-toggle) {
+        display: none;
+    }
+    
+    /* Show menu items when responsive class is added */
+    nav ul.menu.responsive li {
+        display: block;
+    }
+    
+    /* Menu toggle button */
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 15px;
+    }
+    
+    /* Main content */
+    .container {
+        padding: 10px;
+    }
+    
+    /* Quiz boxes */
+    .box {
+        margin: 10px 0;
+        padding: 10px;
+    }
+    
+    .title h3 {
+        font-size: 18px;
+    }
+    
+    /* Answer buttons */
+    .ansbtn {
+        padding: 8px;
+        font-size: 14px;
+        width: 100%;
+    }
+    
+    /* Chapter tabs */
+    .chapter-tabs {
+        flex-wrap: wrap;
+    }
+    
+    .tab {
+        flex: 0 0 calc(50% - 10px);
+        margin: 5px;
+        font-size: 14px;
+        padding: 8px;
+    }
+    
+    /* Panels */
+    .panel {
+        width: 90%;
+        max-width: 300px;
+    }
+    
+    /* Form elements */
+    select, input {
+        width: 100%;
+        margin: 5px 0;
+    }
+    
+    /* Login container */
+    .login-container {
+        width: 90%;
+        max-width: 300px;
+        margin: 50px auto;
+    }
+}
+
+/* Small screens */
+@media screen and (max-width: 480px) {
+    /* Further adjustments for very small screens */
+    .title h3 {
+        font-size: 16px;
+    }
+    
+    .tab {
+        flex: 0 0 100%;
+    }
+    
+    /* Stack buttons and controls */
+    .controls {
+        flex-direction: column;
+    }
+    
+    .controls button, .controls select {
+        margin: 5px 0;
+        width: 100%;
+    }
+    
+    /* Adjust progress display */
+    .progress-display {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .progress-display > div {
+        margin: 5px 0;
+    }
+}
+
+/* Medium screens */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    /* Adjustments for medium screens */
+    .container {
+        padding: 15px;
+    }
+    
+    .box {
+        margin: 15px 0;
+    }
+    
+    /* Menu toggle is hidden on medium screens */
+    .menu-toggle {
+        display: none;
+    }
+    
+    /* Show all menu items */
+    nav ul.menu li {
+        display: block;
+    }
+}
+
+/* Large screens */
+@media screen and (min-width: 1025px) {
+    /* Optimizations for large screens */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    /* Menu toggle is hidden on large screens */
+    .menu-toggle {
+        display: none;
+    }
+    
+    /* Show all menu items */
+    nav ul.menu li {
+        display: block;
+    }
+}
+
+/* Menu toggle button styles */
+.menu-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.menu-toggle:focus {
+    outline: none;
+}

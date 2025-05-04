@@ -8,13 +8,12 @@
     <script src="./libs/http_unpkg.com_@babel_standalone_babel.js"></script>
     <script src="./libs/http_unpkg.com_react@18_umd_react.development.js"></script>
     <script src="./libs/http_unpkg.com_react-dom@18_umd_react-dom.development.js"></script>
-    <!-- Load configuration and utility modules -->
-    <script src="./js/config.js"></script>
-    <script src="./js/utils.js"></script>
-    <script src="./js/api.js"></script>
     <title>Quiz - My Goal Learning</title>
     <link href='./img/socialpsycho.png' rel='icon' type='image/png'>
     <link href="./css/style.css" rel="stylesheet">
+    <link href="./css/dark-mode.css" rel="stylesheet">
+    <link href="./css/responsive.css" rel="stylesheet">
+    <link href="./css/accessibility.css" rel="stylesheet">
 
     <style>
         #root {
@@ -202,25 +201,156 @@
             font-size: 14px;
             color: #666;
         }
+        /* Timer display */
+        .timer-display {
+            position: fixed;
+            top: 30px;
+            right: 20px;
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            font-weight: bold;
+            font-size: 18px;
+            display: none;
+            z-index: 1000;
+        }
+        /* Difficulty badge */
+        .difficulty-badge {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 15px;
+            margin-left: 10px;
+            font-weight: bold;
+            color: white;
+        }
+        .difficulty-badge.easy {
+            background-color: #4BB543;
+        }
+        .difficulty-badge.normal {
+            background-color: #007bff;
+        }
+        .difficulty-badge.hard {
+            background-color: #dc3545;
+        }
+        /* Profile panel */
+        .profile-panel {
+            position: fixed;
+            right: -300px;
+            top: 20px;
+            width: 300px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px 0 0 5px;
+            padding: 15px;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+            z-index: 1000;
+            display: none;
+        }
+        .profile-panel.active {
+            right: 0;
+        }
+        .profile-toggle {
+            position: absolute;
+            left: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #004E64;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px 0 0 5px;
+            cursor: pointer;
+        }
+        /* Settings section */
+        .settings-section {
+            margin-top: 20px;
+            border-top: 1px solid #ddd;
+            padding-top: 15px;
+        }
+        .setting-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        /* Toggle switch */
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+        }
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 20px;
+        }
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 2px;
+            bottom: 2px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .toggle-slider {
+            background-color: #004E64;
+        }
+        input:checked + .toggle-slider:before {
+            transform: translateX(20px);
+        }
+        /* Menu toggle for responsive design */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
     </style>
 </head>
 
 <body>
-    <script>
-        // Check if user is logged in
-        window.onload = function() {
-            if (localStorage.getItem('isLoggedIn') !== 'true') {
-                window.location.href = 'login.html';
-            }
-        };
-    </script>
+<!-- Skip to content link for accessibility -->
+<a href="#root" class="skip-to-content">Skip to content</a>
+
+<!-- Screen reader announcer -->
+<div id="screen-reader-announcer" class="sr-only" aria-live="polite"></div>
+
 <header>
     <nav>
         <ul class="menu">
             <li><a href="index.html">Quiz</a></li>
             <li><a href="html/fillin.html">Fill in</a></li>
             <li style="float: right"><a href="html/about.html">About My Goal Learning</a></li>
-            <li style="float: right"><a href="#" onclick="logout()">Logout</a></li>
+            <li style="float: right"><a href="#" id="logout-btn">Logout</a></li>
+            <li style="float: right">
+                <div class="dark-mode-toggle">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <label for="dark-mode-toggle">
+                        <span class="toggle-icon sun-icon">☀️</span>
+                        <span class="toggle-icon moon-icon">🌙</span>
+                    </label>
+                </div>
+            </li>
+            <li class="menu-toggle" id="menu-toggle">☰</li>
         </ul>
     </nav>
 </header>
@@ -230,34 +360,86 @@
     <div class="progress-bar" id="progress-bar"></div>
 </div>
 
+<!-- Timer display -->
+<div class="timer-display" id="timer-display">2:00</div>
+
 <!-- Customization panel -->
 <div class="customization-panel" id="customization-panel">
-    <button class="customization-toggle" onclick="toggleCustomizationPanel()">🎨</button>
+    <button class="customization-toggle" id="customize-btn">🎨</button>
     <h3>Customize</h3>
     <p>Choose a background color:</p>
     <div class="color-options">
-        <div class="color-option selected" data-color="#ffffff" style="background-color: #ffffff;"></div>
-        <div class="color-option" data-color="#f0f8ff" style="background-color: #f0f8ff;"></div>
-        <div class="color-option" data-color="#f5f5dc" style="background-color: #f5f5dc;"></div>
-        <div class="color-option" data-color="#e6e6fa" style="background-color: #e6e6fa;"></div>
-        <div class="color-option" data-color="#fffacd" style="background-color: #fffacd;"></div>
-        <div class="color-option" data-color="#e0ffff" style="background-color: #e0ffff;"></div>
+        <div class="color-option selected theme-btn" data-color="#ffffff" style="background-color: #ffffff;"></div>
+        <div class="color-option theme-btn" data-color="#f0f8ff" style="background-color: #f0f8ff;"></div>
+        <div class="color-option theme-btn" data-color="#f5f5dc" style="background-color: #f5f5dc;"></div>
+        <div class="color-option theme-btn" data-color="#e6e6fa" style="background-color: #e6e6fa;"></div>
+        <div class="color-option theme-btn" data-color="#fffacd" style="background-color: #fffacd;"></div>
+        <div class="color-option theme-btn" data-color="#e0ffff" style="background-color: #e0ffff;"></div>
+    </div>
+    <div class="settings-section">
+        <h4>Settings</h4>
+        <div class="setting-item">
+            <span>Sound Effects</span>
+            <label class="toggle-switch">
+                <input type="checkbox" id="sound-toggle" checked>
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
+        <div class="setting-item">
+            <span>Timed Mode</span>
+            <label class="toggle-switch">
+                <input type="checkbox" id="timed-mode-toggle">
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
+        <div class="setting-item">
+            <span>Timer Duration (seconds)</span>
+            <input type="number" id="timer-duration" min="30" max="300" step="30" value="120" style="width: 70px;">
+        </div>
+        <div class="setting-item">
+            <span>Difficulty</span>
+            <div>
+                <button class="difficulty-btn" data-difficulty="easy">Easy</button>
+                <button class="difficulty-btn" data-difficulty="normal">Normal</button>
+                <button class="difficulty-btn" data-difficulty="hard">Hard</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Profile panel -->
+<div class="profile-panel" id="profile-panel">
+    <button class="profile-toggle" id="profile-btn">👤</button>
+    <h3>User Profile</h3>
+    <div class="points-display">
+        Points: <span id="profile-points">0</span>
+        <span class="level-badge">Level: <span id="profile-level">1</span></span>
+    </div>
+    <div class="difficulty-badge normal" id="difficulty-badge">Normal</div>
+    <div class="settings-section">
+        <h4>Progress</h4>
+        <div class="progress-container" style="position: relative;">
+            <div class="progress-bar" id="profile-progress-bar"></div>
+        </div>
+        <p>Next level: <span id="next-level-points">100</span> points</p>
     </div>
 </div>
 
 <!-- File upload panel -->
 <div class="file-upload-container" id="file-upload-container">
-    <button class="file-upload-toggle" onclick="toggleFileUploadPanel()">📄</button>
+    <button class="file-upload-toggle" id="upload-btn">📄</button>
     <h3>Upload Content</h3>
     <p>Upload a PDF to generate quiz questions:</p>
     <div class="file-upload-form">
-        <select id="content-course" style="width: 100%; margin-bottom: 10px;">
-            <option value="psychology">Psychology</option>
-            <option selected value="biology">Biology</option>
-            <option value="physics">Physics</option>
-        </select>
-        <input type="file" id="pdf-upload" accept=".pdf" />
-        <button onclick="processPDF()">Generate Questions</button>
+        <form id="pdf-upload-form">
+            <select id="pdf-course" style="width: 100%; margin-bottom: 10px;">
+                <option value="psychology">Psychology</option>
+                <option selected value="biology">Biology</option>
+                <option value="physics">Physics</option>
+            </select>
+            <input type="file" id="pdf-file" accept=".pdf" required />
+            <button type="submit">Generate Questions</button>
+        </form>
         <div class="upload-status" id="upload-status"></div>
     </div>
 </div>
@@ -275,7 +457,7 @@
             <div class="selects">
                 <p>This was created by Alexandros Kourtis please contact him at alexandros.kourtis@acg.edu</p>
                 <div class="course-select">
-                    <select id="courseselect" onchange="changeCourse(event)" style="width: 100%;">
+                    <select id="courseselect" style="width: 100%;">
                         <option value="psychology">Psychology</option>
                         <option selected value="biology">Biology</option>
                         <option value="physics">Physics</option>
@@ -283,7 +465,7 @@
                 </div>
                 
                 <div class="exercise-type-select">
-                    <select id="exerciseType" onchange="changeExerciseType(event)" style="width: 100%;">
+                    <select id="exerciseType" style="width: 100%;">
                         <option selected value="multiple-choice">Multiple Choice</option>
                         <option value="fill-in">Fill in the Blank</option>
                         <option value="matching">Matching</option>
@@ -295,7 +477,7 @@
                     <!-- Tabs will be dynamically generated based on course selection -->
                 </div>
                 
-                <select id="chapterselect" onchange="showOnly(event)" style="width: 100%;">
+                <select id="chapterselect" style="width: 100%;">
                     <option selected value="0">Select chapter:</option>
                     <!-- Chapter options will be dynamically loaded -->
                 </select>
@@ -305,7 +487,7 @@
         <div>
             <div id="root"></div>
 
-            <button onclick="submit()">
+            <button id="submit">
                 Submit
             </button>
         </div>
@@ -330,7 +512,23 @@
         </p>
     </div>
 </footer>
-<script type="text/babel" src="./js/app.js"></script>
+
+<!-- Load MVC architecture files -->
+<script src="./js/config.js"></script>
+<script src="./js/utils.js"></script>
+<script src="./js/api.js"></script>
+<script src="./js/models/UserModel.js"></script>
+<script src="./js/models/QuizModel.js"></script>
+<script src="./js/views/QuizView.js"></script>
+<script src="./js/controllers/UserController.js"></script>
+<script src="./js/controllers/QuizController.js"></script>
+<script src="./js/app.js"></script>
+
+
+
+
+
+</script>
 </body>
 
 </html>
